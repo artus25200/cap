@@ -1,74 +1,10 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Check, X, Compass } from "lucide-react";
-
-// ---------------------------------------------------------------------------
-// Données factices — à remplacer par un vrai catalogue plus tard.
-// ---------------------------------------------------------------------------
-
-const CHAPTERS = [
-  { id: "complexes", name: "Nombres complexes" },
-  { id: "suites", name: "Suites réelles" },
-  { id: "fonctions", name: "Fonctions usuelles & DL" },
-  { id: "continuite", name: "Continuité & dérivabilité" },
-  { id: "algebre", name: "Algèbre linéaire" },
-  { id: "polynomes", name: "Polynômes" },
-  { id: "matrices", name: "Matrices & systèmes" },
-  { id: "probas", name: "Probabilités & dénombrement" },
-];
-
-const STUBS = {
-  complexes: [
-    ["Résoudre z² + z + 1 = 0 et placer les solutions dans le plan.", 2],
-    ["Linéariser cos³(θ) à l'aide des exponentielles complexes.", 3],
-    ["Déterminer l'ensemble des points d'affixe z tels que |z-1| = |z+i|.", 3],
-  ],
-  suites: [
-    ["Étudier la convergence de (u_n) définie par u_{n+1} = √(u_n + 2).", 3],
-    ["Montrer qu'une suite croissante majorée converge.", 1],
-    ["Étudier une suite définie par une récurrence linéaire d'ordre 2.", 4],
-  ],
-  fonctions: [
-    ["Donner le DL à l'ordre 3 de ln(1+x) en 0.", 2],
-    ["Étudier les branches infinies de f(x) = x·e^(1/x).", 4],
-    ["Comparer la croissance de x^x et e^x en +∞.", 3],
-  ],
-  continuite: [
-    ["Montrer qu'une fonction continue sur un segment est bornée.", 2],
-    ["Étudier la dérivabilité en 0 de x ↦ x·sin(1/x).", 3],
-    ["Appliquer le théorème des valeurs intermédiaires à un exemple concret.", 1],
-  ],
-  algebre: [
-    ["Montrer qu'une famille de 3 vecteurs de ℝ² est liée.", 2],
-    ["Déterminer une base du noyau d'une application linéaire donnée.", 3],
-    ["Montrer que deux sous-espaces sont supplémentaires.", 4],
-  ],
-  polynomes: [
-    ["Factoriser X⁴ - 1 dans ℝ[X] puis dans ℂ[X].", 2],
-    ["Effectuer la division euclidienne de X³+2X-1 par X-1.", 1],
-    ["Étudier la multiplicité des racines d'un polynôme dérivé.", 4],
-  ],
-  matrices: [
-    ["Calculer l'inverse d'une matrice 3×3 par la méthode du pivot.", 2],
-    ["Résoudre un système linéaire à paramètre par la méthode de Gauss.", 3],
-    ["Déterminer le rang d'une famille de vecteurs via une matrice.", 3],
-  ],
-  probas: [
-    ["Dénombrer les anagrammes d'un mot avec lettres répétées.", 1],
-    ["Calculer une probabilité conditionnelle avec la formule de Bayes.", 3],
-    ["Étudier une variable aléatoire suivant une loi binomiale.", 2],
-  ],
-};
-
-const EXERCISES = CHAPTERS.flatMap((c) =>
-  STUBS[c.id].map(([text, level], i) => ({
-    id: `${c.id}-${i}`,
-    chapterId: c.id,
-    text,
-    level,
-  }))
-);
+import { CHAPTERS, EXERCISES, chapterName } from "./lib/loadContent.js";
+import { chapterStats, pickNext } from "./lib/stats.js";
 
 // Historique factice pour que le profil ne soit pas vide au premier chargement.
+// (En mémoire uniquement — repart à zéro au rechargement, cf. note en bas de page.)
 function seedHistory() {
   const seed = [
     ["complexes", 0.8, 6],
@@ -82,10 +18,9 @@ function seedHistory() {
   ];
   const out = [];
   seed.forEach(([chapterId, rate, count]) => {
-    const exs = EXERCISES.filter((e) => e.chapterId === chapterId);
-    for (let i = 0; i < count; i++) {
+    const exs = EXERCISES.filter((e) => e.chapters.some((c) => c.id === chapterId));
+    for (let i = 0; i < count && exs.length; i++) {
       out.push({
-        chapterId,
         exerciseId: exs[i % exs.length].id,
         success: Math.random() < rate,
       });
@@ -94,70 +29,31 @@ function seedHistory() {
   return out;
 }
 
-// ---------------------------------------------------------------------------
-
-function chapterStats(history, chapterId) {
-  const rows = history.filter((h) => h.chapterId === chapterId);
-  const attempts = rows.length;
-  const successes = rows.filter((r) => r.success).length;
-  const rate = attempts ? successes / attempts : 0;
-  const ticks = attempts ? Math.max(1, Math.round(rate * 5)) : 0;
-  return { attempts, successes, rate, ticks };
-}
-
-function pickWeighted(history, lastExerciseId) {
-  const weights = CHAPTERS.map((c) => {
-    const { attempts, rate } = chapterStats(history, c.id);
-    const w = attempts === 0 ? 3 : (1 - rate) * 2 + 0.4;
-    return { id: c.id, w };
-  });
-  const total = weights.reduce((s, x) => s + x.w, 0);
-  let r = Math.random() * total;
-  let chosen = weights[0].id;
-  for (const w of weights) {
-    if (r < w.w) {
-      chosen = w.id;
-      break;
-    }
-    r -= w.w;
-  }
-  const pool = EXERCISES.filter((e) => e.chapterId === chosen);
-  const candidates = pool.filter((e) => e.id !== lastExerciseId);
-  const exercise = (candidates.length ? candidates : pool)[
-    Math.floor(Math.random() * (candidates.length ? candidates.length : pool.length))
-  ];
-  const { attempts, rate } = chapterStats(history, chosen);
-  const reason =
-    attempts === 0 ? "Découverte" : rate < 0.5 ? "Point faible" : "Consolidation";
-  return { exercise, reason };
-}
-
-// ---------------------------------------------------------------------------
-
 export default function App() {
   const [tab, setTab] = useState("entrainer");
   const [history, setHistory] = useState(seedHistory);
-  const [{ exercise, reason }, setCurrent] = useState(() => pickWeighted([], null));
+  const [current, setCurrent] = useState(() => pickNext([], EXERCISES, CHAPTERS, null));
   const [feedback, setFeedback] = useState(null); // 'success' | 'fail' | null
   const timeoutRef = useRef(null);
 
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
+  const { exercise, targetChapterId, reason } = current;
+
   function answer(success) {
     if (feedback) return; // évite le double-clic pendant la transition
     setFeedback(success ? "success" : "fail");
-    const entry = { chapterId: exercise.chapterId, exerciseId: exercise.id, success };
-    const nextHistory = [...history, entry];
+    const nextHistory = [...history, { exerciseId: exercise.id, success }];
     setHistory(nextHistory);
     timeoutRef.current = setTimeout(() => {
-      setCurrent(pickWeighted(nextHistory, exercise.id));
+      setCurrent(pickNext(nextHistory, EXERCISES, CHAPTERS, exercise.id));
       setFeedback(null);
     }, 550);
   }
 
   function skip() {
     if (feedback) return;
-    setCurrent(pickWeighted(history, exercise.id));
+    setCurrent(pickNext(history, EXERCISES, CHAPTERS, exercise.id));
   }
 
   const globalStats = useMemo(() => {
@@ -167,13 +63,14 @@ export default function App() {
   }, [history]);
 
   const recentTrail = history.slice(-10);
-  const chapterName = (id) => CHAPTERS.find((c) => c.id === id).name;
 
   const sortedChapters = useMemo(() => {
     return [...CHAPTERS]
-      .map((c) => ({ ...c, stats: chapterStats(history, c.id) }))
+      .map((c) => ({ ...c, stats: chapterStats(history, EXERCISES, c.id) }))
       .sort((a, b) => a.stats.rate - b.stats.rate);
   }, [history]);
+
+  const secondaryChapters = exercise.chapters.filter((c) => c.id !== targetChapterId);
 
   return (
     <div className="shell">
@@ -262,11 +159,15 @@ export default function App() {
           color:var(--accent); text-transform:uppercase; letter-spacing:.06em;
           margin-bottom:14px;
         }
-        .ex-chapter{ font-size:12.5px; color:var(--text-dim); margin-bottom:6px; }
-        .ex-level{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim); }
+        .ex-level{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim); margin-bottom:6px; }
         .ex-text{
           font-family:'Fraunces', serif; font-size:21px; line-height:1.4;
-          margin: 12px 0 22px;
+          margin: 12px 0 16px;
+        }
+        .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
+        .chip{
+          font-size:11px; color:var(--text-dim); border:1px solid var(--line);
+          padding:3px 8px; border-radius:20px; font-family:'IBM Plex Mono', monospace;
         }
         .btn-row{ display:flex; gap:10px; }
         .btn{
@@ -323,16 +224,23 @@ export default function App() {
           <>
             <div className={`card ${feedback ? "pulse" : ""}`}>
               <div className="reason">
-                <span>→</span> {reason} · {chapterName(exercise.chapterId)}
+                <span>→</span> {reason} · {chapterName(targetChapterId)}
               </div>
-              <div className="ex-chapter">
-                Exercice {exercise.id.split("-")[1] * 1 + 1} · niveau{" "}
-                <span className="ex-level">
-                  {"●".repeat(exercise.level)}
-                  {"○".repeat(5 - exercise.level)}
-                </span>
+              <div className="ex-level">
+                {"●".repeat(exercise.level)}
+                {"○".repeat(5 - exercise.level)}
               </div>
               <div className="ex-text">{exercise.text}</div>
+
+              {secondaryChapters.length > 0 && (
+                <div className="chips">
+                  {secondaryChapters.map((c) => (
+                    <span className="chip" key={c.id}>
+                      touche aussi : {chapterName(c.id)} · {c.weight}%
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <div className="btn-row">
                 <button className="btn btn-success" onClick={() => answer(true)}>
@@ -377,6 +285,7 @@ export default function App() {
 
             {sortedChapters.map((c) => {
               const { attempts, ticks, rate } = c.stats;
+              const roundedAttempts = Math.round(attempts * 10) / 10;
               const tone = rate < 0.4 ? "weak" : rate < 0.7 ? "mid" : "strong";
               return (
                 <div className="chapter-row" key={c.id}>
@@ -388,15 +297,12 @@ export default function App() {
                       )}
                     </div>
                     <div className="chapter-meta">
-                      {attempts ? `${attempts} ex. · ${Math.round(rate * 100)}%` : "non évalué"}
+                      {attempts ? `${roundedAttempts} ex. · ${Math.round(rate * 100)}%` : "non évalué"}
                     </div>
                   </div>
                   <div className="ticks">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className={`tick ${i < ticks ? `filled ${tone}` : ""}`}
-                      />
+                      <div key={i} className={`tick ${i < ticks ? `filled ${tone}` : ""}`} />
                     ))}
                   </div>
                 </div>

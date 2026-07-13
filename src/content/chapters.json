@@ -1,0 +1,10 @@
+[
+  { "id": "complexes", "name": "Nombres complexes" },
+  { "id": "suites", "name": "Suites réelles" },
+  { "id": "fonctions", "name": "Fonctions usuelles & DL" },
+  { "id": "continuite", "name": "Continuité & dérivabilité" },
+  { "id": "algebre", "name": "Algèbre linéaire" },
+  { "id": "polynomes", "name": "Polynômes" },
+  { "id": "matrices", "name": "Matrices & systèmes" },
+  { "id": "probas", "name": "Probabilités & dénombrement" }
+]
