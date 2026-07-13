@@ -3,35 +3,9 @@ import { Check, X, Compass } from "lucide-react";
 import { CHAPTERS, EXERCISES, chapterName } from "./lib/loadContent.js";
 import { chapterStats, pickNext } from "./lib/stats.js";
 
-// Historique factice pour que le profil ne soit pas vide au premier chargement.
-// (En mémoire uniquement — repart à zéro au rechargement, cf. note en bas de page.)
-function seedHistory() {
-  const seed = [
-    ["complexes", 0.8, 6],
-    ["suites", 0.3, 5],
-    ["fonctions", 0.5, 4],
-    ["continuite", 0, 0],
-    ["algebre", 0.9, 3],
-    ["polynomes", 0.4, 5],
-    ["matrices", 0, 0],
-    ["probas", 0.6, 4],
-  ];
-  const out = [];
-  seed.forEach(([chapterId, rate, count]) => {
-    const exs = EXERCISES.filter((e) => e.chapters.some((c) => c.id === chapterId));
-    for (let i = 0; i < count && exs.length; i++) {
-      out.push({
-        exerciseId: exs[i % exs.length].id,
-        success: Math.random() < rate,
-      });
-    }
-  });
-  return out;
-}
-
 export default function App() {
   const [tab, setTab] = useState("entrainer");
-  const [history, setHistory] = useState(seedHistory);
+  const [history, setHistory] = useState([]);
   const [current, setCurrent] = useState(() => pickNext([], EXERCISES, CHAPTERS, null));
   const [feedback, setFeedback] = useState(null); // 'success' | 'fail' | null
   const timeoutRef = useRef(null);
