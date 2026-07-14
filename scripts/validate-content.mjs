@@ -20,7 +20,9 @@ const files = readdirSync(DIR).filter(
 );
 
 if (files.length === 0) {
-  errors.push("Aucun fichier d'exercice trouvé dans src/content/exercises/.");
+  console.warn(
+    "⚠️  Aucun exercice dans src/content/exercises/ — le site tournera avec un catalogue vide."
+  );
 }
 
 for (const file of files) {

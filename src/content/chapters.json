@@ -1,10 +1,14 @@
 [
-  { "id": "complexes", "name": "Nombres complexes" },
-  { "id": "suites", "name": "Suites réelles" },
-  { "id": "fonctions", "name": "Fonctions usuelles & DL" },
-  { "id": "continuite", "name": "Continuité & dérivabilité" },
-  { "id": "algebre", "name": "Algèbre linéaire" },
-  { "id": "polynomes", "name": "Polynômes" },
-  { "id": "matrices", "name": "Matrices & systèmes" },
-  { "id": "probas", "name": "Probabilités & dénombrement" }
+  { "id": "complexes", "name": "Nombres complexes", "year": 1 },
+  { "id": "suites", "name": "Suites réelles", "year": 1 },
+  { "id": "fonctions", "name": "Fonctions usuelles & DL", "year": 1 },
+  { "id": "continuite", "name": "Continuité & dérivabilité", "year": 1 },
+  { "id": "algebre", "name": "Algèbre linéaire", "year": 1 },
+  { "id": "polynomes", "name": "Polynômes", "year": 1 },
+  { "id": "matrices", "name": "Matrices & systèmes", "year": 1 },
+  { "id": "probas", "name": "Probabilités & dénombrement", "year": 1 },
+  { "id": "topologie", "name": "Topologie des espaces vectoriels normés", "year": 2 },
+  { "id": "series-entieres", "name": "Séries entières", "year": 2 },
+  { "id": "series-numeriques", "name": "Séries numériques", "year": 2 },
+  { "id": "suites-series-fonctions", "name": "Suites et séries de fonctions", "year": 2 }
 ]

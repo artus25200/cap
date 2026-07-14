@@ -1,5 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Check, X, Compass, Flag, ChevronDown, Lightbulb } from "lucide-react";
+import "katex/dist/katex.min.css";
+import MathText from "./lib/MathText.jsx";
 import { CHAPTERS, EXERCISES, chapterName, ALL_TAGS, ALL_BANQUES } from "./lib/loadContent.js";
 import { chapterStats, pickNext, pickFromPool, exerciseNote, isoWeekKey } from "./lib/stats.js";
 
@@ -81,6 +83,15 @@ export default function App() {
         {tab === "profil" && (
           <ProfilTab history={history} weeklyCount={weeklyCount} methods={unlockedMethods} />
         )}
+
+        <div className="credit">
+          Certains exercices proviennent de la Banque orale de mathématiques CCINP (filière MP/MPI, session
+          2025), sous licence{" "}
+          <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/fr/" target="_blank" rel="noreferrer">
+            CC BY-NC-SA 3.0 FR
+          </a>
+          . Merci à D. Delaunay et aux examinateurs du CCINP.
+        </div>
       </div>
     </div>
   );
@@ -97,6 +108,14 @@ function FlowTab({ history, setHistory }) {
   const timeoutRef = useRef(null);
 
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
+
+  if (!current) {
+    return (
+      <div className="card">
+        <div className="empty">Aucun exercice disponible pour l'instant.</div>
+      </div>
+    );
+  }
 
   const { exercise, targetChapterId, reason } = current;
   const secondaryChapters = exercise.chapters.filter((c) => c.id !== targetChapterId);
@@ -302,7 +321,7 @@ function FilterBar({ filters, onChange }) {
         value={filters.chapterId}
         onChange={(v) => onChange("chapterId", v)}
         placeholder="Chapitre"
-        options={CHAPTERS.map((c) => [c.id, c.name])}
+        options={CHAPTERS.map((c) => [c.id, `${c.name} · ${c.year}A`])}
       />
       <Select
         value={filters.tag}
@@ -364,7 +383,7 @@ function ExerciseBody({ exercise }) {
         <span className="ex-note">{exerciseNote(exercise.level)}/10</span>
         {exercise.banque && <span className="ex-banque">{exercise.banque}</span>}
       </div>
-      <div className="ex-text">{exercise.text}</div>
+      <div className="ex-text"><MathText text={exercise.text} /></div>
 
       {exercise.hints.length > 0 && (
         <div className="hints-block">
@@ -375,7 +394,7 @@ function ExerciseBody({ exercise }) {
           {showHints && (
             <ol className="hints-list">
               {exercise.hints.map((h, i) => (
-                <li key={i}>{h}</li>
+                <li key={i}><MathText text={h} /></li>
               ))}
             </ol>
           )}
@@ -391,19 +410,19 @@ function ReviewPanel({ exercise, onContinue }) {
       {exercise.course && (
         <div className="review-block">
           <div className="review-label">Point de cours</div>
-          <div className="review-text">{exercise.course}</div>
+          <div className="review-text"><MathText text={exercise.course} /></div>
         </div>
       )}
       {exercise.correction && (
         <div className="review-block">
           <div className="review-label">Corrigé</div>
-          <div className="review-text">{exercise.correction}</div>
+          <div className="review-text"><MathText text={exercise.correction} /></div>
         </div>
       )}
       {exercise.method && (
         <div className="review-block method">
           <div className="review-label">📎 {exercise.method.title}</div>
-          <div className="review-text">{exercise.method.content}</div>
+          <div className="review-text"><MathText text={exercise.method.content} /></div>
           <div className="method-note">Ajoutée à ton cahier de méthodes.</div>
         </div>
       )}
@@ -463,6 +482,7 @@ function ProfilTab({ history, weeklyCount, methods }) {
             <div className="chapter-top">
               <div className="chapter-name">
                 {c.name}
+                <span className="year-badge">{c.year}A</span>
                 {attempts >= 2 && score < 5 && <span className="weak-badge">point faible</span>}
               </div>
               <div className="chapter-meta">{attempts ? `${score.toFixed(1)}/10` : "non évalué"}</div>
@@ -482,7 +502,7 @@ function ProfilTab({ history, weeklyCount, methods }) {
           {methods.map((m, i) => (
             <div className="method-card" key={i}>
               <div className="method-card-title">{m.title}</div>
-              <div className="method-card-content">{m.content}</div>
+              <div className="method-card-content"><MathText text={m.content} /></div>
             </div>
           ))}
         </div>
@@ -623,6 +643,8 @@ function GlobalStyle() {
       .trail-label{ font-size:11px; color:var(--text-dim); margin-top:6px; }
 
       .note{ color:var(--text-dim); font-size:11.5px; margin-top:16px; text-align:center; line-height:1.5; }
+      .credit{ color:var(--text-dim); font-size:10.5px; margin-top:28px; text-align:center; line-height:1.6; }
+      .credit a{ color:var(--text-dim); }
       .empty{ color:var(--text-dim); font-size:14px; text-align:center; padding:20px 0; }
 
       /* ---- Filtres (Explorer) ---- */
@@ -659,6 +681,10 @@ function GlobalStyle() {
       .weak-badge{
         font-size:10px; font-weight:600; color:var(--danger); background:var(--danger-soft);
         padding:2px 7px; border-radius:20px; margin-left:8px;
+      }
+      .year-badge{
+        font-size:10px; font-weight:600; color:var(--text-dim); background:var(--surface-2);
+        padding:2px 7px; border-radius:20px; margin-left:8px; font-family:'IBM Plex Mono', monospace;
       }
 
       .methods-section{ margin-top:22px; padding-top:18px; border-top:1px solid var(--border); }

@@ -85,7 +85,12 @@ export function resurfaceMultiplier(history, exerciseId, now = Date.now()) {
 // ---------------------------------------------------------------------------
 
 export function pickNext(history, exercises, chapters, lastExerciseId) {
-  const chapterWeights = chapters.map((c) => {
+  const chaptersWithContent = chapters.filter((c) =>
+    exercises.some((ex) => ex.chapters.some((link) => link.id === c.id))
+  );
+  if (chaptersWithContent.length === 0) return null;
+
+  const chapterWeights = chaptersWithContent.map((c) => {
     const { attempts, score } = chapterStats(history, exercises, c.id);
     const w = attempts === 0 ? 3 : ((10 - score) / 10) * 2 + 0.4;
     return { id: c.id, w };
