@@ -78,6 +78,33 @@ for (const file of files) {
     errors.push(`${file} : id "${id}" en doublon avec ${seenIds.get(id)}.`);
   }
   seenIds.set(id, file);
+
+  if (meta.banque !== undefined && meta.banque !== null && typeof meta.banque !== "string") {
+    errors.push(`${file} : "banque" doit être une chaîne de caractères (ou null).`);
+  }
+  if (meta.classic !== undefined && typeof meta.classic !== "boolean") {
+    errors.push(`${file} : "classic" doit être true ou false.`);
+  }
+  if (meta.hints !== undefined) {
+    if (!Array.isArray(meta.hints) || meta.hints.some((h) => typeof h !== "string")) {
+      errors.push(`${file} : "hints" doit être une liste de chaînes.`);
+    }
+  }
+  if (meta.correction !== undefined && typeof meta.correction !== "string") {
+    errors.push(`${file} : "correction" doit être une chaîne (texte, éventuellement multi-lignes).`);
+  }
+  if (meta.method !== undefined) {
+    if (
+      typeof meta.method !== "object" ||
+      typeof meta.method.title !== "string" ||
+      typeof meta.method.content !== "string"
+    ) {
+      errors.push(`${file} : "method" doit être un objet { title, content } (chaînes).`);
+    }
+  }
+  if (meta.course !== undefined && typeof meta.course !== "string") {
+    errors.push(`${file} : "course" doit être une chaîne de caractères.`);
+  }
 }
 
 for (const chapter of chaptersData) {

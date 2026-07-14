@@ -41,6 +41,15 @@ function parseFile(path, raw) {
     level: clampLevel(meta.level, filename),
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     source: meta.source || null,
+    banque: meta.banque || null,
+    classic: meta.classic !== false, // par défaut true si non précisé
+    hints: Array.isArray(meta.hints) ? meta.hints : [],
+    correction: typeof meta.correction === "string" ? meta.correction.trim() : null,
+    method:
+      meta.method && typeof meta.method === "object"
+        ? { title: meta.method.title || "Méthode", content: meta.method.content || "" }
+        : null,
+    course: typeof meta.course === "string" ? meta.course.trim() : null,
     chapters,
     text,
   };
@@ -111,3 +120,6 @@ CHAPTERS.forEach((c) => {
 export function chapterName(id) {
   return CHAPTERS.find((c) => c.id === id)?.name ?? id;
 }
+
+export const ALL_TAGS = [...new Set(EXERCISES.flatMap((e) => e.tags))].sort();
+export const ALL_BANQUES = [...new Set(EXERCISES.map((e) => e.banque).filter(Boolean))].sort();
