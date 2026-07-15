@@ -12,5 +12,7 @@
   { "id": "series-numeriques", "name": "Séries numériques", "year": 2 },
   { "id": "suites-series-fonctions", "name": "Suites et séries de fonctions", "year": 2 },
   { "id": "integrales-generalisees", "name": "Intégrales sur un intervalle quelconque", "year": 2 },
-  { "id": "equations-differentielles", "name": "Équations différentielles linéaires", "year": 2 }
+  { "id": "equations-differentielles", "name": "Équations différentielles linéaires", "year": 2 },
+  { "id": "calcul-differentiel", "name": "Calcul différentiel", "year": 2 },
+  { "id": "espaces-prehilbertiens", "name": "Espaces préhilbertiens", "year": 2 }
 ]
