@@ -1,35 +1,36 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { Check, X, Compass, Flag, ChevronDown, Lightbulb } from "lucide-react";
+import { Check, X, Compass, Flag, ChevronDown, Lightbulb, LogOut } from "lucide-react";
 import "katex/dist/katex.min.css";
 import MathText from "./lib/MathText.jsx";
 import { CHAPTERS, EXERCISES, chapterName, ALL_TAGS, ALL_BANQUES } from "./lib/loadContent.js";
 import { chapterStats, pickNext, pickFromPool, exerciseNote, isoWeekKey } from "./lib/stats.js";
+import { useAuth } from "./lib/useAuth.js";
+import { useSupabaseHistory } from "./lib/useSupabaseHistory.js";
+import { supabase } from "./lib/supabaseClient.js";
+import LoginScreen from "./LoginScreen.jsx";
 
 // TODO: remplace par ta vraie adresse pour le bouton "signaler une erreur"
 const SUPPORT_EMAIL = "contact@cap-maths.fr";
-const HISTORY_KEY = "cap-history-v1";
-
-function loadHistory() {
-  try {
-    const raw = localStorage.getItem(HISTORY_KEY);
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
 
 export default function App() {
-  const [tab, setTab] = useState("entrainer");
-  const [history, setHistory] = useState(loadHistory);
+  const { session, loading } = useAuth();
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-    } catch {
-      // stockage indisponible (navigation privée stricte, quota...) : on continue sans persister
-    }
-  }, [history]);
+  if (loading) {
+    return (
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "sans-serif", color: "#6E6E78" }}>
+        Chargement...
+      </div>
+    );
+  }
+  if (!session) {
+    return <LoginScreen />;
+  }
+  return <CapApp session={session} />;
+}
+
+function CapApp({ session }) {
+  const [tab, setTab] = useState("entrainer");
+  const { history, recordAttempt, loading: historyLoading } = useSupabaseHistory(session.user.id);
 
   const weeklyCount = useMemo(() => {
     const thisWeek = isoWeekKey(Date.now());
@@ -55,9 +56,18 @@ export default function App() {
       <GlobalStyle />
       <div className="container">
         <div className="header">
-          <div className="wordmark">
-            <Compass size={26} strokeWidth={2.3} />
-            Cap
+          <div className="header-top">
+            <div className="wordmark">
+              <Compass size={26} strokeWidth={2.3} />
+              Cap
+            </div>
+            <button
+              className="logout-btn"
+              onClick={() => supabase.auth.signOut()}
+              title={session.user.email}
+            >
+              <LogOut size={14} /> Déconnexion
+            </button>
           </div>
           <div className="tagline">Elle sait où t'envoyer. Toi, tu avances.</div>
         </div>
@@ -78,10 +88,18 @@ export default function App() {
           ))}
         </div>
 
-        {tab === "entrainer" && <FlowTab history={history} setHistory={setHistory} />}
-        {tab === "explorer" && <ExplorerTab history={history} setHistory={setHistory} />}
-        {tab === "profil" && (
-          <ProfilTab history={history} weeklyCount={weeklyCount} methods={unlockedMethods} />
+        {historyLoading ? (
+          <div className="card">
+            <div className="empty">Chargement de ta progression...</div>
+          </div>
+        ) : (
+          <>
+            {tab === "entrainer" && <FlowTab history={history} recordAttempt={recordAttempt} />}
+            {tab === "explorer" && <ExplorerTab history={history} recordAttempt={recordAttempt} />}
+            {tab === "profil" && (
+              <ProfilTab history={history} weeklyCount={weeklyCount} methods={unlockedMethods} />
+            )}
+          </>
         )}
 
         <div className="credit">
@@ -101,7 +119,7 @@ export default function App() {
 // Onglet "S'entraîner" — flux automatique, cible les points faibles.
 // ---------------------------------------------------------------------------
 
-function FlowTab({ history, setHistory }) {
+function FlowTab({ history, recordAttempt }) {
   const [current, setCurrent] = useState(() => pickNext(history, EXERCISES, CHAPTERS, null));
   const [feedback, setFeedback] = useState(null);
   const [review, setReview] = useState(false);
@@ -124,8 +142,7 @@ function FlowTab({ history, setHistory }) {
   function answer(success) {
     if (feedback) return;
     setFeedback(success ? "success" : "fail");
-    const nextHistory = [...history, { exerciseId: exercise.id, success, ts: Date.now() }];
-    setHistory(nextHistory);
+    const nextHistory = recordAttempt({ exerciseId: exercise.id, success, ts: Date.now() });
 
     if (hasReviewContent) {
       setReview(true);
@@ -207,7 +224,7 @@ function FlowTab({ history, setHistory }) {
 // classique / difficulté), puis ça enchaîne tout seul dans cette portée.
 // ---------------------------------------------------------------------------
 
-function ExplorerTab({ history, setHistory }) {
+function ExplorerTab({ history, recordAttempt }) {
   const [filters, setFilters] = useState({
     chapterId: "",
     tag: "",
@@ -260,8 +277,7 @@ function ExplorerTab({ history, setHistory }) {
   function answer(success) {
     if (feedback) return;
     setFeedback(success ? "success" : "fail");
-    const nextHistory = [...history, { exerciseId: current.id, success, ts: Date.now() }];
-    setHistory(nextHistory);
+    const nextHistory = recordAttempt({ exerciseId: current.id, success, ts: Date.now() });
     if (hasReviewContent) {
       setReview(true);
       return;
@@ -546,6 +562,13 @@ function GlobalStyle() {
       }
       .container{ width:100%; max-width:540px; }
       .header{ margin-bottom:18px; }
+      .header-top{ display:flex; align-items:center; justify-content:space-between; }
+      .logout-btn{
+        display:flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600;
+        color:var(--text-dim); background:none; border:1px solid var(--border); border-radius:10px;
+        padding:6px 10px; cursor:pointer; font-family:inherit;
+      }
+      .logout-btn:hover{ color:var(--text); border-color:var(--text-dim); }
       .wordmark{
         font-weight:800; font-size:26px; letter-spacing:-0.02em;
         display:flex; align-items:center; gap:8px;
