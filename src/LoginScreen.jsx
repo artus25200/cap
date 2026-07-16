@@ -16,7 +16,11 @@ export default function LoginScreen() {
     setErrorMsg("");
 
     if (mode === "signup") {
-      const { data, error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { emailRedirectTo: window.location.origin + window.location.pathname },
+      });
       if (error) {
         setStatus("error");
         setErrorMsg(error.message);
