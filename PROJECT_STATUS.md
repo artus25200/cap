@@ -1,0 +1,133 @@
+# État du projet Cap — reprise par une nouvelle conversation
+
+Ce fichier existe pour qu'une **nouvelle conversation Claude** (sans l'historique de celle-ci) puisse reprendre
+le travail directement. Colle ce fichier (ou demande à Claude de le lire depuis le repo) en début de
+conversation, avec la phrase : *"Continue le projet Cap, voici PROJECT_STATUS.md"*.
+
+## Le projet
+
+**Cap** est un prototype de plateforme de révision adaptative pour étudiants de prépa (MPSI/MPI, 1ère et 2e
+année). Concept central : l'étudiant n'a jamais à choisir quoi travailler — l'app sélectionne automatiquement
+le prochain exercice selon un système de score pondéré par chapitre (flow, "zone de flow").
+
+- **Repo GitHub** : `artus25200/cap` (public)
+- **Site déployé** : https://artus25200.github.io/cap/
+- **Stack** : Vite + React, déployé sur GitHub Pages via GitHub Actions (pas de branche `gh-pages` legacy)
+- **Base de données** : Supabase (projet `cap`, org Supabase `cap`), Postgres + Auth
+
+## Ce qui est déjà fait
+
+1. **Prototype UI** : thème clair inspiré de Peerlist/Lattice (fond blanc, cartes bordées, boutons
+   rectangulaires arrondis). Trois onglets : S'entraîner (flux auto ciblant les points faibles), Explorer
+   (filtres chapitre/notion/banque/classique/difficulté), Profil (scores /10 par chapitre, méthodes débloquées).
+2. **Système de score pondéré** (`src/lib/stats.js`) : le score /10 d'un chapitre bouge à chaque tentative selon
+   trois facteurs — difficulté de l'exercice, % de lien exercice→chapitre, rendements décroissants sur les
+   réussites déjà obtenues dans ce chapitre. Détails dans les commentaires du fichier.
+3. **Architecture de contenu** : un exercice = un fichier Markdown avec frontmatter YAML dans
+   `src/content/exercises/`. Un exercice peut appartenir à plusieurs chapitres avec des poids différents. Format
+   documenté dans `src/content/exercises/_TEMPLATE.md`. Chapitres listés dans `src/content/chapters.json`
+   (champ `year`: 1 ou 2).
+4. **Rendu LaTeX** via KaTeX (`src/lib/MathText.jsx`), délimiteurs `$...$` et `$$...$$`.
+5. **Authentification + persistance** : Supabase Auth (email + mot de passe, PAS de lien magique — voir
+   "Leçons apprises" ci-dessous). Table `attempts` (RLS activée, un étudiant ne voit que ses propres données).
+   `src/lib/useAuth.js`, `src/lib/useSupabaseHistory.js`, `src/LoginScreen.jsx`.
+6. **Validation automatique du contenu** avant chaque build (`scripts/validate-content.mjs`, lancé via
+   `npm run build` ou seul via `npm run validate-content`) : bloque le build si un exercice référence un
+   chapitre inexistant, a un frontmatter cassé, un id en doublon, etc.
+7. **Vérification LaTeX** : `npm run check-latex` teste individuellement chaque formule avec KaTeX
+   (`throwOnError: true`) — un `vite build` ne détecte PAS les erreurs LaTeX silencieuses au runtime.
+
+## Import de la banque CCINP — état d'avancement
+
+Un PDF **"Banque épreuve orale de mathématiques session 2025, CCINP, filière MP et MPI"** (112 exercices avec
+corrigés) a été fourni par l'utilisateur. Licence **CC BY-NC-SA 3.0 FR** confirmée noir sur blanc en page de
+garde du PDF (différent du reste du site CCINP, qui est tous droits réservés — bien vérifier la licence
+spécifique à ce document si on réimporte depuis une autre source).
+
+**⚠️ Le PDF source n'est PAS dans le repo git** (il vivait dans `/tmp` de la session précédente, perdu au
+changement de conversation). **Si il faut continuer l'import, il faut que l'utilisateur re-upload le PDF.**
+
+**Avancement : 70 / 112 exercices importés** (exercices 1 à 70 de la banque). Convention de nommage des
+fichiers : `<chapitre-principal>-ccinp-NN.md` (numérotation propre au chapitre, pas à la banque). La
+correspondance banque → fichier n'est pas 1-to-1 dans le nom mais le champ `source` de chaque fichier précise
+toujours le numéro d'exercice d'origine dans la banque (ex: `"CCINP, Banque orale de mathématiques MP/MPI,
+session 2025, exercice 42"`).
+
+**Reste à importer : exercices 71 à 112** (42 exercices) :
+- Fin de la partie "algèbre" (jusqu'à l'exercice 94, ~24 restants) : réduction, espaces euclidiens, algèbre
+  bilinéaire, structures (groupes/anneaux) probablement
+- Partie "probabilités" (exercices 95 à 112, 18 exercices) — **aucun chapitre 2e année de probabilités n'existe
+  encore**, il faudra probablement en créer un ou plusieurs (ex: `probas-approfondies`, à voir selon les thèmes
+  réels une fois le PDF relu)
+
+**Méthode utilisée jusqu'ici** (à reproduire) :
+1. Extraire le texte : `pdftotext -layout fichier.pdf texte.txt` (les maths s'extraient mal — fractions et
+   sommes se mélangent — donc **ne jamais faire confiance au texte brut pour retranscrire une formule**, s'appuyer
+   sur la compréhension mathématique du contenu, éventuellement rasteriser une page en image via `pdftoppm` et la
+   lire visuellement en cas de doute réel)
+2. Repérer les numéros de ligne des exercices : `grep -n "^EXERCICE [0-9]* algèbre$" texte.txt` (adapter le mot
+   pour "probabilités")
+3. Lire chaque exercice, identifier le(s) chapitre(s) concerné(s) (créer un nouveau chapitre dans
+   `chapters.json` si aucun chapitre existant ne convient)
+4. Écrire le fichier `.md` avec frontmatter complet : `level`, `chapters` (avec poids), `tags`, `source`,
+   `banque: "CCINP - Banque orale MP/MPI"`, `classic: true`, et si le temps le permet `correction`/`method`
+   (les exercices les plus formateurs méritent une méthode associée, mais ce n'est pas obligatoire pour tous)
+5. `npm run validate-content` après chaque petit lot (2-4 exercices), corriger immédiatement les erreurs
+6. À la fin d'une session d'import : `npm run check-latex` puis `npm run build`, puis commit + push
+7. **Attribution obligatoire** (déjà en place dans `App.jsx`, section `.credit`) — ne pas la retirer tant que
+   du contenu CCINP CC BY-NC-SA est présent
+
+## Déploiement
+
+Push sur `main` déclenche automatiquement `.github/workflows/deploy.yml` (build + déploiement Pages). Pour
+pousser, il faut un token GitHub PAT scopé sur `artus25200/cap` (l'utilisateur en fournit un nouveau à chaque
+session — n'est jamais stocké nulle part, à redemander).
+
+```bash
+git push https://artus25200:<TOKEN>@github.com/artus25200/cap.git main
+```
+
+Pour vérifier qu'un déploiement a réussi (API GitHub, avec le même token) :
+```bash
+curl -s -H "Authorization: token <TOKEN>" "https://api.github.com/repos/artus25200/cap/actions/runs?per_page=1"
+```
+
+## Supabase
+
+- Organisation : `cap` (id `fwhtmdbhlgsaogrqhtdy`)
+- Projet : `cap` (id `iziqchfhcoijqiczbvlo`), région `eu-west-1`, tier gratuit
+- Table `attempts` (id, user_id → auth.users, exercise_id, success, created_at), RLS activée (policies
+  `select_own_attempts` / `insert_own_attempts`, pas d'update/delete — historique en ajout seul)
+- URL + clé publique déjà en dur dans `src/lib/supabaseClient.js` (c'est voulu, la clé publique est sûre à
+  exposer, la sécurité est assurée par RLS)
+- **Accès aux outils Supabase dans une nouvelle conversation** : reconnecter le connecteur MCP Supabase (il
+  n'est pas persistant entre conversations), puis les mêmes `project_id`/`organization_id` ci-dessus
+  fonctionneront directement (le projet existe déjà, ne pas en recréer un autre)
+
+## Leçons apprises (pour ne pas refaire les mêmes erreurs)
+
+- **GitHub Pages doit être en mode "GitHub Actions"**, pas "Deploy from a branch" (`PUT /repos/{owner}/{repo}/pages`
+  avec `{"build_type":"workflow"}` si jamais ça se dérègle — vérifiable via `GET` sur la même route, champ
+  `build_type`)
+- **Les liens magiques Supabase (OTP) sont peu fiables** : un scanner de sécurité côté email peut griller le
+  lien à usage unique avant que l'utilisateur ne clique dessus ("One-time token not found" dans les logs auth).
+  D'où le passage à email + mot de passe classique (`signUp` / `signInWithPassword`).
+- **`emailRedirectTo` ne suffit pas seul** : Supabase a aussi une liste blanche de redirection (Dashboard →
+  Authentication → URL Configuration → Site URL + Redirect URLs) qui doit inclure l'URL réelle du site déployé,
+  sinon ça retombe sur `localhost` par défaut. Aucun outil MCP n'expose ce réglage, doit être fait à la main par
+  l'utilisateur dans le dashboard.
+- **`import.meta.glob` de Vite** lit les fichiers au build, donc une erreur de contenu (YAML cassé, chapitre
+  inexistant) ne fait PAS échouer `vite build` lui-même — d'où l'existence de `validate-content.mjs` en amont,
+  qui lui fait vraiment échouer le build.
+- **KaTeX en mode `throwOnError: false`** (utilisé dans l'app pour ne pas planter l'UI sur une formule
+  imparfaite) masque les erreurs silencieusement — d'où `check-latex.mjs` qui teste en `throwOnError: true`.
+- Cap ne doit **pas** contenir de reproduction d'exercices dont la licence ne l'autorise pas explicitement
+  (voir refus initial de scraper les annales générales CCINP, tous droits réservés — seule la banque orale
+  CC BY-NC-SA a été jugée utilisable, avec attribution).
+
+## Idées en attente (non implémentées)
+
+- Groupes de classe / classement entre élèves (nécessite plus de logique multi-utilisateur, faisable maintenant
+  qu'il y a une vraie base de données)
+- Import des probabilités (chapitres 2e année à créer)
+- Code-splitting (le bundle JS dépasse 500 Ko à cause de KaTeX + Supabase, avertissement Vite non bloquant)
