@@ -7,6 +7,7 @@
   { "id": "polynomes", "name": "Polynômes", "year": 1 },
   { "id": "matrices", "name": "Matrices & systèmes", "year": 1 },
   { "id": "probas", "name": "Probabilités & dénombrement", "year": 1 },
+  { "id": "arithmetique", "name": "Arithmétique dans Z", "year": 1 },
   { "id": "topologie", "name": "Topologie des espaces vectoriels normés", "year": 2 },
   { "id": "series-entieres", "name": "Séries entières", "year": 2 },
   { "id": "series-numeriques", "name": "Séries numériques", "year": 2 },
@@ -15,5 +16,6 @@
   { "id": "equations-differentielles", "name": "Équations différentielles linéaires", "year": 2 },
   { "id": "calcul-differentiel", "name": "Calcul différentiel", "year": 2 },
   { "id": "espaces-prehilbertiens", "name": "Espaces préhilbertiens", "year": 2 },
-  { "id": "reduction", "name": "Réduction des endomorphismes", "year": 2 }
+  { "id": "reduction", "name": "Réduction des endomorphismes", "year": 2 },
+  { "id": "probabilites-approfondies", "name": "Probabilités approfondies", "year": 2 }
 ]

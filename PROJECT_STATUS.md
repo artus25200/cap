@@ -44,21 +44,28 @@ corrigés) a été fourni par l'utilisateur. Licence **CC BY-NC-SA 3.0 FR** conf
 garde du PDF (différent du reste du site CCINP, qui est tous droits réservés — bien vérifier la licence
 spécifique à ce document si on réimporte depuis une autre source).
 
-**⚠️ Le PDF source n'est PAS dans le repo git** (il vivait dans `/tmp` de la session précédente, perdu au
-changement de conversation). **Si il faut continuer l'import, il faut que l'utilisateur re-upload le PDF.**
+**⚠️ Le PDF source n'est PAS dans le repo git** (il vivait dans `/mnt/user-data/uploads` de la session, non
+committé — normal, ne pas essayer de le committer). **Si une future conversation doit continuer l'import, il faut
+que l'utilisateur re-upload le PDF** (nom vu jusqu'ici : `banque_finale_avec_corr_session_2025_28-01.pdf`).
 
-**Avancement : 70 / 112 exercices importés** (exercices 1 à 70 de la banque). Convention de nommage des
-fichiers : `<chapitre-principal>-ccinp-NN.md` (numérotation propre au chapitre, pas à la banque). La
-correspondance banque → fichier n'est pas 1-to-1 dans le nom mais le champ `source` de chaque fichier précise
-toujours le numéro d'exercice d'origine dans la banque (ex: `"CCINP, Banque orale de mathématiques MP/MPI,
-session 2025, exercice 42"`).
+**Avancement : 94 / 112 exercices importés** (exercices 1 à 94 de la banque — la partie "algèbre" est
+**terminée**). Convention de nommage des fichiers : `<chapitre-principal>-ccinp-NN.md` (numérotation propre au
+chapitre, pas à la banque). La correspondance banque → fichier n'est pas 1-to-1 dans le nom mais le champ `source`
+de chaque fichier précise toujours le numéro d'exercice d'origine dans la banque (ex: `"CCINP, Banque orale de
+mathématiques MP/MPI, session 2025, exercice 42"`).
 
-**Reste à importer : exercices 71 à 112** (42 exercices) :
-- Fin de la partie "algèbre" (jusqu'à l'exercice 94, ~24 restants) : réduction, espaces euclidiens, algèbre
-  bilinéaire, structures (groupes/anneaux) probablement
-- Partie "probabilités" (exercices 95 à 112, 18 exercices) — **aucun chapitre 2e année de probabilités n'existe
-  encore**, il faudra probablement en créer un ou plusieurs (ex: `probas-approfondies`, à voir selon les thèmes
-  réels une fois le PDF relu)
+Deux nouveaux chapitres créés pour cette dernière partie de l'algèbre (à ne pas recréer) :
+- `arithmetique` (year 1, "Arithmétique dans Z") : Bézout, congruences, petit théorème de Fermat.
+
+**Reste à importer : exercices 95 à 112** (18 exercices, partie "probabilités") :
+- Chapitre `probas` (year 1, déjà existant) : exercices à support fini / dénombrement classique parmi 95-112
+  (ceux déjà identifiés comme tels : 95, 98, 104, 105, 107, 109, 112 — non encore importés).
+- **Nouveau chapitre créé** `probabilites-approfondies` (year 2, "Probabilités approfondies") : variables
+  aléatoires sur N à support infini, fonctions génératrices, inégalité de Bienaymé-Tchebychev, lois usuelles
+  (Poisson, géométrique). Exercices identifiés pour ce chapitre : 96, 97, 99, 100, 101, 102, 103, 106, 108, 110,
+  111 — non encore importés.
+- Numérotation à reprendre : `probas-ccinp-01` et `probabilites-approfondies-ccinp-01` (aucun fichier encore créé
+  dans ces deux préfixes).
 
 **Méthode utilisée jusqu'ici** (à reproduire) :
 1. Extraire le texte : `pdftotext -layout fichier.pdf texte.txt` (les maths s'extraient mal — fractions et
