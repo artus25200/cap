@@ -44,28 +44,26 @@ corrigés) a été fourni par l'utilisateur. Licence **CC BY-NC-SA 3.0 FR** conf
 garde du PDF (différent du reste du site CCINP, qui est tous droits réservés — bien vérifier la licence
 spécifique à ce document si on réimporte depuis une autre source).
 
-**⚠️ Le PDF source n'est PAS dans le repo git** (il vivait dans `/mnt/user-data/uploads` de la session, non
-committé — normal, ne pas essayer de le committer). **Si une future conversation doit continuer l'import, il faut
-que l'utilisateur re-upload le PDF** (nom vu jusqu'ici : `banque_finale_avec_corr_session_2025_28-01.pdf`).
-
-**Avancement : 94 / 112 exercices importés** (exercices 1 à 94 de la banque — la partie "algèbre" est
-**terminée**). Convention de nommage des fichiers : `<chapitre-principal>-ccinp-NN.md` (numérotation propre au
-chapitre, pas à la banque). La correspondance banque → fichier n'est pas 1-to-1 dans le nom mais le champ `source`
-de chaque fichier précise toujours le numéro d'exercice d'origine dans la banque (ex: `"CCINP, Banque orale de
+**✅ Import CCINP terminé : 112 / 112 exercices importés** (session 2025, banque orale MP/MPI complète).
+Convention de nommage des fichiers : `<chapitre-principal>-ccinp-NN.md` (numérotation propre au chapitre, pas à
+la banque). La correspondance banque → fichier n'est pas 1-to-1 dans le nom mais le champ `source` de chaque
+fichier précise toujours le numéro d'exercice d'origine dans la banque (ex: `"CCINP, Banque orale de
 mathématiques MP/MPI, session 2025, exercice 42"`).
 
-Deux nouveaux chapitres créés pour cette dernière partie de l'algèbre (à ne pas recréer) :
-- `arithmetique` (year 1, "Arithmétique dans Z") : Bézout, congruences, petit théorème de Fermat.
+Deux nouveaux chapitres créés pendant cet import (ne pas les recréer) :
+- `arithmetique` (year 1, "Arithmétique dans Z") : Bézout, congruences, petit théorème de Fermat. 2 exercices.
+- `probabilites-approfondies` (year 2, "Probabilités approfondies") : variables aléatoires sur N à support
+  infini, fonctions génératrices, inégalité de Bienaymé-Tchebychev, lois usuelles (Poisson, géométrique),
+  couples de variables discrètes. 11 exercices.
 
-**Reste à importer : exercices 95 à 112** (18 exercices, partie "probabilités") :
-- Chapitre `probas` (year 1, déjà existant) : exercices à support fini / dénombrement classique parmi 95-112
-  (ceux déjà identifiés comme tels : 95, 98, 104, 105, 107, 109, 112 — non encore importés).
-- **Nouveau chapitre créé** `probabilites-approfondies` (year 2, "Probabilités approfondies") : variables
-  aléatoires sur N à support infini, fonctions génératrices, inégalité de Bienaymé-Tchebychev, lois usuelles
-  (Poisson, géométrique). Exercices identifiés pour ce chapitre : 96, 97, 99, 100, 101, 102, 103, 106, 108, 110,
-  111 — non encore importés.
-- Numérotation à reprendre : `probas-ccinp-01` et `probabilites-approfondies-ccinp-01` (aucun fichier encore créé
-  dans ces deux préfixes).
+Le chapitre `probas` (year 1, préexistant) a également été peuplé pour la première fois avec des exercices CCINP
+(7 exercices : dénombrement, lois finies, formule de Bayes).
+
+`npm run validate-content` : 112 exercices validés, 0 erreur (seul avertissement restant : chapitre `fonctions`
+toujours sans exercice, non lié à cet import). `npm run check-latex` : 0 erreur.
+
+**S'il faut réimporter depuis ce PDF plus tard (corrections, exercices manqués, etc.), le PDF n'est PAS dans le
+repo git — il faut le re-uploader.** Nom vu jusqu'ici : `banque_finale_avec_corr_session_2025_28-01.pdf`.
 
 **Méthode utilisée jusqu'ici** (à reproduire) :
 1. Extraire le texte : `pdftotext -layout fichier.pdf texte.txt` (les maths s'extraient mal — fractions et
