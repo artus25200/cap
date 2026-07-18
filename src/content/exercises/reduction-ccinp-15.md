@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [lemme des noyaux, polynôme annulateur, image et noyau]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 93"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Soit $y \in \mathrm{Im}\,u \cap \mathrm{Ker}\,u$ : $y=u(x)$ et $u(y)=0$. Comme $u^3+u^2+u=0$,

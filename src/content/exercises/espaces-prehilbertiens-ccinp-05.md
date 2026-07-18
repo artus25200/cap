@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [orthogonal, somme, intersection, espace euclidien]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 77"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. On a toujours $A \subset (A^\perp)^\perp$. Comme $E$ euclidien, $E = A \oplus A^\perp$ donc

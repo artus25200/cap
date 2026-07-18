@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [convergence normale, limite d'une série de fonctions]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 53"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $f_n(0)=0$ ; pour $x\neq0$, $f_n(x)\underset{+\infty}{\sim}\frac{1}{n^4x^3}$, comparable à une série de

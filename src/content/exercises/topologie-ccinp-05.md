@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [applications linéaires continues, norme d'opérateur]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 36"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $P_1\Rightarrow P_2$ trivial. $P_2\Rightarrow P_3$ : par continuité en $0_E$ avec $\varepsilon=1$, il existe

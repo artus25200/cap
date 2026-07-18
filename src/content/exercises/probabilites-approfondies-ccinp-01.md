@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [fonction génératrice, produit de Cauchy, variables indépendantes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 96"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. La série entière $\sum p_nt^n$ converge en $t=1$ (car $\sum p_n=1$), donc son rayon $R \geqslant 1$, donc

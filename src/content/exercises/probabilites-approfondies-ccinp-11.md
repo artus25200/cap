@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi géométrique, loi jointe, série entière admise, loi marginale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 111"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. Tous les termes sont positifs ; par Fubini et reconnaissance du binôme de Newton puis d'une série

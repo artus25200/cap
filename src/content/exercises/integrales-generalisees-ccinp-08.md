@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [intégrale à paramètre, continuité, convergence dominée à paramètre continu, équivalent]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 50"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f(x,t)=\frac{e^{-2t}}{x+t}$ continue en $t$ pour $x$ fixé, continue en $x$ pour $t$ fixé. Sur tout segment

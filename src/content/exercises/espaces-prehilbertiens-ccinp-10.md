@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [produit scalaire matriciel, distance à un sous-espace, projeté orthogonal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 82"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Pour $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $A'=\begin{pmatrix}a'&b'\\c'&d'\end{pmatrix}$, on pose

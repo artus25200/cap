@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [fonction génératrice, dérivées successives, loi de Poisson, unicité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 110"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $\forall t\in[-1,1]$, $|t^nP(X=n)|\leqslant P(X=n)$ et $\sum P(X=n)=1$ converge : convergence absolue de

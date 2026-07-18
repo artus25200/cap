@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [espace l2, produit scalaire, orthogonal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 39"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $|x_ny_n| \leqslant \frac12(x_n^2+y_n^2)$, et $\sum x_n^2, \sum y_n^2$ convergent, donc par comparaison

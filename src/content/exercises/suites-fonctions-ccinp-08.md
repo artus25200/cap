@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [dérivation terme à terme, équivalent de somme partielle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 16"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Pour $x=0$, $u_n(0)=0$. Pour $x\neq0$, un développement asymptotique donne $u_n(x) \underset{+\infty}{\sim}

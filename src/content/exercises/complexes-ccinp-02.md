@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [racines n-ièmes de l'unité, somme trigonométrique, télescopage]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 89"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. En posant $Z = z^k-1 = e^{i2k\pi/n}-1 = e^{ik\pi/n}\left(e^{ik\pi/n}-e^{-ik\pi/n}\right) =

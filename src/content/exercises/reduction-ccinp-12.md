@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [valeurs propres, composition d'endomorphismes, contre-exemple en dimension infinie]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 83"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. Soit $\lambda \neq 0$ valeur propre de $u \circ v$ : $\exists x \neq 0$, $(u\circ v)(x)=\lambda x$. Alors

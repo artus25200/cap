@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [formule de Taylor, multiplicité d'une racine, factorisation]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 85"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $P(X) = \sum_{k=0}^n \frac{P^{(k)}(a)}{k!}(X-a)^k$.

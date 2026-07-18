@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [développement en série entière, Arcsin, coefficients binomiaux généralisés]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 51"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Posons $u_n = \dfrac{(2n)!}{(n!)^2 4^n(2n+1)}$, positif. $\dfrac{u_{n+1}}{u_n} = \dfrac{(2n+1)^2}{8(n+1)(2n+3)}

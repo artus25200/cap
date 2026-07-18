@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [produit scalaire matriciel, matrices symétriques et antisymétriques, orthogonal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 92"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\langle A,B\rangle = \mathrm{tr}(A^TB)$ est bilinéaire (linéarité de la trace, de la transposition), et

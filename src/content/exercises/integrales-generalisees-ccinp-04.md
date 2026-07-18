@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [critères d'intégrabilité, équivalents, fonctions de Riemann]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 28"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour chaque borne problématique, cherche un équivalent simple de la fonction et compare-le à une fonction de Riemann de référence."

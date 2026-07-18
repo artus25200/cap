@@ -7,7 +7,7 @@ chapters:
     weight: 50
 tags: [noyau, image, somme directe]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 60"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\ker f \iff a=-2c, b=-2d$, donc $\ker f =

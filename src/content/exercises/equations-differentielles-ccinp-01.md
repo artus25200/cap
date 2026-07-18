@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [équation linéaire d'ordre 2, variation des constantes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 31"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. En linéarisant, $\cos^4x = \frac18(\cos(4x)+4\cos(2x)+3)$, donc une primitive est

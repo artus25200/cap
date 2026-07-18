@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [convergence uniforme locale, convergence dominée]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 27"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f_n(0)=1$ ; pour $x\in\,]0,1]$, $f_n(x) \underset{+\infty}{\sim} \frac{e^{-x}}{n^2x^2} \to 0$. Donc $(f_n)$

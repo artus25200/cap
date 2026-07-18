@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [adhérence, opérations ensemblistes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 44"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $x\in\overline A \iff \exists (u_n)\subset A, u_n\to x$.

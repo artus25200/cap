@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [convergence normale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 15"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\sum f_n$ converge normalement sur $X$ ssi $\exists n_0, \forall n\geqslant n_0$, $f_n$ bornée sur $X$ et

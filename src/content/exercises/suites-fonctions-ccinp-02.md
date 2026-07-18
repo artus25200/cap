@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [convergence simple, convergence uniforme, convergence uniforme locale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 9"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Compare le comportement en x = 0 (fn(0) → 1) au comportement pour x ≠ 0 (fn(x) → 0) : ça donne immédiatement une fonction limite discontinue."

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [adhérence, caractérisation séquentielle, sous-espace vectoriel]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 34"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $a\in\overline A \iff \forall V\in\mathcal V(a), V\cap A\neq\emptyset \iff \forall r>0, B(a,r)\cap A\neq\emptyset$.

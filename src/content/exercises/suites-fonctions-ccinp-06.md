@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [interversion limite-intégrale, intégration terme à terme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 14"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f$ est continue sur $[a,b]$ (limite uniforme de fonctions continues). On a

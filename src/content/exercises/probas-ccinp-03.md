@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [dénombrement, loi de probabilité finie, espérance, limite]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 104"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $X(\Omega) = \llbracket 0,2\rrbracket$.

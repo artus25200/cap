@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon de convergence, règle de d'Alembert pour série entière]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 20"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $R = \sup\{r\geqslant0 \mid (a_n r^n) \text{ bornée}\}$. De façon équivalente : $|z|<R \implies \sum a_n z^n$

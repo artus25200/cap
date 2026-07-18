@@ -7,7 +7,7 @@ chapters:
     weight: 20
 tags: [isométrie vectorielle, groupe orthogonal, base orthonormée]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 78"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) Par polarisation : $\|u(x+y)\|^2 = \|x+y\|^2 = \|x\|^2+2(x|y)+\|y\|^2$, et aussi

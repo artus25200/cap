@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [endomorphisme bijectif, diagonalisabilité, polynôme caractéristique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 59"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $f$ linéaire. $\forall P\neq0$, $\deg P' <\deg P$ donc $\deg(P-P')=\deg P$ ; pour $P=0$ trivial. Donc

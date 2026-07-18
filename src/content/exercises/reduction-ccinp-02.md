@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [polynôme annulateur, lemme des noyaux, théorème du rang]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 62"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f^2-f-2\mathrm{Id}=0 \iff f\circ(f-\mathrm{Id})=(f-\mathrm{Id})\circ f=2\mathrm{Id} \iff f\circ(\frac12f-

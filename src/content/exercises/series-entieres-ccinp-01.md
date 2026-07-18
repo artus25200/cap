@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [décomposition en éléments simples, développement limité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 2"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f(x) = \dfrac{3}{x+1} + \dfrac{4}{(x+1)^2}$.

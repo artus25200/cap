@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [équation non résolue, raccord de solutions]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 42"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $(H): 2xy'-3y=0$ sur $]0,+\infty[$ : solutions $x\mapsto \lambda x^{3/2}$, $\lambda\in\mathbb R$.

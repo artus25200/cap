@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [normes équivalentes, parties fermées, adhérence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 1"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Posons $\forall n \in \mathbb{N}, \forall x \in [0,1], f_n(x) = x^n$. C'est une suite à valeurs dans $E$, et

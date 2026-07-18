@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [adhérence, convexité, distance à une partie]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 45"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $x\in\overline A \iff \exists(x_n)\subset A, x_n\to x$.

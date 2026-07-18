@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [polynôme annulateur, Cayley-Hamilton, "algèbre K[X]"]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 65"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. En développant $P=\sum a_pX^p, Q=\sum b_qX^q$ : $PQ=\sum_{p,q} a_pb_qX^{p+q}$, donc $(PQ)(u) =

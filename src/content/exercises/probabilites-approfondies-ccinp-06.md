@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi géométrique, minimum de variables aléatoires, indépendance]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 102"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $P(X_i\leqslant n) = \sum_{k=1}^n pq^{k-1} = 1-q^n$ (somme géométrique), donc $P(X_i>n)=q^n$.

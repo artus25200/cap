@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi de Poisson, stabilité par somme, loi conditionnelle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 103"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $(X_1+X_2)(\Omega)=\mathbb N$. Pour $n\in\mathbb N$, $(X_1+X_2=n)=\bigcup_{k=0}^n(X_1=k)\cap(X_2=n-k)$

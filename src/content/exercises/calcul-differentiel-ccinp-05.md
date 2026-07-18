@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [différentiabilité, classe C1, majoration en coordonnées polaires]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 57"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $f$ continue en $(0,0)$ $\iff \forall\varepsilon>0,\exists\alpha>0,\forall(x,y),

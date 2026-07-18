@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon de convergence, dérivation terme à terme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 23"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Posons $\ell = \lim |a_{n+1}/a_n|$, donc $R = 1/\ell$ (avec les conventions $R=+\infty$ si $\ell=0$, $R=0$

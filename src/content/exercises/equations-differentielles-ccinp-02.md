@@ -7,7 +7,7 @@ chapters:
     weight: 60
 tags: [solutions développables en série entière]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 32"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. En injectant $S(x)=\sum a_nx^n$ dans $x(x-1)y''+3xy'+y=0$ et en identifiant les coefficients, on obtient

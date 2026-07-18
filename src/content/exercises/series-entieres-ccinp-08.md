@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon infini, recollement de développements, prolongement C-infini]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 24"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $u_n = \frac{x^n}{(2n)!}$ : $\frac{u_{n+1}}{u_n} = \frac{|x|}{(2n+2)(2n+1)} \to 0$ pour tout $x$, donc par

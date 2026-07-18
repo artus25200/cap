@@ -7,7 +7,7 @@ chapters:
     weight: 50
 tags: [diagonalisabilité, matrice symétrique, base orthonormée de vecteurs propres]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 68"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $A$ symétrique réelle donc diagonalisable (théorème spectral), sans calcul.

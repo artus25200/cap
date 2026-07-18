@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [comparaison de normes, ouverts, non-équivalence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 37"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $N_\infty$ et $N_1$ vérifient les trois axiomes de norme (séparation, homogénéité, inégalité

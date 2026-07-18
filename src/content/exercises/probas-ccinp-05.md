@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [probabilités totales, suite arithmético-géométrique, urnes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 107"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $(U_1,U_2)$ système complet, formule des probabilités totales : $p_1 = \frac25\times\frac12+\frac47\times

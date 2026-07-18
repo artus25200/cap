@@ -9,7 +9,7 @@ chapters:
     weight: 20
 tags: [intégration terme à terme, séries absolument convergentes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 49"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $\sum a_n$ converge absolument donc $a_n\to0$, donc $(a_n)$ est bornée par un certain $K$.

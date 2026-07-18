@@ -7,7 +7,7 @@ chapters:
     weight: 20
 tags: [norme matricielle, exponentielle de matrice]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 61"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Séparation, homogénéité et inégalité triangulaire de $\|\cdot\|$ découlent directement des mêmes

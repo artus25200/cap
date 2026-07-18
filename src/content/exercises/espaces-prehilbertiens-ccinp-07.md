@@ -7,7 +7,7 @@ chapters:
     weight: 20
 tags: [produit scalaire fonctionnel, fonction nulle, Cauchy-Schwarz]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 79"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Soit $F(x) = \int_a^x h(t)\,dt$, dérivable de dérivée $h \geqslant 0$ sur $[a,b]$ : $F$ est croissante. Or

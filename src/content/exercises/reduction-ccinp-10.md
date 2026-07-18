@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [matrice symétrique, diagonalisation, système différentiel linéaire]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 74"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $A$ est symétrique réelle donc diagonalisable (théorème spectral).

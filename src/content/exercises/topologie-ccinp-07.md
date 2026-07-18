@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [norme subordonnée, endomorphisme continu, dimension finie]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 38"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\|u(f)\|_1 \leqslant \|f\|_1$ pour tout $f$ (calcul direct par Fubini/inégalité triangulaire), donc $u$

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [séries de Bertrand, comparaison série-intégrale, équivalents]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 5"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour α ≤ 0, minore grossièrement le terme général par celui d'une série de référence divergente."

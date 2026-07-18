@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi géométrique, loi de Poisson, couple indépendant, loi de X=Y]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 108"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. Pour $i\in\mathbb N$, en sommant sur $j$ (série exponentielle) : $P(X=i) = \dfrac{1}{2^{i+1}}$. Pour

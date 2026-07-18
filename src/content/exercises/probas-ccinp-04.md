@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [formule de Bayes, système complet d'événements, probabilité conditionnelle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 105"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Formule de Bayes : si $B$ est de probabilité non nulle et $(A_i)_{i\in I}$ système complet de probabilités

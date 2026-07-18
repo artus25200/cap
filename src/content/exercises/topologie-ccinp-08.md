@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [algèbre normée, série de Neumann, exponentielle d'un endomorphisme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 40"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $\|u^n\|\leqslant\|u\|^n$ par récurrence, et $\sum\|u\|^n$ converge ($\|u\|<1$) : $\sum u^n$ converge

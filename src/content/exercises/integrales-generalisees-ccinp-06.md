@@ -7,7 +7,7 @@ chapters:
     weight: 50
 tags: [dérivation sous le signe intégrale, équation différentielle linéaire d'ordre 1]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 30"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour trouver l'équation différentielle, dérive f, intègre par parties, et fais apparaître f elle-même dans le résultat."

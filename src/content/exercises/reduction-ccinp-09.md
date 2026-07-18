@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [commutant, diagonalisation, isomorphisme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 73"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\chi_A = (X-3)(X+2)$, $\mathrm{Sp}(A) = \{-2,3\}$, avec $E_3 = \mathrm{Vect}(1,1)$ et

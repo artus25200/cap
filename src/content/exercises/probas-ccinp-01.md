@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi binomiale, loi hypergéométrique, tirages avec et sans remise]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 95"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) Tirages avec remise, indépendants, succès "boule blanche" de probabilité $p=\frac{2}{10}=\frac15$ :

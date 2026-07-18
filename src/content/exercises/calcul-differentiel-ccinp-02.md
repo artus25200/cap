@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [extrema sous contrainte, multiplicateurs de Lagrange, compacité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 41"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $C$ est le cercle de rayon $\sqrt{13}$, fermé et borné dans $\mathbb R^2$ de dimension finie donc compact.

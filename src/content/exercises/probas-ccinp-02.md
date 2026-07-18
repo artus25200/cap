@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi binomiale, loi conditionnelle, formule des probabilités totales]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 98"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $n$ épreuves de Bernoulli indépendantes de paramètre $p$ répétées : $X \hookrightarrow \mathcal B(n,p)$,

@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [polynôme minimal, division euclidienne, puissance de matrice]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 91"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. En développant le déterminant (opérations sur lignes/colonnes), $\chi_A = (X-1)^3$ : $A$ admet $1$ comme

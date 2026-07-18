@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [matrices symétriques positives, théorème spectral, racine carrée matricielle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 66"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Si $A\in S_n^+(\mathbb R)$ : pour $\lambda\in\mathrm{sp}(A)$, $AX=\lambda X$ ($X\neq0$) donne $X^TAX

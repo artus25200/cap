@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [théorème d'Abel radial, critère spécial des séries alternées]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 18"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\sum \frac{(-1)^n}{n}x^n$ est une série entière de rayon $R=1$. En $x=1$ : convergence par le CSSA. En

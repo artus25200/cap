@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [théorème des accroissements finis, prolongement de la dérivée]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 4"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour la question 3, la fonction indicatrice suggérée oscille de plus en plus vite près de 0 : sa dérivée n'a pas de limite, alors qu'elle est bien dérivable en 0."

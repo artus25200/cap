@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [trigonalisation, matrice non diagonalisable, système différentiel]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 75"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\chi_A = (X-1)^2$, donc $\mathrm{Sp}(A) = \{1\}$. Si $A$ était diagonalisable, elle serait semblable à

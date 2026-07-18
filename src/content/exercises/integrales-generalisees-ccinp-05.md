@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [intégrale à paramètre, fonction Gamma, dérivation sous le signe intégrale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 29"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $t\mapsto e^{-t}t^{x-1}$ continue positive sur $]0,+\infty[$. En 0 : $\sim t^{x-1}$, intégrable sur $]0,1]$

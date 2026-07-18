@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [théorème de Weierstrass, approximation polynomiale, convergence uniforme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 48"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Théorème de Weierstrass : toute fonction continue sur un segment $[a,b]$ est limite uniforme sur ce segment

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [espace de suites, norme sup, forme linéaire continue]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 54"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. La suite nulle tend vers 0. Si $u,v\to0$ et $\alpha\in\mathbb R$, alors $u+\alpha v\to0$ (opérations sur les

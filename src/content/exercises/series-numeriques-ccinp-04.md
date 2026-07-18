@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [développement asymptotique, comparaison, semi-convergence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 46"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\pi\sqrt{n^2+n+1} = n\pi\sqrt{1+\frac1n+\frac1{n^2}} = n\pi\left(1+\frac{1}{2n}+\frac{3}{8n^2}+O(1/n^3)\right)

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [produit scalaire matriciel, orthogonal, distance à un sous-espace]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 81"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $F = \mathrm{Vect}(I_2, K)$ avec $K = \begin{pmatrix}0&1\\-1&0\end{pmatrix}$ : c'est un sous-espace vectoriel,

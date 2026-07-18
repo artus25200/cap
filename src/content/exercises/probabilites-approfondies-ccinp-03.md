@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [inégalité de Bienaymé-Tchebychev, loi faible des grands nombres, application numérique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 99"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Inégalité de Bienaymé-Tchebychev : si $X \in L^2$, $\forall a>0,\ P(|X-E(X)|\geqslant a) \leqslant

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [dérivation terme à terme, produit de Cauchy]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 19"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) La dérivée terme à terme $\sum n a_n x^{n-1}$ a le même rayon $R$ que $\sum a_n x^n$, donc converge

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon de convergence d'une somme, théorème d'Abel radial]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 22"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour la question 1, distingue le cas Ra = Rb du cas Ra ≠ Rb : seul le second donne une égalité garantie."

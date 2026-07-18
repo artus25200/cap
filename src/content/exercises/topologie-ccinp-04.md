@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [caractérisation séquentielle de la continuité, densité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 35"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. ($P_1\Rightarrow P_2$) Si $f$ continue en $a$ et $x_n\to a$ : pour $\varepsilon>0$, $\exists\alpha>0$ tel que

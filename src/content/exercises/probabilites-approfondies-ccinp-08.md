@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [loi géométrique, sup et inf de variables aléatoires, couple discret]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 106"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. $(U,V)(\Omega) = \{(m,n)\in\mathbb N^2,\ m\geqslant n\}$. Si $m=n$ :

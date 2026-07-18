@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [continuité, dérivées partielles, classe C1, paramètre]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 52"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $x^2+y^2-xy-\frac12(x^2+y^2) = \frac12(x-y)^2 \geqslant0$.

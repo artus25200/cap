@@ -7,7 +7,7 @@ chapters:
     weight: 50
 tags: [chaîne de Markov, matrice symétrique, diagonalisation, probabilités totales]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 101"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. (a)-(b) $(A_n,B_n,C_n)$ système complet, formule des probabilités totales : $a_{n+1}=\frac12b_n+\frac12c_n$,

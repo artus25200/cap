@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [racines n-ièmes de l'unité, argument, équation complexe]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 84"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Un argument d'un complexe non nul $z$ est un réel $\theta$ tel que $\frac{z}{|z|}=e^{i\theta}$.

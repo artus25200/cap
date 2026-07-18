@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [convergence dominée, intégrabilité par comparaison]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 25"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f_n : t\mapsto \frac{1}{1+t^2+t^ne^{-t}}$ est continue sur $[0,+\infty[$, et $|f_n(t)|

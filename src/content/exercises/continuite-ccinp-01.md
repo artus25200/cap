@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [formule de Leibniz, dérivée n-ième, récurrence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 3"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $g$ est $C^\infty$ sur $\mathbb{R}$ et $h$ est $C^\infty$ sur $\mathbb{R}\setminus\{-1\}$, avec (par récurrence) :

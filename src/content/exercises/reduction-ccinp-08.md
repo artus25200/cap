@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [rang, diagonalisabilité, discussion selon un paramètre]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 72"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Si $v=0_E$, $f$ est nulle et $\mathrm{rg}\,f = 0$. Si $v \neq 0$, toutes les colonnes de la matrice de $f$ sont

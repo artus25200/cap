@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [dénombrement, parties d'un ensemble, bijection]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 112"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Pour $p\in\llbracket0,n\rrbracket$ fixé, une partie $B$ à $p$ éléments donnée admet $2^p$ parties $A\subset

@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [suite récurrente linéaire complexe, équation caractéristique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 55"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) La suite nulle appartient à $E$. Si $u,v\in E$ et $\lambda\in\mathbb C$, la suite $w=u+\lambda v$

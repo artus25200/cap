@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rang, diagonalisabilité, discussion selon paramètre]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 69"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\det A = a(a+1)$. Si $a\neq0,-1$ : $\mathrm{rg}\,A=3$. Si $a=0$ : $\mathrm{rg}\,A=2$. Si $a=-1$ : deux

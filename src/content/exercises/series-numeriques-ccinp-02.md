@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [règle de d'Alembert, série géométrique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 6"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Avec $\varepsilon = \frac{1-l}{2} > 0$, il existe $N$ tel que $\forall n\geqslant N$,

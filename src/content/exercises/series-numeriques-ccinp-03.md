@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [équivalents et séries, séries complexes, convergence absolue]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 7"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) Comme $u_n/v_n \to 1$, il existe un rang à partir duquel $u_n/v_n$ est proche de 1, donc du même signe

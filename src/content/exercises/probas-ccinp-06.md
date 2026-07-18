@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [tirage sans remise, dénombrement, probabilités composées]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 109"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $X(\Omega)=\llbracket1,3\rrbracket$ (au plus 2 boules noires avant la première blanche). En raisonnant tirage

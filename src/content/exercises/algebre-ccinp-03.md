@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [somme directe, projection vectorielle, diagonalisation]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 71"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $D = \mathrm{Vect}((1,2,3))$. Comme $(1,2,3) \notin P$, on a $D \cap P = \{0\}$, et $\dim D + \dim P = 1 + 2 = 3$,

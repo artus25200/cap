@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [interpolation de Lagrange, isomorphisme, base de polynômes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 87"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. L'application $u: \mathbb R_n[X] \to \mathbb R^{n+1}$, $P \mapsto (P(a_0),\dots,P(a_n))$ est linéaire, et

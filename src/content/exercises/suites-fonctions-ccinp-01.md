@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [critère spécial des séries alternées, convergence uniforme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 8"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) Avec $S_n = \sum_{k=0}^n (-1)^k u_k$ : $S_{2n+2}-S_{2n} = u_{2n+2}-u_{2n+1} \leqslant 0$ ($(u_n)$

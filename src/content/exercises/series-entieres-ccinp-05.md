@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon de convergence, comparaison]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 21"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Voir exercice 20, question 1 (même définition).

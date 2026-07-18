@@ -7,7 +7,7 @@ chapters:
     weight: 40
 tags: [polynôme annulateur, valeurs propres, polynôme minimal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 88"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Soit $P=\sum_{k=0}^n a_kX^k$ annulateur de $u$, $\lambda$ valeur propre : $\exists x\neq0$, $u(x)=\lambda x$,

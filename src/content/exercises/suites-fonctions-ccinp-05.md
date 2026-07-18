@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [continuité de la limite uniforme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 12"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Soit $x_0\in[a,b]$, $\varepsilon>0$. Par convergence uniforme, il existe $N$ tel que $\forall x\in[a,b]$,

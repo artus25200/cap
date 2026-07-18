@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [condition nécessaire de convergence uniforme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 17"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Si $\sum f_n$ converge uniformément vers $S$ sur $A$, notons $S_n$ les sommes partielles :

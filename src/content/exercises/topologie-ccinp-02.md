@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [parties compactes, suites extraites, valeurs d'adhérence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 13"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 hints:
   - "Pour la fermeture, utilise directement la définition séquentielle du compact sur une suite convergente de A."

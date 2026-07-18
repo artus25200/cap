@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [valeurs propres, polynôme en une matrice, racines de l'unité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 70"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\chi_A=X^3-1$, $\mathrm{sp}(A)=\{1,j,j^2\}$ : trois valeurs propres distinctes, $A$ diagonalisable dans

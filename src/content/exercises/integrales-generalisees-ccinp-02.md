@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [convergence dominée, monotonie de suite d'intégrales, critère spécial des séries alternées]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 26"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f_n(t) = \frac{1}{(1+t^2)^n}$ continue, $|f_n(t)| \underset{+\infty}{\sim} \frac{1}{t^{2n}}$ intégrable sur

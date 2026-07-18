@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [rayon de convergence, calcul de somme, séries paires-impaires]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 47"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Pour $x\neq0$, $\frac{u_{n+1}(x)}{u_n(x)} \to 3x^2$ (d'Alembert). Rayon $R=1/\sqrt3$. Sur $]-1/\sqrt3,1/\sqrt3[$,

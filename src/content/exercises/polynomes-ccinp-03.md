@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [interpolation de Lagrange, isomorphisme, application pratique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 90"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\Phi$ est linéaire (linéarité de l'évaluation). Si $\Phi(P)=0$, $P$ (degré $\leqslant2$) a $3$ racines

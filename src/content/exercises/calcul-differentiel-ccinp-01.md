@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [dérivées partielles, classe C1, continuité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 33"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f$ continue sur $\mathbb{R}^2\setminus\{(0,0)\}$ par opérations usuelles. En $(0,0)$ :

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [adjoint, endomorphisme normal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 63"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Non : sur $E=\mathbb R^2$ euclidien canonique, la rotation $u$ d'angle $\pi/2$ vérifie $(u(x)|x)=0$ pour

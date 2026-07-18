@@ -7,7 +7,7 @@ chapters:
     weight: 30
 tags: [noyau, image, théorème du rang, itérées d'un endomorphisme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 64"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\mathrm{Im}\,f^2\subset\mathrm{Im}\,f$ toujours. Pour $y=f(x)\in\mathrm{Im}\,f$, écrire (via la somme

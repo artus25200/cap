@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [couple de variables aléatoires, indépendance, loi marginale, théorème de transfert]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 97"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: false
 correction: |
   1. Pour $k\in\mathbb N$, tous les termes étant positifs, on somme dans $[0,+\infty]$ :

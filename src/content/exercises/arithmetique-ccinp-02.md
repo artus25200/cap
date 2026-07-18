@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [congruences, Bézout, système de congruences, théorème des restes chinois]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 94"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Par l'absurde, si $x \in \mathbb Z$ vérifie $(S)$ : $x \equiv 5\ [6]$ donne $x$ impair (car

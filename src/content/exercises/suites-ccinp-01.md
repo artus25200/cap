@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [suite récurrente, point fixe, équation fonctionnelle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 43"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) $g(x)=\mathrm{Arctan}(x)-x$ vérifie $g'(x)=\frac{-x^2}{1+x^2}<0$ pour $x\neq0$ : $g$ strictement

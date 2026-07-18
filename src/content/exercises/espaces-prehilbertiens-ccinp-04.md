@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [Cauchy-Schwarz, cas d'égalité, borne inférieure]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 76"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. (a) Pour $(x,y) \in E^2$, on pose $P(\lambda) = \|x+\lambda y\|^2 = \|y\|^2\lambda^2 + 2\lambda(x|y) + \|x\|^2

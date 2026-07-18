@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [critère de non-convergence uniforme, suite de points]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 11"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Par contraposée : si $(f_n)$ converge uniformément vers $f$, alors $\|f_n-f\|_\infty \to 0$, et comme

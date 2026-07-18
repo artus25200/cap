@@ -6,6 +6,7 @@ import { CHAPTERS, EXERCISES, chapterName, ALL_TAGS, ALL_BANQUES } from "./lib/l
 import { chapterStats, pickNext, pickFromPool, exerciseNote, isoWeekKey } from "./lib/stats.js";
 import { useAuth } from "./lib/useAuth.js";
 import { useSupabaseHistory } from "./lib/useSupabaseHistory.js";
+import { useChapterPrefs } from "./lib/useChapterPrefs.js";
 import { supabase } from "./lib/supabaseClient.js";
 import LoginScreen from "./LoginScreen.jsx";
 
@@ -31,6 +32,12 @@ export default function App() {
 function CapApp({ session }) {
   const [tab, setTab] = useState("entrainer");
   const { history, recordAttempt, loading: historyLoading } = useSupabaseHistory(session.user.id);
+
+  const allChapterIds = useMemo(() => CHAPTERS.map((c) => c.id), []);
+  const { isEnabled, toggleChapter, setChaptersEnabled, enabledChapterIds } = useChapterPrefs(
+    session.user.id,
+    allChapterIds
+  );
 
   const weeklyCount = useMemo(() => {
     const thisWeek = isoWeekKey(Date.now());
@@ -69,7 +76,7 @@ function CapApp({ session }) {
               <LogOut size={14} /> Déconnexion
             </button>
           </div>
-          <div className="tagline">Elle sait où t'envoyer. Toi, tu avances.</div>
+          <div className="tagline">MPSI · MP2I · MP · MPI</div>
         </div>
 
         <div className="tabs">
@@ -94,10 +101,23 @@ function CapApp({ session }) {
           </div>
         ) : (
           <>
-            {tab === "entrainer" && <FlowTab history={history} recordAttempt={recordAttempt} />}
+            {tab === "entrainer" && (
+              <FlowTab
+                history={history}
+                recordAttempt={recordAttempt}
+                enabledChapterIds={enabledChapterIds}
+              />
+            )}
             {tab === "explorer" && <ExplorerTab history={history} recordAttempt={recordAttempt} />}
             {tab === "profil" && (
-              <ProfilTab history={history} weeklyCount={weeklyCount} methods={unlockedMethods} />
+              <ProfilTab
+                history={history}
+                weeklyCount={weeklyCount}
+                methods={unlockedMethods}
+                isEnabled={isEnabled}
+                toggleChapter={toggleChapter}
+                setChaptersEnabled={setChaptersEnabled}
+              />
             )}
           </>
         )}
@@ -119,13 +139,28 @@ function CapApp({ session }) {
 // Onglet "S'entraîner" — flux automatique, cible les points faibles.
 // ---------------------------------------------------------------------------
 
-function FlowTab({ history, recordAttempt }) {
-  const [current, setCurrent] = useState(() => pickNext(history, EXERCISES, CHAPTERS, null));
+function FlowTab({ history, recordAttempt, enabledChapterIds }) {
+  const activeChapters = useMemo(
+    () => CHAPTERS.filter((c) => enabledChapterIds.includes(c.id)),
+    [enabledChapterIds]
+  );
+  const [current, setCurrent] = useState(() => pickNext(history, EXERCISES, activeChapters, null));
   const [feedback, setFeedback] = useState(null);
   const [review, setReview] = useState(false);
   const timeoutRef = useRef(null);
 
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
+
+  if (activeChapters.length === 0) {
+    return (
+      <div className="card">
+        <div className="empty">
+          Tous les chapitres sont désactivés. Réactive-en au moins un dans l'onglet Profil pour reprendre
+          l'entraînement.
+        </div>
+      </div>
+    );
+  }
 
   if (!current) {
     return (
@@ -152,14 +187,14 @@ function FlowTab({ history, recordAttempt }) {
   }
 
   function advance(withHistory) {
-    setCurrent(pickNext(withHistory, EXERCISES, CHAPTERS, exercise.id));
+    setCurrent(pickNext(withHistory, EXERCISES, activeChapters, exercise.id));
     setFeedback(null);
     setReview(false);
   }
 
   function skip() {
     if (feedback) return;
-    setCurrent(pickNext(history, EXERCISES, CHAPTERS, exercise.id));
+    setCurrent(pickNext(history, EXERCISES, activeChapters, exercise.id));
   }
 
   const recentTrail = history.slice(-10);
@@ -464,12 +499,18 @@ function ReportLink({ exercise }) {
 // Onglet "Profil"
 // ---------------------------------------------------------------------------
 
-function ProfilTab({ history, weeklyCount, methods }) {
+function ProfilTab({ history, weeklyCount, methods, isEnabled, toggleChapter, setChaptersEnabled }) {
+  const [chaptersOpen, setChaptersOpen] = useState(true);
+  const [methodsOpen, setMethodsOpen] = useState(true);
+
   const sortedChapters = useMemo(() => {
     return [...CHAPTERS]
       .map((c) => ({ ...c, stats: chapterStats(history, EXERCISES, c.id) }))
       .sort((a, b) => a.stats.score - b.stats.score);
   }, [history]);
+
+  const year2Ids = useMemo(() => CHAPTERS.filter((c) => c.year === 2).map((c) => c.id), []);
+  const allYear2Enabled = year2Ids.every((id) => isEnabled(id));
 
   const successCount = history.filter((h) => h.success).length;
 
@@ -490,37 +531,70 @@ function ProfilTab({ history, weeklyCount, methods }) {
         </div>
       </div>
 
-      {sortedChapters.map((c) => {
-        const { attempts, ticks, score } = c.stats;
-        const tone = score < 4 ? "weak" : score < 7 ? "mid" : "strong";
-        return (
-          <div className="chapter-row" key={c.id}>
-            <div className="chapter-top">
-              <div className="chapter-name">
-                {c.name}
-                <span className="year-badge">{c.year}A</span>
-                {attempts >= 2 && score < 5 && <span className="weak-badge">point faible</span>}
+      <div className="section-toggle-row">
+        <button className="section-toggle" onClick={() => setChaptersOpen((s) => !s)}>
+          <ChevronDown size={15} className={`chevron ${chaptersOpen ? "open" : ""}`} />
+          Chapitres ({CHAPTERS.length})
+        </button>
+        <button
+          className="pill pill-sm"
+          onClick={() => setChaptersEnabled(year2Ids, !allYear2Enabled)}
+        >
+          {allYear2Enabled ? "Désactiver la 2e année" : "Activer la 2e année"}
+        </button>
+      </div>
+      <div className="chapters-hint">
+        Un chapitre désactivé n'apparaît plus dans le flux automatique de "S'entraîner" (il reste accessible
+        depuis "Explorer").
+      </div>
+
+      {chaptersOpen &&
+        sortedChapters.map((c) => {
+          const { attempts, ticks, score } = c.stats;
+          const tone = score < 4 ? "weak" : score < 7 ? "mid" : "strong";
+          const enabled = isEnabled(c.id);
+          return (
+            <div className={`chapter-row ${enabled ? "" : "chapter-disabled"}`} key={c.id}>
+              <div className="chapter-top">
+                <div className="chapter-name">
+                  {c.name}
+                  <span className="year-badge">{c.year}A</span>
+                  {enabled && attempts >= 2 && score < 5 && (
+                    <span className="weak-badge">point faible</span>
+                  )}
+                </div>
+                <div className="chapter-controls">
+                  <div className="chapter-meta">{attempts ? `${score.toFixed(1)}/10` : "non évalué"}</div>
+                  <button
+                    className={`chapter-toggle ${enabled ? "on" : "off"}`}
+                    onClick={() => toggleChapter(c.id)}
+                  >
+                    {enabled ? "Activé" : "Désactivé"}
+                  </button>
+                </div>
               </div>
-              <div className="chapter-meta">{attempts ? `${score.toFixed(1)}/10` : "non évalué"}</div>
+              <div className="ticks">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className={`tick ${i < ticks ? `filled ${tone}` : ""}`} />
+                ))}
+              </div>
             </div>
-            <div className="ticks">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className={`tick ${i < ticks ? `filled ${tone}` : ""}`} />
-              ))}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
 
       {methods.length > 0 && (
         <div className="methods-section">
-          <div className="methods-title">Cahier de méthodes ({methods.length})</div>
-          {methods.map((m, i) => (
-            <div className="method-card" key={i}>
-              <div className="method-card-title">{m.title}</div>
-              <div className="method-card-content"><MathText text={m.content} /></div>
-            </div>
-          ))}
+          <button className="section-toggle" onClick={() => setMethodsOpen((s) => !s)}>
+            <ChevronDown size={15} className={`chevron ${methodsOpen ? "open" : ""}`} />
+            Cahier de méthodes ({methods.length})
+          </button>
+          {methodsOpen &&
+            methods.map((m, i) => (
+              <div className="method-card" key={i}>
+                <div className="method-card-title">{m.title}</div>
+                <div className="method-card-content"><MathText text={m.content} /></div>
+              </div>
+            ))}
         </div>
       )}
     </div>
@@ -691,11 +765,30 @@ function GlobalStyle() {
       .summary-num{ font-family:'IBM Plex Mono', monospace; font-size:22px; font-weight:600; }
       .summary-label{ color:var(--text-dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; margin-top:2px; }
 
-      .chapter-row{ padding:13px 0; border-top:1px solid var(--border); }
+      .section-toggle-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+      .section-toggle{
+        display:flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--text);
+        background:none; border:none; cursor:pointer; padding:0; font-family:inherit;
+      }
+      .chevron{ transition: transform .15s; color:var(--text-dim); flex-shrink:0; }
+      .chevron.open{ transform: rotate(180deg); }
+      .pill-sm{ font-size:11.5px; padding:7px 12px; border-radius:10px; }
+      .chapters-hint{ color:var(--text-dim); font-size:11.5px; line-height:1.5; margin-bottom:10px; }
+
+      .chapter-row{ padding:13px 0; border-top:1px solid var(--border); transition: opacity .15s; }
       .chapter-row:first-child{ border-top:none; }
-      .chapter-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+      .chapter-row.chapter-disabled{ opacity:.5; }
+      .chapter-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; gap:10px; flex-wrap:wrap; }
       .chapter-name{ font-size:14.5px; font-weight:600; }
+      .chapter-controls{ display:flex; align-items:center; gap:8px; }
       .chapter-meta{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-dim); }
+      .chapter-toggle{
+        font-family:inherit; font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:20px;
+        border:1px solid var(--border); background:#fff; color:var(--text-dim); cursor:pointer;
+        transition: background .15s, color .15s, border-color .15s;
+      }
+      .chapter-toggle.on{ color:var(--success); border-color:var(--success); background:var(--success-soft); }
+      .chapter-toggle.off{ color:var(--text-dim); }
       .ticks{ display:flex; gap:4px; }
       .tick{ width:100%; height:6px; border-radius:3px; background:var(--surface-2); }
       .tick.filled.weak{ background:var(--danger); }
@@ -711,7 +804,7 @@ function GlobalStyle() {
       }
 
       .methods-section{ margin-top:22px; padding-top:18px; border-top:1px solid var(--border); }
-      .methods-title{ font-size:13px; font-weight:700; margin-bottom:12px; }
+      .methods-section .section-toggle{ margin-bottom:12px; }
       .method-card{ background:var(--accent-soft); border-radius:14px; padding:13px 15px; margin-bottom:8px; }
       .method-card-title{ font-size:13px; font-weight:700; color:var(--accent); margin-bottom:4px; }
       .method-card-content{ font-size:12.5px; color:var(--text); line-height:1.5; }

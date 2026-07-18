@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [diagonalisabilité, discussion selon paramètre, corps de base]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 67"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   $\chi_M = X(X^2+ca-ba-bc)$. Posons $\delta = ca-ba-bc$.

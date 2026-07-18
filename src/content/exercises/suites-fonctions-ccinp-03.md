@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [convergence uniforme, interversion limite-intégrale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 10"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $\forall x\in[0,1]$, $\lim_n f_n(x) = (x^2+1)e^x =: f(x)$ (convergence simple). De plus,

@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [Bézout, nombre premier, coefficients binomiaux, petit théorème de Fermat]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 86"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. Par Bézout, $\exists (u_1,v_1),(u_2,v_2) \in \mathbb Z^2$ avec $u_1p+v_1a=1$ et $u_2p+v_2b=1$. En

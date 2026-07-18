@@ -5,7 +5,7 @@ chapters:
     weight: 100
 tags: [différentiabilité d'une forme bilinéaire, dimension finie]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 58"
-banque: "CCINP - Banque orale MP/MPI"
+banque: "CCINP"
 classic: true
 correction: |
   1. $f$ différentiable en $a$ $\iff \exists L$ linéaire continue telle que, au voisinage de 0,
