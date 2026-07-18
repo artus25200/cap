@@ -34,10 +34,13 @@ function CapApp({ session }) {
   const { history, recordAttempt, loading: historyLoading } = useSupabaseHistory(session.user.id);
 
   const allChapterIds = useMemo(() => CHAPTERS.map((c) => c.id), []);
-  const { isEnabled, toggleChapter, setChaptersEnabled, enabledChapterIds } = useChapterPrefs(
-    session.user.id,
-    allChapterIds
-  );
+  const {
+    isEnabled,
+    toggleChapter,
+    setChaptersEnabled,
+    enabledChapterIds,
+    loading: chapterPrefsLoading,
+  } = useChapterPrefs(session.user.id, allChapterIds);
 
   const weeklyCount = useMemo(() => {
     const thisWeek = isoWeekKey(Date.now());
@@ -95,7 +98,7 @@ function CapApp({ session }) {
           ))}
         </div>
 
-        {historyLoading ? (
+        {historyLoading || chapterPrefsLoading ? (
           <div className="card">
             <div className="empty">Chargement de ta progression...</div>
           </div>

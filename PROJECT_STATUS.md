@@ -36,11 +36,12 @@ le prochain exercice selon un système de score pondéré par chapitre (flow, "z
    chapitre inexistant, a un frontmatter cassé, un id en doublon, etc.
 7. **Vérification LaTeX** : `npm run check-latex` teste individuellement chaque formule avec KaTeX
    (`throwOnError: true`) — un `vite build` ne détecte PAS les erreurs LaTeX silencieuses au runtime.
-8. **Activation/désactivation des chapitres** (`src/lib/useChapterPrefs.js`) : préférence persistée en
-   localStorage (clé `cap:disabledChapters:<userId>`, PAS en base Supabase). Togglable un par un depuis l'onglet
-   Profil, avec un raccourci pour activer/désactiver toute l'année 2 d'un coup. N'affecte que le flux automatique
-   de "S'entraîner" (`pickNext`) — "Explorer" reste non filtré par cette préférence, choix volontaire pour
-   l'instant.
+8. **Activation/désactivation des chapitres** (`src/lib/useChapterPrefs.js`) : préférence persistée côté
+   utilisateur dans la table Supabase `disabled_chapters` (RLS, même pattern que `attempts` — chacun ne voit/
+   modifie que ses propres lignes ; présence d'une ligne `(user_id, chapter_id)` = désactivé). Togglable un par
+   un depuis l'onglet Profil, avec un raccourci pour activer/désactiver toute l'année 2 d'un coup. N'affecte que
+   le flux automatique de "S'entraîner" (`pickNext`) — "Explorer" reste non filtré par cette préférence, choix
+   volontaire pour l'instant.
 9. **Sections dépliantes du Profil** (chapitres, cahier de méthodes) : simple état local `useState` + chevron,
    pas de persistance de l'état ouvert/fermé entre sessions (pas nécessaire pour l'instant).
 
@@ -121,6 +122,10 @@ curl -s -H "Authorization: token <TOKEN>" "https://api.github.com/repos/artus252
 - Projet : `cap` (id `iziqchfhcoijqiczbvlo`), région `eu-west-1`, tier gratuit
 - Table `attempts` (id, user_id → auth.users, exercise_id, success, created_at), RLS activée (policies
   `select_own_attempts` / `insert_own_attempts`, pas d'update/delete — historique en ajout seul)
+- Table `disabled_chapters` (user_id → auth.users, chapter_id, created_at ; clé primaire composite
+  `(user_id, chapter_id)`), RLS activée (`select_own_disabled_chapters` / `insert_own_disabled_chapters` /
+  `delete_own_disabled_chapters`). La présence d'une ligne = chapitre désactivé pour cet utilisateur ; pas de
+  colonne booléenne, pas d'update — on insert/delete la ligne. Consommée par `src/lib/useChapterPrefs.js`.
 - URL + clé publique déjà en dur dans `src/lib/supabaseClient.js` (c'est voulu, la clé publique est sûre à
   exposer, la sécurité est assurée par RLS)
 - **Accès aux outils Supabase dans une nouvelle conversation** : reconnecter le connecteur MCP Supabase (il
