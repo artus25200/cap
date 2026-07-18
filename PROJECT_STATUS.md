@@ -36,6 +36,13 @@ le prochain exercice selon un système de score pondéré par chapitre (flow, "z
    chapitre inexistant, a un frontmatter cassé, un id en doublon, etc.
 7. **Vérification LaTeX** : `npm run check-latex` teste individuellement chaque formule avec KaTeX
    (`throwOnError: true`) — un `vite build` ne détecte PAS les erreurs LaTeX silencieuses au runtime.
+8. **Activation/désactivation des chapitres** (`src/lib/useChapterPrefs.js`) : préférence persistée en
+   localStorage (clé `cap:disabledChapters:<userId>`, PAS en base Supabase). Togglable un par un depuis l'onglet
+   Profil, avec un raccourci pour activer/désactiver toute l'année 2 d'un coup. N'affecte que le flux automatique
+   de "S'entraîner" (`pickNext`) — "Explorer" reste non filtré par cette préférence, choix volontaire pour
+   l'instant.
+9. **Sections dépliantes du Profil** (chapitres, cahier de méthodes) : simple état local `useState` + chevron,
+   pas de persistance de l'état ouvert/fermé entre sessions (pas nécessaire pour l'instant).
 
 ## Import de la banque CCINP — état d'avancement
 
