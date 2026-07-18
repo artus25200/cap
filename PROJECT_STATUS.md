@@ -65,6 +65,17 @@ toujours sans exercice, non lié à cet import). `npm run check-latex` : 0 erreu
 **S'il faut réimporter depuis ce PDF plus tard (corrections, exercices manqués, etc.), le PDF n'est PAS dans le
 repo git — il faut le re-uploader.** Nom vu jusqu'ici : `banque_finale_avec_corr_session_2025_28-01.pdf`.
 
+### Chapitre `fonctions` (Fonctions usuelles & DL) — exercices originaux, hors banque CCINP
+
+Vérification faite (les 112 exercices de la banque 2025 ont été relus intégralement) : **aucun exercice de cette
+banque ne correspond au thème "fonctions usuelles & développements limités"** en chapitre principal ou secondaire
+— ce thème y est systématiquement absorbé par d'autres chapitres (calcul différentiel, séries entières, etc.).
+5 exercices originaux (`fonctions-001.md` à `fonctions-005.md`, `source: null`, `banque: null`) ont donc été
+écrits pour peupler ce chapitre : équivalents usuels, limites par DL (formes indéterminées de type puissance),
+étude asymptotique en l'infini, identité sur $\arctan$, DL à l'ordre 4 avec étude d'extremum local. Niveaux 1 à 4.
+Convention de nommage à réutiliser pour tout futur exercice non issu d'une banque : `<chapitre>-NNN.md` (pas de
+suffixe `-ccinp-`).
+
 **Méthode utilisée jusqu'ici** (à reproduire) :
 1. Extraire le texte : `pdftotext -layout fichier.pdf texte.txt` (les maths s'extraient mal — fractions et
    sommes se mélangent — donc **ne jamais faire confiance au texte brut pour retranscrire une formule**, s'appuyer
