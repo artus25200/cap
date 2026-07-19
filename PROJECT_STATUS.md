@@ -134,6 +134,19 @@ curl -s -H "Authorization: token <TOKEN>" "https://api.github.com/repos/artus252
 
 ## Leçons apprises (pour ne pas refaire les mêmes erreurs)
 
+- **JAMAIS de saut de ligne à l'intérieur d'une formule inline `$...$`** dans le contenu markdown des exercices.
+  `MathText.jsx` (rendu) et `scripts/check-latex.mjs` (validation) délimitent l'inline avec la regex
+  `/\$([^$\n]+?)\$/` — le `[^$\n]` exclut explicitement les sauts de ligne. Si le texte source d'une formule
+  inline est réparti sur deux lignes (piège classique : habillage manuel d'un paragraphe à ~100-110 caractères
+  qui coupe pile au milieu d'un `$...$`), la formule n'est JAMAIS reconnue comme telle : le `$` et le code LaTeX
+  brut s'affichent tels quels dans l'appli, ET `check-latex` ne la voit pas non plus donc ne remonte aucune
+  erreur (elle est juste invisible aux deux). Seul `$$...$$` (bloc) supporte les sauts de ligne internes. 93
+  formules cassées de cette façon ont été trouvées et corrigées d'un coup en juillet 2026 avec
+  `scripts/fix-broken-inline-latex.mjs` (dans le repo — `node scripts/fix-broken-inline-latex.mjs` pour un
+  dry-run listant les occurrences, `--fix` pour corriger en place). Réflexe à avoir en écrivant un nouvel
+  exercice : ne jamais laisser le habillage automatique de ligne couper à l'intérieur d'un `$...$`, quitte à
+  laisser une ligne plus longue que les autres. Lancer ce script en dry-run de temps en temps pour vérifier.
+
 - **GitHub Pages doit être en mode "GitHub Actions"**, pas "Deploy from a branch" (`PUT /repos/{owner}/{repo}/pages`
   avec `{"build_type":"workflow"}` si jamais ça se dérègle — vérifiable via `GET` sur la même route, champ
   `build_type`)
