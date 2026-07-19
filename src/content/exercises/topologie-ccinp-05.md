@@ -13,8 +13,7 @@ correction: |
   $y=\frac{\alpha}{\|x\|_E}x$, $\|f(y)\|_F\leqslant1$ donne par linéarité $\|f(x)\|_F\leqslant\frac1\alpha\|x\|_E$.
   $P_3\Rightarrow P_1$ : $f$ est alors lipschitzienne ($\|f(y)-f(x)\|=\|f(y-x)\|\leqslant k\|y-x\|$), donc continue.
 
-  2. $\varphi$ est linéaire par linéarité de l'intégrale. $|\varphi(f)| = \left|\int_0^1 f\right| \leqslant
-  \int_0^1|f| \leqslant \|f\|_\infty$ (propriété $P_3$ avec $k=1$), donc $\varphi$ est continue.
+  2. $\varphi$ est linéaire par linéarité de l'intégrale. $|\varphi(f)| = \left|\int_0^1 f\right| \leqslant \int_0^1|f| \leqslant \|f\|_\infty$ (propriété $P_3$ avec $k=1$), donc $\varphi$ est continue.
 method:
   title: "Méthode : équivalence des trois caractérisations de continuité d'une application linéaire"
   content: >

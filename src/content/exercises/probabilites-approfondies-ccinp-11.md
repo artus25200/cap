@@ -30,8 +30,7 @@ correction: |
 method:
   title: "Méthode : loi marginale d'un couple via une série entière admise"
   content: >
-    Quand l'énoncé fournit une identité de série entière non standard (ici $\sum_{k\geqslant q}\binom kqx^{k-q}
-    = \frac1{(1-x)^{q+1}}$), le réflexe est de faire apparaître exactement cette forme dans le calcul de la loi
+    Quand l'énoncé fournit une identité de série entière non standard (ici $\sum_{k\geqslant q}\binom kqx^{k-q} = \frac1{(1-x)^{q+1}}$), le réflexe est de faire apparaître exactement cette forme dans le calcul de la loi
     marginale en factorisant tout ce qui ne dépend pas de l'indice de sommation, plutôt que de chercher à
     redémontrer l'identité soi-même.
 ---

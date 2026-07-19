@@ -19,8 +19,7 @@ correction: |
   Pour $M\in E$, $S=\frac{M+M^T}2 \in S_n(\mathbb R)$, $A=\frac{M-M^T}2 \in A_n(\mathbb R)$, et $M=S+A$ : donc
   $E = S_n(\mathbb R) \oplus A_n(\mathbb R)$.
 
-  (b) Pour $S \in S_n(\mathbb R)$, $A \in A_n(\mathbb R)$ : $\langle S,A\rangle = \mathrm{tr}(SA) =
-  \mathrm{tr}(AS) = \mathrm{tr}(-A^TS) = -\langle A,S\rangle = -\langle S,A\rangle$, donc $\langle S,A\rangle=0$ :
+  (b) Pour $S \in S_n(\mathbb R)$, $A \in A_n(\mathbb R)$ : $\langle S,A\rangle = \mathrm{tr}(SA) = \mathrm{tr}(AS) = \mathrm{tr}(-A^TS) = -\langle A,S\rangle = -\langle S,A\rangle$, donc $\langle S,A\rangle=0$ :
   $S_n(\mathbb R) \subset A_n(\mathbb R)^\perp$. Par égalité des dimensions (théorème du rang appliqué à
   $E=S_n\oplus A_n$), $S_n(\mathbb R) = A_n(\mathbb R)^\perp$.
 
@@ -36,8 +35,7 @@ method:
     calcul de trace plutôt qu'un calcul coefficient par coefficient.
 ---
 
-Soit $n \in \mathbb N^*$. On considère $E = M_n(\mathbb R)$. On pose $\forall (A,B) \in E^2,\ \langle A,B\rangle =
-\mathrm{tr}(A^TB)$.
+Soit $n \in \mathbb N^*$. On considère $E = M_n(\mathbb R)$. On pose $\forall (A,B) \in E^2,\ \langle A,B\rangle = \mathrm{tr}(A^TB)$.
 
 1. Prouver que $\langle\,,\rangle$ est un produit scalaire sur $E$.
 

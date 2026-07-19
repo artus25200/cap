@@ -8,15 +8,13 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 10
 banque: "CCINP"
 classic: true
 correction: |
-  1. $(U_1,U_2)$ système complet, formule des probabilités totales : $p_1 = \frac25\times\frac12+\frac47\times
-  \frac12 = \frac{17}{35}$.
+  1. $(U_1,U_2)$ système complet, formule des probabilités totales : $p_1 = \frac25\times\frac12+\frac47\times \frac12 = \frac{17}{35}$.
 
   2. $(B_n,\overline{B_n})$ système complet, et selon la couleur tirée au rang $n$, le tirage suivant se fait
   dans $U_1$ (proba $\frac25$ d'y être blanc) ou $U_2$ (proba $\frac47$) :
   $p_{n+1} = \frac25p_n + \frac47(1-p_n) = -\frac6{35}p_n+\frac47$.
 
-  3. $(p_n)$ est arithmético-géométrique de point fixe $\ell = \frac{20}{41}$ (solution de $\ell=-\frac6{35}\ell+
-  \frac47$). La suite $(u_n)=(p_n-\ell)$ est géométrique de raison $-\frac6{35}$, avec
+  3. $(p_n)$ est arithmético-géométrique de point fixe $\ell = \frac{20}{41}$ (solution de $\ell=-\frac6{35}\ell+ \frac47$). La suite $(u_n)=(p_n-\ell)$ est géométrique de raison $-\frac6{35}$, avec
   $u_1 = p_1-\ell = \frac{17}{35}-\frac{20}{41} = -\frac3{1435}$, donc $u_n = \left(-\frac6{35}\right)^{n-1}u_1$, et
   $$p_n = -\frac3{1435}\left(-\frac6{35}\right)^{n-1} + \frac{20}{41}.$$
 method:

@@ -18,8 +18,7 @@ correction: |
   (b) $\|u_n\|_\infty = \frac1n$ sur $D$, et $\sum \frac1n$ diverge : pas de convergence normale. Pas de
   convergence uniforme non plus (sinon le théorème de la double limite en $-1$ donnerait la convergence de
   $\sum \frac1n$, absurde).
-  (c) Sur $[0,1]$, le CSSA s'applique uniformément : $|R_n(x)| \leqslant \frac{x^{n+1}}{n+1} \leqslant
-  \frac{1}{n+1} \to 0$ (majoration indépendante de $x$) : convergence uniforme sur $[0,1]$.
+  (c) Sur $[0,1]$, le CSSA s'applique uniformément : $|R_n(x)| \leqslant \frac{x^{n+1}}{n+1} \leqslant \frac{1}{n+1} \to 0$ (majoration indépendante de $x$) : convergence uniforme sur $[0,1]$.
 
   **Bilan** : convergence normale sur tout segment de $]-1,1[$, convergence uniforme sur tout segment de $]-1,1]$.
 method:

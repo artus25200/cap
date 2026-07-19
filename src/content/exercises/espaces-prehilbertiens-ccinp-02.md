@@ -29,5 +29,4 @@ Soit $E$ un espace euclidien, $u^*$ l'adjoint d'un endomorphisme $u$.
 
 1. Un endomorphisme $u$ tel que $\forall x, (u(x)|x)=0$ est-il nécessairement nul ?
 
-2. Soit $u\in\mathcal L(E)$. Prouver l'équivalence de : (i) $u\circ u^*=u^*\circ u$ ; (ii) $\forall(x,y),
-(u(x)|u(y))=(u^*(x)|u^*(y))$ ; (iii) $\forall x, \|u(x)\|=\|u^*(x)\|$.
+2. Soit $u\in\mathcal L(E)$. Prouver l'équivalence de : (i) $u\circ u^*=u^*\circ u$ ; (ii) $\forall(x,y), (u(x)|u(y))=(u^*(x)|u^*(y))$ ; (iii) $\forall x, \|u(x)\|=\|u^*(x)\|$.

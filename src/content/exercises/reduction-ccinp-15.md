@@ -14,8 +14,7 @@ correction: |
   $0 = u^3(x)+u^2(x)+u(x) = u^2(y)+u(y)+y = y$. Donc $\mathrm{Im}\,u\cap\mathrm{Ker}\,u=\{0\}$, et par le théorème
   du rang, $E = \mathrm{Im}\,u \oplus \mathrm{Ker}\,u$.
 
-  2. (a) Lemme des noyaux : si $A,B$ sont premiers entre eux, $\mathrm{Ker}(AB)(u) = \mathrm{Ker}\,A(u) \oplus
-  \mathrm{Ker}\,B(u)$.
+  2. (a) Lemme des noyaux : si $A,B$ sont premiers entre eux, $\mathrm{Ker}(AB)(u) = \mathrm{Ker}\,A(u) \oplus \mathrm{Ker}\,B(u)$.
 
   (b) $P=X^3+X^2+X = X(X^2+X+1)$ est annulateur de $u$ (donc $\mathrm{Ker}\,P(u)=E$), avec $X$ et $X^2+X+1$
   premiers entre eux. Le lemme des noyaux donne $E = \mathrm{Ker}\,u \oplus \mathrm{Ker}(u^2+u+\mathrm{Id})$, donc

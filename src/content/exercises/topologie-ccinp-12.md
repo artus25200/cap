@@ -14,11 +14,9 @@ correction: |
   propriétés du module et du max, coefficient par coefficient.
 
   2. Pour $C=AB$, $|c_{i,j}|=\left|\sum_k a_{i,k}b_{k,j}\right| \leqslant \sum_k\|A\|\|B\| = n\|A\|\|B\|$, donc
-  $\|AB\|\leqslant n\|A\|\|B\|$. Par récurrence : $\|A^{p+1}\| = \|A\cdot A^p\| \leqslant n\|A\|\|A^p\| \leqslant
-  n\|A\|\cdot n^{p-1}\|A\|^p = n^p\|A\|^{p+1}$, donc $\|A^p\|\leqslant n^{p-1}\|A\|^p$.
+  $\|AB\|\leqslant n\|A\|\|B\|$. Par récurrence : $\|A^{p+1}\| = \|A\cdot A^p\| \leqslant n\|A\|\|A^p\| \leqslant n\|A\|\cdot n^{p-1}\|A\|^p = n^p\|A\|^{p+1}$, donc $\|A^p\|\leqslant n^{p-1}\|A\|^p$.
 
-  3. $\left\|\dfrac{A^p}{p!}\right\| \leqslant \dfrac1n\cdot\dfrac{(n\|A\|)^p}{p!}$, et $\sum
-  \frac{(n\|A\|)^p}{p!}$ converge (série exponentielle). Par comparaison, $\sum \frac{A^p}{p!}$ converge
+  3. $\left\|\dfrac{A^p}{p!}\right\| \leqslant \dfrac1n\cdot\dfrac{(n\|A\|)^p}{p!}$, et $\sum \frac{(n\|A\|)^p}{p!}$ converge (série exponentielle). Par comparaison, $\sum \frac{A^p}{p!}$ converge
   absolument. Comme $M_n(\mathbb C)$ est de dimension finie, absolue convergence entraîne convergence.
 method:
   title: "Méthode : norme matricielle et convergence de la série exponentielle de matrice"

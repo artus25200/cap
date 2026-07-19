@@ -9,8 +9,7 @@ banque: "CCINP"
 classic: true
 correction: |
   1. Si $\sum f_n$ converge uniformément vers $S$ sur $A$, notons $S_n$ les sommes partielles :
-  $\|S_n-S\|_\infty \to 0$. Alors $\forall n$ assez grand, $|f_n(x)| = |S_n(x)-S_{n-1}(x)| \leqslant
-  \|S_n-S\|_\infty + \|S_{n-1}-S\|_\infty$ (majoration indépendante de $x$), et ce majorant tend vers 0. Donc
+  $\|S_n-S\|_\infty \to 0$. Alors $\forall n$ assez grand, $|f_n(x)| = |S_n(x)-S_{n-1}(x)| \leqslant \|S_n-S\|_\infty + \|S_{n-1}-S\|_\infty$ (majoration indépendante de $x$), et ce majorant tend vers 0. Donc
   $\|f_n\|_\infty \to 0$ : $(f_n)$ converge uniformément vers 0.
 
   2. $f_n(x) = nx^2 e^{-x\sqrt n}$. Convergence simple vers 0 sur $[0,+\infty[$ (via $n^2 f_n(x) = o(1)$ pour

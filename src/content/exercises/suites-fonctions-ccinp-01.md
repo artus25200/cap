@@ -17,9 +17,7 @@ correction: |
   2. Avec $f_n(x) = \dfrac{(-1)^n e^{-nx}}{n}$, on écrit $f_n(x) = (-1)^n u_n(x)$ avec $u_n(x) = e^{-nx}/n$.
   (a) Pour $x<0$, $|f_n(x)|\to+\infty$ : divergence grossière. Pour $x\geqslant0$, $(u_n(x))$ est positive,
   décroissante, de limite nulle : par 1.(a), $\sum f_n(x)$ converge. Donc $\sum f_n$ converge simplement sur $[0,+\infty[$.
-  (b) D'après 1.(b) appliqué uniformément, $|R_n(x)| \leqslant u_{n+1}(x) = \frac{e^{-(n+1)x}}{n+1} \leqslant
-  \frac{1}{n+1}$ pour $x\geqslant0$ (majoration indépendante de $x$). Donc $\|R_n\|_\infty \leqslant \frac{1}{n+1}
-  \to 0$ : convergence uniforme de $\sum f_n$ sur $[0,+\infty[$.
+  (b) D'après 1.(b) appliqué uniformément, $|R_n(x)| \leqslant u_{n+1}(x) = \frac{e^{-(n+1)x}}{n+1} \leqslant \frac{1}{n+1}$ pour $x\geqslant0$ (majoration indépendante de $x$). Donc $\|R_n\|_\infty \leqslant \frac{1}{n+1} \to 0$ : convergence uniforme de $\sum f_n$ sur $[0,+\infty[$.
 method:
   title: "Méthode : critère spécial des séries alternées (CSSA) et majoration uniforme du reste"
   content: >

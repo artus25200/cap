@@ -13,13 +13,11 @@ hints:
   - "Pour étudier le signe de $h(x)-\\ell$ au voisinage de 0, il est plus simple d'étudier le signe de
     $\\ln h(x) - \\ln \\ell$ (même signe, car $\\ln$ est strictement croissante)."
 correction: |
-  1. $\cos x = 1-\frac{x^2}2+\frac{x^4}{24}+o(x^4)$. On pose $u=\cos x-1 = -\frac{x^2}2+\frac{x^4}{24}+o(x^4) =
-  O(x^2)$, donc $u^2 = \frac{x^4}4+o(x^4)$ suffit à l'ordre 4. Avec $\ln(1+u)=u-\frac{u^2}2+o(u^2)$ :
+  1. $\cos x = 1-\frac{x^2}2+\frac{x^4}{24}+o(x^4)$. On pose $u=\cos x-1 = -\frac{x^2}2+\frac{x^4}{24}+o(x^4) = O(x^2)$, donc $u^2 = \frac{x^4}4+o(x^4)$ suffit à l'ordre 4. Avec $\ln(1+u)=u-\frac{u^2}2+o(u^2)$ :
   $$\ln(\cos x) = \left(-\frac{x^2}2+\frac{x^4}{24}\right) - \frac12\times\frac{x^4}4+o(x^4)
   = -\frac{x^2}2-\frac{x^4}{12}+o(x^4).$$
 
-  2. Pour $x\neq0$ au voisinage de $0$, $\ln h(x) = \dfrac1{x^2}\ln(\cos x) = -\dfrac12-\dfrac{x^2}{12}+o(x^2)
-  \xrightarrow[x\to0]{} -\dfrac12$. Par continuité de l'exponentielle, $h(x)\to e^{-1/2}$ : $h$ admet une limite
+  2. Pour $x\neq0$ au voisinage de $0$, $\ln h(x) = \dfrac1{x^2}\ln(\cos x) = -\dfrac12-\dfrac{x^2}{12}+o(x^2) \xrightarrow[x\to0]{} -\dfrac12$. Par continuité de l'exponentielle, $h(x)\to e^{-1/2}$ : $h$ admet une limite
   finie $\ell=e^{-1/2}$ en $0$, et le prolongement $\tilde h$ défini par $\tilde h(0)=e^{-1/2}$,
   $\tilde h(x)=h(x)$ sinon, est continu en $0$.
 

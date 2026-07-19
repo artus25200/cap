@@ -8,12 +8,10 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 51
 banque: "CCINP"
 classic: true
 correction: |
-  1. Posons $u_n = \dfrac{(2n)!}{(n!)^2 4^n(2n+1)}$, positif. $\dfrac{u_{n+1}}{u_n} = \dfrac{(2n+1)^2}{8(n+1)(2n+3)}
-  \underset{+\infty}{\sim} \dfrac14 < 1$ : par d'Alembert, $\sum u_n$ converge.
+  1. Posons $u_n = \dfrac{(2n)!}{(n!)^2 4^n(2n+1)}$, positif. $\dfrac{u_{n+1}}{u_n} = \dfrac{(2n+1)^2}{8(n+1)(2n+3)} \underset{+\infty}{\sim} \dfrac14 < 1$ : par d'Alembert, $\sum u_n$ converge.
 
   2. D'après le cours, $(1+u)^\alpha$ est DSE en 0 de rayon 1 (si $\alpha\notin\mathbb N$), avec
-  $(1+u)^\alpha = 1+\sum_{n\geqslant1} \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}u^n$. Pour $\alpha=-\frac12,
-  u=-t$, en multipliant numérateur et dénominateur par $2\cdot4\cdots2n=2^nn!$ :
+  $(1+u)^\alpha = 1+\sum_{n\geqslant1} \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}u^n$. Pour $\alpha=-\frac12, u=-t$, en multipliant numérateur et dénominateur par $2\cdot4\cdots2n=2^nn!$ :
   $$\frac{1}{\sqrt{1-t}} = \sum_{n=0}^{+\infty} \frac{(2n)!}{(2^nn!)^2}t^n, \qquad R=1.$$
 
   3. Pour $x\in\,]-1,1[$, $t=x^2\in[0,1[\subset\,]-1,1[$, donc
@@ -21,8 +19,7 @@ correction: |
   $\mathrm{Arcsin}'(x)=\frac{1}{\sqrt{1-x^2}}$, on intègre terme à terme (rayon conservé) :
   $$\mathrm{Arcsin}(x) = \sum_{n=0}^{+\infty} \frac{(2n)!}{(2^nn!)^2(2n+1)}x^{2n+1}, \qquad R=1.$$
 
-  4. En $x=\frac12\in\,]-1,1[$ : $\mathrm{Arcsin}\left(\frac12\right) = \sum_{n=0}^{+\infty}
-  \frac{(2n)!}{(n!)^24^n(2n+1)}\cdot\frac{1}{2^{2n+1}}$. Comme $\mathrm{Arcsin}(\frac12)=\frac\pi6$, on obtient
+  4. En $x=\frac12\in\,]-1,1[$ : $\mathrm{Arcsin}\left(\frac12\right) = \sum_{n=0}^{+\infty} \frac{(2n)!}{(n!)^24^n(2n+1)}\cdot\frac{1}{2^{2n+1}}$. Comme $\mathrm{Arcsin}(\frac12)=\frac\pi6$, on obtient
   $$\sum_{n=0}^{+\infty} \frac{(2n)!}{(n!)^24^n(2n+1)} = \frac\pi3.$$
 method:
   title: "Méthode : sommer une série via le DSE de Arcsin"

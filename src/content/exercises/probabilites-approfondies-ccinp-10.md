@@ -23,8 +23,7 @@ correction: |
 
   (b) Pour $Z=X+Y$ avec $X,Y$ indépendantes de Poisson $(\lambda_1),(\lambda_2)$, sur $[-1,1]$ :
   $G_Z(t) = E(t^Xt^Y) = G_X(t)G_Y(t) = e^{(\lambda_1+\lambda_2)(t-1)}$. On reconnaît la fonction génératrice
-  d'une Poisson$(\lambda_1+\lambda_2)$, donc (par unicité, question 1(b)) $Z \hookrightarrow \mathcal
-  P(\lambda_1+\lambda_2)$.
+  d'une Poisson$(\lambda_1+\lambda_2)$, donc (par unicité, question 1(b)) $Z \hookrightarrow \mathcal P(\lambda_1+\lambda_2)$.
 method:
   title: "Méthode : identifier une loi par sa fonction génératrice"
   content: >

@@ -21,8 +21,7 @@ method:
   title: "Méthode : convexité et adhérence via suites"
   content: >
     L'adhérence d'un convexe est convexe : combiner deux suites convergentes coordonnée par coordonnée (via la
-    combinaison convexe $tx_n+(1-t)y_n$) et passer à la limite. La fonction distance $d_A(x)=\inf_{a\in A}
-    \|x-a\|$ caractérise l'adhérence par $d_A(x)=0 \iff x\in\overline A$ — un outil alternatif à la suite
+    combinaison convexe $tx_n+(1-t)y_n$) et passer à la limite. La fonction distance $d_A(x)=\inf_{a\in A} \|x-a\|$ caractérise l'adhérence par $d_A(x)=0 \iff x\in\overline A$ — un outil alternatif à la suite
     explicite pour ce genre de preuve.
 ---
 

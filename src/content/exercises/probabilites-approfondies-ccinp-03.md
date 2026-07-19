@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 99
 banque: "CCINP"
 classic: true
 correction: |
-  1. Inégalité de Bienaymé-Tchebychev : si $X \in L^2$, $\forall a>0,\ P(|X-E(X)|\geqslant a) \leqslant
-  \frac{V(X)}{a^2}$.
+  1. Inégalité de Bienaymé-Tchebychev : si $X \in L^2$, $\forall a>0,\ P(|X-E(X)|\geqslant a) \leqslant \frac{V(X)}{a^2}$.
 
   2. Soit $X=\frac{S_n}n$. Par linéarité, $E(X)=E(Y_1)$ (variables de même loi). Par indépendance,
   $V(X) = \frac1{n^2}V(S_n) = \frac1nV(Y_1)$ (variance d'une somme de variables indépendantes). On applique 1. à
@@ -19,8 +18,7 @@ correction: |
   $T_n=\frac{S_n}n$ (proportion de rouges) :
   $$P(0{,}35\leqslant T_n \leqslant 0{,}45) = 1 - P\left(\left|\frac{S_n}n-E(Y_1)\right| \geqslant 0{,}05\right)
   \geqslant 1 - \frac{0{,}24}{n(0{,}05)^2}.$$
-  On cherche $n$ tel que $1-\frac{0{,}24}{n(0{,}05)^2}\geqslant0{,}95$, ce qui donne $n \geqslant
-  \frac{0{,}24}{0{,}05^3}\approx1920$ : à partir de $n=1920$ tirages, la garantie est assurée.
+  On cherche $n$ tel que $1-\frac{0{,}24}{n(0{,}05)^2}\geqslant0{,}95$, ce qui donne $n \geqslant \frac{0{,}24}{0{,}05^3}\approx1920$ : à partir de $n=1920$ tirages, la garantie est assurée.
 method:
   title: "Méthode : loi faible des grands nombres via Bienaymé-Tchebychev"
   content: >
@@ -33,8 +31,7 @@ method:
 
 1. Rappeler l'inégalité de Bienaymé-Tchebychev.
 
-2. Soit $(Y_n)$ une suite de variables aléatoires indépendantes, de même loi, telle que $\forall n \in \mathbb
-N,\ Y_n \in L^2$. On pose $S_n = \sum_{k=1}^n Y_k$. Prouver que
+2. Soit $(Y_n)$ une suite de variables aléatoires indépendantes, de même loi, telle que $\forall n \in \mathbb N,\ Y_n \in L^2$. On pose $S_n = \sum_{k=1}^n Y_k$. Prouver que
 $$\forall a \in ]0,+\infty[,\ P\left(\left|\frac{S_n}n - E(Y_1)\right| \geqslant a\right) \leqslant
 \frac{V(Y_1)}{na^2}.$$
 

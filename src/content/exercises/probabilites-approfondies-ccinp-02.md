@@ -20,8 +20,7 @@ correction: |
   2. $2^{X+Y}$ est positive, admet une espérance dans $[0,+\infty]$ calculable par transfert :
   $$E(2^{X+Y}) = \sum_{(j,k)\in\mathbb N^2}\frac{(j+k)2^{j+k}}{e\,2^{j+k}j!k!} = \sum_{(j,k)}\frac{j+k}{e\,j!k!}
   = 2\sum_{(j,k)}\frac{j}{e\,j!k!}$$ (par symétrie $j \leftrightarrow k$),
-  et par Fubini (tout est positif), $E(2^{X+Y}) = \frac2e\left(\sum_j\frac{j}{j!}\right)\left(\sum_k\frac1{k!}\right)
-  = \frac2e \cdot e \cdot e = 2e < \infty$. Donc $2^{X+Y}\in L^1$ et $E(2^{X+Y})=2e$.
+  et par Fubini (tout est positif), $E(2^{X+Y}) = \frac2e\left(\sum_j\frac{j}{j!}\right)\left(\sum_k\frac1{k!}\right) = \frac2e \cdot e \cdot e = 2e < \infty$. Donc $2^{X+Y}\in L^1$ et $E(2^{X+Y})=2e$.
 method:
   title: "Méthode : loi marginale et théorème de transfert pour un couple discret"
   content: >

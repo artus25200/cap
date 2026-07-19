@@ -17,8 +17,7 @@ correction: |
   retire les deux constantes), donc $P(X=1) = \dfrac{3(2^n-2)}{3^n} = \dfrac{2^n-2}{3^{n-1}}$. Enfin,
   $P(X=0) = 1-P(X=1)-P(X=2) = 1-\dfrac{2^n-1}{3^{n-1}}$.
 
-  3. (a) $E(X) = 0\cdot P(X=0)+1\cdot P(X=1)+2\cdot P(X=2) = \dfrac{2^n-2}{3^{n-1}}+\dfrac2{3^{n-1}} =
-  3\left(\dfrac23\right)^n$.
+  3. (a) $E(X) = 0\cdot P(X=0)+1\cdot P(X=1)+2\cdot P(X=2) = \dfrac{2^n-2}{3^{n-1}}+\dfrac2{3^{n-1}} = 3\left(\dfrac23\right)^n$.
 
   (b) $\lim_{n\to+\infty} E(X) = 0$ : quand le nombre de boules devient grand, en moyenne aucun des trois
   compartiments ne reste vide (chaque compartiment est presque sûrement atteint).

@@ -10,9 +10,7 @@ classic: true
 hints:
   - "Pour chaque borne problématique, cherche un équivalent simple de la fonction et compare-le à une fonction de Riemann de référence."
 correction: |
-  1. $f(x) = \frac{e^{-x}}{\sqrt{x^2-4}}$ continue sur $]2,+\infty[$. Près de 2 : $f(x) \sim \frac{e^{-2}}{2\sqrt2
-  (x-2)^{1/2}}$, intégrable sur $]2,3]$ (Riemann en $\frac12<1$). En $+\infty$ : $f(x)\sim \frac{e^{-x}}{x} =:
-  g(x)$, et $x^2g(x)\to0$ donc $g=o(1/x^2)$, intégrable sur $[3,+\infty[$. Donc $f$ est intégrable sur $]2,+\infty[$.
+  1. $f(x) = \frac{e^{-x}}{\sqrt{x^2-4}}$ continue sur $]2,+\infty[$. Près de 2 : $f(x) \sim \frac{e^{-2}}{2\sqrt2 (x-2)^{1/2}}$, intégrable sur $]2,3]$ (Riemann en $\frac12<1$). En $+\infty$ : $f(x)\sim \frac{e^{-x}}{x} =: g(x)$, et $x^2g(x)\to0$ donc $g=o(1/x^2)$, intégrable sur $[3,+\infty[$. Donc $f$ est intégrable sur $]2,+\infty[$.
 
   2. $f(x) = \frac{\ln x}{\sqrt{1+x^{2a}}}$. Près de 0 : $|f(x)| \sim |\ln x|$, et $x^{1/2}|\ln x| \to 0$ donc
   $|f|=o(1/x^{1/2})$, intégrable sur $]0,1]$.

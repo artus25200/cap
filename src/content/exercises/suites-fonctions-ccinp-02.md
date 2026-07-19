@@ -13,8 +13,7 @@ hints:
 correction: |
   Notation : $\|f\|_{\infty,X} = \sup_{t\in X}|f(t)|$ pour $f$ bornée sur $X$.
 
-  1. $(g_n)$ converge uniformément vers $g$ sur $X$ signifie : $\forall\varepsilon>0, \exists N, \forall n\geqslant
-  N, \forall x\in X, |g_n(x)-g(x)|\leqslant\varepsilon$. De façon équivalente : $g_n-g$ est bornée à partir d'un
+  1. $(g_n)$ converge uniformément vers $g$ sur $X$ signifie : $\forall\varepsilon>0, \exists N, \forall n\geqslant N, \forall x\in X, |g_n(x)-g(x)|\leqslant\varepsilon$. De façon équivalente : $g_n-g$ est bornée à partir d'un
   certain rang et $\|g_n-g\|_{\infty,X}\to0$.
 
   2. Avec $f_n(x) = \frac{n+2}{n+1} e^{-nx^2}\cos(\sqrt n x)$ :
@@ -22,10 +21,8 @@ correction: |
   simplement vers $f$ avec $f(0)=1$, $f(x)=0$ sinon.
   (b) Chaque $f_n$ est continue sur $[0,+\infty[$ mais $f$ ne l'est pas en 0 : pas de convergence uniforme sur
   $[0,+\infty[$ (une limite uniforme de fonctions continues est continue).
-  (c) Pour $a>0$ : $\forall x\geqslant a$, $|f_n(x)-f(x)| = |f_n(x)| \leqslant \frac{n+2}{n+1}e^{-na^2}
-  \underset{n\to+\infty}{\longrightarrow} 0$ (majoration indépendante de $x$). Donc convergence uniforme sur $[a,+\infty[$.
-  (d) Sur $]0,+\infty[$ : en $x_n = 1/\sqrt n$, $|f_n(x_n)-f(x_n)| = \frac{n+2}{n+1}e^{-1}\cos(1) \to e^{-1}\cos(1)
-  \neq0$, donc $\|f_n-f\|_{\infty,]0,+\infty[}$ ne tend pas vers 0 : pas de convergence uniforme sur $]0,+\infty[$.
+  (c) Pour $a>0$ : $\forall x\geqslant a$, $|f_n(x)-f(x)| = |f_n(x)| \leqslant \frac{n+2}{n+1}e^{-na^2} \underset{n\to+\infty}{\longrightarrow} 0$ (majoration indépendante de $x$). Donc convergence uniforme sur $[a,+\infty[$.
+  (d) Sur $]0,+\infty[$ : en $x_n = 1/\sqrt n$, $|f_n(x_n)-f(x_n)| = \frac{n+2}{n+1}e^{-1}\cos(1) \to e^{-1}\cos(1) \neq0$, donc $\|f_n-f\|_{\infty,]0,+\infty[}$ ne tend pas vers 0 : pas de convergence uniforme sur $]0,+\infty[$.
 method:
   title: "Méthode : convergence uniforme locale, pas globale"
   content: >

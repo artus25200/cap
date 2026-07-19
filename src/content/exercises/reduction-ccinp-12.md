@@ -15,8 +15,7 @@ correction: |
   $v(x) \neq 0$ est vecteur propre de $v \circ u$ pour la valeur propre $\lambda$.
 
   2. Sur $E=\mathbb R[X]$, avec $u: P \mapsto \int_1^X P$ et $v: P \mapsto P'$ : $v \circ u = \mathrm{Id}$ et
-  $u \circ v : P \mapsto P(X)-P(1)$. Donc $\mathrm{Ker}(v\circ u)=\{0\}$ et $\mathrm{Ker}(u\circ v) = \mathbb
-  R_0[X]$ : $0$ est valeur propre de $u\circ v$ mais pas de $v\circ u$. Le résultat de 1. est **faux** pour
+  $u \circ v : P \mapsto P(X)-P(1)$. Donc $\mathrm{Ker}(v\circ u)=\{0\}$ et $\mathrm{Ker}(u\circ v) = \mathbb R_0[X]$ : $0$ est valeur propre de $u\circ v$ mais pas de $v\circ u$. Le résultat de 1. est **faux** pour
   $\lambda=0$ en dimension infinie.
 
   3. En dimension finie, $\det(u\circ v) = \det u \det v = \det(v \circ u)$, donc

@@ -11,8 +11,7 @@ banque: "CCINP"
 classic: true
 correction: |
   1. (a) $A$ symétrique réelle donc diagonalisable (théorème spectral), sans calcul.
-  (b) $\chi_A=\lambda^2(\lambda-3)$, $E_3=\mathrm{Vect}(1,-1,1)$, $E_0: x-y+z=0$ (dimension 2) : $\dim
-  E_3+\dim E_0=3$, diagonalisable.
+  (b) $\chi_A=\lambda^2(\lambda-3)$, $E_3=\mathrm{Vect}(1,-1,1)$, $E_0: x-y+z=0$ (dimension 2) : $\dim E_3+\dim E_0=3$, diagonalisable.
   (c) $\mathrm{rg}\,A=1$ donne $\dim E_0=2$ ; trace $=3=$ somme des valeurs propres donne une 3ᵉ valeur propre
   simple $=3$ : mêmes dimensions, diagonalisable.
   (d) $A^2=3A$, donc $A$ annule $X^2-3X$, scindé à racines simples : diagonalisable.

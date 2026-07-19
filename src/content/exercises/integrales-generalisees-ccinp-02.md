@@ -15,11 +15,9 @@ correction: |
 
   2. (a) $\forall t, \frac{1}{(1+t^2)^{n+1}} \leqslant \frac{1}{(1+t^2)^n}$ : en intégrant, $(I_n)$ est décroissante.
   (b) $(I_n)$ décroissante minorée par 0 donc convergente. $(f_n)$ converge simplement vers $f=\mathbb{1}_{\{0\}}$
-  (nulle sauf en 0), dominée par $\varphi(t)=\frac{1}{1+t^2}$ intégrable : par convergence dominée, $I_n \to
-  \int_0^{+\infty} f = 0$.
+  (nulle sauf en 0), dominée par $\varphi(t)=\frac{1}{1+t^2}$ intégrable : par convergence dominée, $I_n \to \int_0^{+\infty} f = 0$.
 
-  3. $(I_n)$ est positive, décroissante, de limite nulle : par le critère spécial des séries alternées, $\sum
-  (-1)^n I_n$ converge.
+  3. $(I_n)$ est positive, décroissante, de limite nulle : par le critère spécial des séries alternées, $\sum (-1)^n I_n$ converge.
 method:
   title: "Méthode : combiner convergence dominée et CSSA"
   content: >

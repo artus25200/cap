@@ -10,16 +10,14 @@ classic: true
 correction: |
   1. (a) $|x_ny_n| \leqslant \frac12(x_n^2+y_n^2)$, et $\sum x_n^2, \sum y_n^2$ convergent, donc par comparaison
   $\sum x_ny_n$ converge absolument.
-  (b) La suite nulle est dans $\ell^2$. Pour $x,y\in\ell^2, \lambda\in\mathbb R$ : $(x_n+\lambda y_n)^2 =
-  x_n^2+\lambda^2y_n^2+2\lambda x_ny_n$, somme de trois séries convergentes (la dernière d'après 1.(a)), donc
+  (b) La suite nulle est dans $\ell^2$. Pour $x,y\in\ell^2, \lambda\in\mathbb R$ : $(x_n+\lambda y_n)^2 = x_n^2+\lambda^2y_n^2+2\lambda x_ny_n$, somme de trois séries convergentes (la dernière d'après 1.(a)), donc
   $\sum(x_n+\lambda y_n)^2$ converge : $\ell^2$ est un sous-espace vectoriel.
 
   2. $\varphi$ est clairement linéaire. $|\varphi(x)|=|x_p| \leqslant \left(\sum x_n^2\right)^{1/2} = \|x\|$
   (un terme de la somme est majoré par la somme entière), donc $\varphi$ est continue ($P_3$ de l'exercice 36).
 
   3. Soit $x\in F^\perp$. Pour $p\in\mathbb N$, la suite $y=(0,\dots,0,1,0,\dots)\in F$ (1 en position $p$)
-  donne $(x|y)=x_p=0$. Donc $x=0$ : $F^\perp=\{0\}$. D'où $(F^\perp)^\perp = \ell^2 \neq F$ (car $F\subsetneq
-  \ell^2$, par exemple $F$ ne contient pas toutes les suites de $\ell^2$).
+  donne $(x|y)=x_p=0$. Donc $x=0$ : $F^\perp=\{0\}$. D'où $(F^\perp)^\perp = \ell^2 \neq F$ (car $F\subsetneq \ell^2$, par exemple $F$ ne contient pas toutes les suites de $\ell^2$).
 method:
   title: "Méthode : orthogonal d'une partie dense (non fermée)"
   content: >

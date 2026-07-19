@@ -10,8 +10,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 60
 banque: "CCINP"
 classic: true
 correction: |
-  1. $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\ker f \iff a=-2c, b=-2d$, donc $\ker f =
-  \mathrm{Vect}(M_1,M_2)$ avec $M_1=\begin{pmatrix}-2&0\\1&0\end{pmatrix}$, $M_2=\begin{pmatrix}0&-2\\0&1\end{pmatrix}$,
+  1. $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\ker f \iff a=-2c, b=-2d$, donc $\ker f = \mathrm{Vect}(M_1,M_2)$ avec $M_1=\begin{pmatrix}-2&0\\1&0\end{pmatrix}$, $M_2=\begin{pmatrix}0&-2\\0&1\end{pmatrix}$,
   famille libre : base de $\ker f$.
 
   2. $\ker f\neq\{0\}$ donc $f$ non injectif, donc non surjectif ($\dim M_2(\mathbb R)$ fini).

@@ -18,14 +18,12 @@ correction: |
   (b) $A+\frac12I_3$ a toutes ses lignes égales (à $\frac12$ près), donc de rang $1$ : $-\frac12$ est valeur
   propre, avec $\dim E_{-1/2}(A) = 3-1=2$, et $E_{-1/2}(A) = \mathrm{Vect}\big((1,0,-1),(0,1,-1)\big)$.
 
-  (c) $\mathrm{tr}(A)=0$ donc $1$ est valeur propre simple (somme des v.p. $= 0 = 2\times(-\frac12)+1\times
-  \lambda \Rightarrow \lambda=1$). $A$ symétrique réelle : sous-espaces propres orthogonaux et supplémentaires,
+  (c) $\mathrm{tr}(A)=0$ donc $1$ est valeur propre simple (somme des v.p. $= 0 = 2\times(-\frac12)+1\times \lambda \Rightarrow \lambda=1$). $A$ symétrique réelle : sous-espaces propres orthogonaux et supplémentaires,
   donc $E_1(A) = (E_{-1/2}(A))^\perp = \mathrm{Vect}((1,1,1))$. En posant
   $P=\begin{pmatrix}1&1&0\\1&0&1\\1&-1&-1\end{pmatrix}$, $D=\mathrm{diag}(1,-\frac12,-\frac12)$, on a $D=P^{-1}AP$.
 
   3. D'après 1., $(a_{n+1},b_{n+1},c_{n+1})^T = A(a_n,b_n,c_n)^T$, donc par récurrence
-  $(a_n,b_n,c_n)^T = A^n(a_0,b_0,c_0)^T = PD^nP^{-1}(a_0,b_0,c_0)^T$. Avec $(a_0,b_0,c_0)=(1,0,0)$, $D^n =
-  \mathrm{diag}(1,(-\frac12)^n,(-\frac12)^n)$ permet d'exprimer $(a_n,b_n,c_n)$ en fonction de $n$ via ce produit
+  $(a_n,b_n,c_n)^T = A^n(a_0,b_0,c_0)^T = PD^nP^{-1}(a_0,b_0,c_0)^T$. Avec $(a_0,b_0,c_0)=(1,0,0)$, $D^n = \mathrm{diag}(1,(-\frac12)^n,(-\frac12)^n)$ permet d'exprimer $(a_n,b_n,c_n)$ en fonction de $n$ via ce produit
   matriciel.
 method:
   title: "Méthode : chaîne de Markov résolue par diagonalisation"

@@ -16,8 +16,7 @@ correction: |
 
   (b) Cas $\alpha>0$ : la fonction $f(x) = \frac{1}{x(\ln x)^\alpha}$ est continue, décroissante et positive sur
   $[2,+\infty[$, donc par comparaison série-intégrale, $\sum f(n)$ et $\int_2^{+\infty} f(x)\,dx$ sont de même
-  nature. Le changement de variable $t = \ln x$ donne $\int_2^{+\infty} f(x)\,dx = \int_{\ln 2}^{+\infty}
-  \frac{dt}{t^\alpha}$, qui converge ssi $\alpha > 1$ (intégrale de Riemann). Donc $\sum u_n$ converge $\iff \alpha>1$.
+  nature. Le changement de variable $t = \ln x$ donne $\int_2^{+\infty} f(x)\,dx = \int_{\ln 2}^{+\infty} \frac{dt}{t^\alpha}$, qui converge ssi $\alpha > 1$ (intégrale de Riemann). Donc $\sum u_n$ converge $\iff \alpha>1$.
 
   2. Au voisinage de $+\infty$, un développement asymptotique donne $e - \left(1+\frac1n\right)^n \underset{+\infty}{\sim} \frac{e}{2n}$,
   et $\ln(n^2+n) \underset{+\infty}{\sim} 2\ln n$. On en déduit

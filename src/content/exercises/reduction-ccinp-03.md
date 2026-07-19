@@ -10,9 +10,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 65
 banque: "CCINP"
 classic: true
 correction: |
-  1. En développant $P=\sum a_pX^p, Q=\sum b_qX^q$ : $PQ=\sum_{p,q} a_pb_qX^{p+q}$, donc $(PQ)(u) =
-  \sum_{p,q}a_pb_qu^{p+q}$. Par ailleurs, $P(u)\circ Q(u) = \left(\sum a_pu^p\right)\circ\left(\sum
-  b_qu^q\right) = \sum_{p,q}a_pb_qu^{p+q}$ (linéarité et distributivité de $\circ$). Les deux coïncident.
+  1. En développant $P=\sum a_pX^p, Q=\sum b_qX^q$ : $PQ=\sum_{p,q} a_pb_qX^{p+q}$, donc $(PQ)(u) = \sum_{p,q}a_pb_qu^{p+q}$. Par ailleurs, $P(u)\circ Q(u) = \left(\sum a_pu^p\right)\circ\left(\sum b_qu^q\right) = \sum_{p,q}a_pb_qu^{p+q}$ (linéarité et distributivité de $\circ$). Les deux coïncident.
 
   2. (a) $P(u)\circ Q(u)=(PQ)(u)=(QP)(u)=Q(u)\circ P(u)$ (commutativité de $K[X]$).
   (b) Si $P(u)=0$ : $(PQ)(u)=P(u)\circ Q(u) = 0\circ Q(u)=0$, donc $PQ$ annule $u$.

@@ -18,8 +18,7 @@ correction: |
 
   3. Chaque $f_n$ est continue sur $[0,1]$, mais $f$ est discontinue en 0 : pas de convergence uniforme sur $[0,1]$.
 
-  4. $f_n$ continue par morceaux, $(f_n) \to f$ simplement avec $f$ continue par morceaux, et $|f_n(x)| \leqslant
-  e^{-x} \leqslant 1$ (majoration indépendante de $n$, intégrable sur $[0,1]$) : par convergence dominée,
+  4. $f_n$ continue par morceaux, $(f_n) \to f$ simplement avec $f$ continue par morceaux, et $|f_n(x)| \leqslant e^{-x} \leqslant 1$ (majoration indépendante de $n$, intégrable sur $[0,1]$) : par convergence dominée,
   $\lim u_n = \int_0^1 f(x)\,dx = 0$.
 method:
   title: "Méthode : distinguer convergence uniforme locale et convergence dominée"

@@ -17,8 +17,7 @@ correction: |
 
   3. (a) Sur $\mathbb R^2\setminus\{(0,0)\}$, dérivées partielles existent par opérations usuelles, calculs
   directs.
-  (b) $\frac{f(x,0)-f(0,0)}{x}=0\to0$ et de même en $y$ : $\partial f/\partial x(0,0)=\partial f/\partial
-  y(0,0)=0$.
+  (b) $\frac{f(x,0)-f(0,0)}{x}=0\to0$ et de même en $y$ : $\partial f/\partial x(0,0)=\partial f/\partial y(0,0)=0$.
   (c) En posant $r=\sqrt{x^2+y^2}$, on majore (via 1.) $|\partial f/\partial x(x,y)| \leqslant 12r \to0$ et
   $|\partial f/\partial y(x,y)|\leqslant36r\to0$ : les dérivées partielles sont continues en $(0,0)$, donc $f$
   est $C^1$ sur $\mathbb R^2$.

@@ -19,8 +19,7 @@ correction: |
 
   2. $O(E) \subset GL(E)$, $\mathrm{Id}_E \in O(E)$. Pour $(u,v) \in O(E)^2$, $v$ est une isométrie bijective donc
   $v^{-1}$ aussi (car $\|v^{-1}(x)\| = \|v(v^{-1}(x))\| = \|x\|$), et $u \circ v^{-1}$ vérifie
-  $\|u(v^{-1}(x))\| = \|v^{-1}(x)\| = \|x\|$ : c'est une isométrie. Donc $O(E)$ est un sous-groupe de $(GL(E),
-  \circ)$.
+  $\|u(v^{-1}(x))\| = \|v^{-1}(x)\| = \|x\|$ : c'est une isométrie. Donc $O(E)$ est un sous-groupe de $(GL(E), \circ)$.
 
   3. Si $u \in O(E)$, d'après 1.(a) $(u(e_i)|u(e_j)) = (e_i|e_j) = \delta_{ij}$ : $(u(e_1),\dots,u(e_n))$ est une
   famille orthonormée, donc une base orthonormée (libre à $n$ éléments). Réciproquement, si
@@ -47,5 +46,4 @@ de $x$ et de $y$ et $\|.\|$ la norme euclidienne associée.
 2. On note $O(E) = \{u \in \mathcal L(E) / \forall x \in E,\ \|u(x)\|=\|x\|\}$ l'ensemble des isométries
 vectorielles de $E$. Démontrer que $O(E)$, muni de la loi $\circ$, est un groupe.
 
-3. Soit $u \in \mathcal L(E)$, $e=(e_1,\dots,e_n)$ une base orthonormée de $E$. Prouver que $u \in O(E) \iff
-(u(e_1),\dots,u(e_n))$ est une base orthonormée de $E$.
+3. Soit $u \in \mathcal L(E)$, $e=(e_1,\dots,e_n)$ une base orthonormée de $E$. Prouver que $u \in O(E) \iff (u(e_1),\dots,u(e_n))$ est une base orthonormée de $E$.

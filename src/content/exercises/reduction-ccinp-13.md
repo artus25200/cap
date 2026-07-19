@@ -14,8 +14,7 @@ correction: |
   donc $u^k(x)=\lambda^kx$ pour tout $k$ (récurrence), d'où $P(u)(x) = P(\lambda)x$. Or $P(u)=0$ et $x\neq0$, donc
   $P(\lambda)=0$.
 
-  2. (a) Pour $M \in M_n(\mathbb R)$, $u^2(M) = u(M)+\mathrm{tr}(M+\mathrm{tr}(M)A)A = M+2\mathrm{tr}(M)A +
-  \mathrm{tr}(M)\mathrm{tr}(A)A$. Comme $\mathrm{tr}(A)=0$, $u^2(M)=M+2\mathrm{tr}(M)A$, d'où
+  2. (a) Pour $M \in M_n(\mathbb R)$, $u^2(M) = u(M)+\mathrm{tr}(M+\mathrm{tr}(M)A)A = M+2\mathrm{tr}(M)A + \mathrm{tr}(M)\mathrm{tr}(A)A$. Comme $\mathrm{tr}(A)=0$, $u^2(M)=M+2\mathrm{tr}(M)A$, d'où
   $u^2(M)-2u(M)+M = 0$ : $X^2-2X+1$ annule $u$.
 
   (b) *Première méthode* : $P=(X-1)^2$ annulateur, donc $\mathrm{Sp}(u) \subset \{1\}$ (question 1) ; comme
@@ -29,8 +28,7 @@ method:
   title: "Méthode : diagonalisabilité via un polynôme annulateur"
   content: >
     Un polynôme annulateur $P$ de $u$ contraint le spectre : toute valeur propre est racine de $P$. Si $P=(X-\lambda)^2$
-    avec une seule racine, deux stratégies pour conclure sur la diagonalisabilité : soit montrer que $u \neq
-    \lambda\,\mathrm{Id}$ malgré $\mathrm{Sp}(u)=\{\lambda\}$ (donc $u$ non diagonalisable), soit étudier le
+    avec une seule racine, deux stratégies pour conclure sur la diagonalisabilité : soit montrer que $u \neq \lambda\,\mathrm{Id}$ malgré $\mathrm{Sp}(u)=\{\lambda\}$ (donc $u$ non diagonalisable), soit étudier le
     polynôme minimal (racines simples ssi diagonalisable).
 ---
 

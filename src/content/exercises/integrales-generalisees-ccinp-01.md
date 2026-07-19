@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 25
 banque: "CCINP"
 classic: true
 correction: |
-  1. $f_n : t\mapsto \frac{1}{1+t^2+t^ne^{-t}}$ est continue sur $[0,+\infty[$, et $|f_n(t)|
-  \leqslant \frac{1}{1+t^2} =: \varphi(t)$, avec $\varphi \underset{+\infty}{\sim} \frac{1}{t^2}$ intégrable sur
+  1. $f_n : t\mapsto \frac{1}{1+t^2+t^ne^{-t}}$ est continue sur $[0,+\infty[$, et $|f_n(t)| \leqslant \frac{1}{1+t^2} =: \varphi(t)$, avec $\varphi \underset{+\infty}{\sim} \frac{1}{t^2}$ intégrable sur
   $[1,+\infty[$ (Riemann) : $f_n$ est intégrable sur $[0,+\infty[$.
 
   2. $(f_n)$ converge simplement vers $f$ définie par $f(t) = \frac{1}{1+t^2}$ si $t<1$, $f(1) = \frac{1}{2+e^{-1}}$,

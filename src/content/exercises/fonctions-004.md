@@ -25,8 +25,7 @@ correction: |
   $0$.)
 
   3. Sur $]0,+\infty[$ : $\varphi(1) = \arctan(1)+\arctan(1) = 2\times\frac\pi4 = \frac\pi2$, donc
-  $\varphi(x)=\frac\pi2$ pour tout $x>0$. Sur $]-\infty,0[$ : $\varphi(-1) = \arctan(-1)+\arctan(-1) =
-  -\frac\pi2$, donc $\varphi(x)=-\frac\pi2$ pour tout $x<0$. En résumé :
+  $\varphi(x)=\frac\pi2$ pour tout $x>0$. Sur $]-\infty,0[$ : $\varphi(-1) = \arctan(-1)+\arctan(-1) = -\frac\pi2$, donc $\varphi(x)=-\frac\pi2$ pour tout $x<0$. En résumé :
   $$\forall x\in\mathbb R^*,\quad \arctan(x)+\arctan\left(\frac1x\right) = \begin{cases}\dfrac\pi2 & \text{si }
   x>0\\-\dfrac\pi2 & \text{si } x<0\end{cases}.$$
 method:

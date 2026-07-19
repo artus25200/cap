@@ -26,8 +26,7 @@ correction: |
   3. Chaque tirage $X_i$ vérifie $G_{X_i}(t) = \frac14+\frac12t+\frac14t^2 = \frac14(t+1)^2$. Par indépendance et
   généralisation de la question 2, $G_{S_n}(t) = \frac{1}{4^n}(1+t)^{2n} = \sum_{k=0}^{2n}\binom{2n}k\frac{1}{4^n}t^k$.
   Par unicité du développement en série entière, $S_n(\Omega)=\llbracket0,2n\rrbracket$ et
-  $P(S_n=k)=\binom{2n}k\left(\frac12\right)^k\left(\frac12\right)^{2n-k}$ : $S_n \hookrightarrow \mathcal
-  B(2n,\frac12)$.
+  $P(S_n=k)=\binom{2n}k\left(\frac12\right)^k\left(\frac12\right)^{2n-k}$ : $S_n \hookrightarrow \mathcal B(2n,\frac12)$.
 method:
   title: "Méthode : fonction génératrice d'une somme de variables indépendantes"
   content: >

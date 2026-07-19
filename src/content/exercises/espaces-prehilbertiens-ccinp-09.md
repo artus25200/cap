@@ -11,8 +11,7 @@ correction: |
   1. $F = \mathrm{Vect}(I_2, K)$ avec $K = \begin{pmatrix}0&1\\-1&0\end{pmatrix}$ : c'est un sous-espace vectoriel,
   et $(I_2,K)$ en est une base (famille libre génératrice).
 
-  2. Pour $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $M \in F^\perp \iff \varphi(M,I_2)=0$ et $\varphi(M,K)=0 \iff
-  a+d=0$ et $b-c=0$. Donc $F^\perp = \mathrm{Vect}(A,B)$ avec $A=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$,
+  2. Pour $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $M \in F^\perp \iff \varphi(M,I_2)=0$ et $\varphi(M,K)=0 \iff a+d=0$ et $b-c=0$. Donc $F^\perp = \mathrm{Vect}(A,B)$ avec $A=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$,
   $B=\begin{pmatrix}0&1\\1&0\end{pmatrix}$.
 
   3. $J = I_2 + B$ avec $I_2 \in F$, $B \in F^\perp$ : le projeté orthogonal de $J$ sur $F^\perp$ est $B$.

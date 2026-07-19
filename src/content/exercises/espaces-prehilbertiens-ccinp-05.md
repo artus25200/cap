@@ -13,11 +13,9 @@ correction: |
   $\dim (A^\perp)^\perp = \dim A$. Égalité des dimensions avec l'inclusion : $(A^\perp)^\perp = A$.
 
   2. (a) Double inclusion : si $x \in F^\perp \cap G^\perp$, alors pour $y=f+g \in F+G$, $(x|y)=(x|f)+(x|g)=0$,
-  donc $x \in (F+G)^\perp$. Réciproquement si $x \in (F+G)^\perp$, en particulier $x$ est orthogonal à $F \subset
-  F+G$ et à $G \subset F+G$, donc $x \in F^\perp \cap G^\perp$. D'où $(F+G)^\perp = F^\perp \cap G^\perp$.
+  donc $x \in (F+G)^\perp$. Réciproquement si $x \in (F+G)^\perp$, en particulier $x$ est orthogonal à $F \subset F+G$ et à $G \subset F+G$, donc $x \in F^\perp \cap G^\perp$. D'où $(F+G)^\perp = F^\perp \cap G^\perp$.
 
-  (b) En appliquant (a) à $F^\perp$ et $G^\perp$ : $(F^\perp+G^\perp)^\perp = (F^\perp)^\perp \cap (G^\perp)^\perp
-  = F \cap G$ d'après 1. En prenant l'orthogonal des deux membres (et en réutilisant 1.), on obtient
+  (b) En appliquant (a) à $F^\perp$ et $G^\perp$ : $(F^\perp+G^\perp)^\perp = (F^\perp)^\perp \cap (G^\perp)^\perp = F \cap G$ d'après 1. En prenant l'orthogonal des deux membres (et en réutilisant 1.), on obtient
   $F^\perp + G^\perp = (F \cap G)^\perp$.
 method:
   title: "Méthode : formules de l'orthogonal en dimension finie"

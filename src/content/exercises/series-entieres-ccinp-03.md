@@ -11,12 +11,10 @@ correction: |
   1. (a) La dérivée terme à terme $\sum n a_n x^{n-1}$ a le même rayon $R$ que $\sum a_n x^n$, donc converge
   normalement (donc uniformément) sur tout segment de $]-R,R[$ : par le théorème de dérivation terme à terme, la
   somme $S$ est $C^1$ sur $]-R,R[$ avec $S'(x) = \sum n a_n x^{n-1}$.
-  (b) $S(x) = \sum x^n = \frac{1}{1-x}$ (série géométrique) sur $]-1,1[$. D'après 1.(a), $S'(x) = \sum_{n\geqslant1}
-  n x^{n-1} = \frac{1}{(1-x)^2}$, donc $\frac{1}{(1-x)^2} = \sum_{n=0}^{+\infty}(n+1)x^n$.
+  (b) $S(x) = \sum x^n = \frac{1}{1-x}$ (série géométrique) sur $]-1,1[$. D'après 1.(a), $S'(x) = \sum_{n\geqslant1} n x^{n-1} = \frac{1}{(1-x)^2}$, donc $\frac{1}{(1-x)^2} = \sum_{n=0}^{+\infty}(n+1)x^n$.
 
   2. (a) $\frac{1}{1-z} = \sum_{n=0}^{+\infty} z^n$ sur $D=\{|z|<1\}$.
-  (b) Produit de Cauchy : $c_n = \sum_{k=0}^n a_k b_{n-k}$, et si $|z|<\min(R_a,R_b)$, $\left(\sum a_n
-  z^n\right)\left(\sum b_n z^n\right) = \sum c_n z^n$.
+  (b) Produit de Cauchy : $c_n = \sum_{k=0}^n a_k b_{n-k}$, et si $|z|<\min(R_a,R_b)$, $\left(\sum a_n z^n\right)\left(\sum b_n z^n\right) = \sum c_n z^n$.
   (c) $\frac{1}{(1-z)^2} = \frac{1}{1-z}\times\frac{1}{1-z} = \left(\sum z^n\right)^2$, et par produit de Cauchy
   ($a_n=b_n=1$), $c_n = \sum_{k=0}^n 1 = n+1$. Donc $\frac{1}{(1-z)^2} = \sum_{n=0}^{+\infty}(n+1)z^n$ sur $D$.
 method:

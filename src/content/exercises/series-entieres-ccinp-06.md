@@ -16,8 +16,7 @@ correction: |
   $\sum b_nz^n$ converge et $\sum a_nz^n$ diverge, donc leur somme diverge : $R\leqslant R_a$. D'où $R=\min(R_a,R_b)$.
   (Si $R_a=R_b$, on peut seulement affirmer $R\geqslant R_a$ : l'égalité peut être stricte, ex. $a_n=-b_n$.)
 
-  2. $\ln(1+x) = \sum_{n\geqslant1} \frac{(-1)^{n-1}}{n}x^n$ (rayon 1), $\ln(1-2x) = -\sum_{n\geqslant1}
-  \frac{2^n}{n}x^n$ (rayon $\frac12$). Les deux rayons étant distincts, le rayon de la somme $f$ vaut
+  2. $\ln(1+x) = \sum_{n\geqslant1} \frac{(-1)^{n-1}}{n}x^n$ (rayon 1), $\ln(1-2x) = -\sum_{n\geqslant1} \frac{2^n}{n}x^n$ (rayon $\frac12$). Les deux rayons étant distincts, le rayon de la somme $f$ vaut
   $\min(1,\frac12)=\frac12$, et $f(x) = \sum_{n\geqslant1} \frac{(-1)^{n-1}-2^n}{n}x^n$ sur $]-\frac12,\frac12[$.
 
   - En $x=\frac14$ : $|\frac14|<\frac12$, la série converge et $f$ y est continue (somme de série entière sur

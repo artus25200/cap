@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 89
 banque: "CCINP"
 classic: false
 correction: |
-  1. En posant $Z = z^k-1 = e^{i2k\pi/n}-1 = e^{ik\pi/n}\left(e^{ik\pi/n}-e^{-ik\pi/n}\right) =
-  2i\sin(k\pi/n)e^{ik\pi/n}$, soit $Z = 2\sin(k\pi/n)e^{i(k\pi/n+\pi/2)}$. Pour $k \in \llbracket 1,n-1\rrbracket$,
+  1. En posant $Z = z^k-1 = e^{i2k\pi/n}-1 = e^{ik\pi/n}\left(e^{ik\pi/n}-e^{-ik\pi/n}\right) = 2i\sin(k\pi/n)e^{ik\pi/n}$, soit $Z = 2\sin(k\pi/n)e^{i(k\pi/n+\pi/2)}$. Pour $k \in \llbracket 1,n-1\rrbracket$,
   $0 < k\pi/n < \pi$ donc $\sin(k\pi/n)>0$ : le module de $Z$ est $2\sin(k\pi/n)$ et un argument est
   $\frac{k\pi}{n}+\frac\pi2$.
 

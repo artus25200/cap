@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 11
 banque: "CCINP"
 classic: true
 correction: |
-  1. Pour $p\in\llbracket0,n\rrbracket$ fixé, une partie $B$ à $p$ éléments donnée admet $2^p$ parties $A\subset
-  B$, et il y a $\binom np$ choix pour $B$. En sommant (les cas étant disjoints selon $\mathrm{card}\,B$) :
+  1. Pour $p\in\llbracket0,n\rrbracket$ fixé, une partie $B$ à $p$ éléments donnée admet $2^p$ parties $A\subset B$, et il y a $\binom np$ choix pour $B$. En sommant (les cas étant disjoints selon $\mathrm{card}\,B$) :
   $$a = \sum_{p=0}^n\binom np2^p = 3^n$$ (binôme de Newton). *Variante bijective* : associer à $(A,B)$ avec
   $A\subset B$ l'application $\varphi_{A,B}: E\to\{1,2,3\}$ valant $1$ sur $A$, $2$ sur $B\setminus A$, $3$
   ailleurs ; c'est une bijection vers $\mathcal A(E,\{1,2,3\})$, de cardinal $3^n$.

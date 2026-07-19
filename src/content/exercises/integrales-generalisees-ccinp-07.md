@@ -20,8 +20,7 @@ correction: |
   $\int_0^{+\infty} g_n = n!$. Donc $\int_0^{+\infty}|f_n(t)|dt = \frac{|a_n|}{n!}\cdot n! = |a_n|$.
   (b) $\sum \int_0^{+\infty}|f_n| = \sum|a_n| < +\infty$ (convergence absolue de $\sum a_n$). D'après le
   théorème d'intégration terme à terme (chaque $f_n$ continue intégrable, $\sum f_n$ converge simplement vers
-  $f$ continue, et $\sum\int|f_n|$ converge), $f$ est intégrable et $\int_0^{+\infty} f =
-  \sum_{n=0}^{+\infty}\int_0^{+\infty} f_n = \sum_{n=0}^{+\infty} \frac{a_n}{n!}\cdot n! = \sum a_n$.
+  $f$ continue, et $\sum\int|f_n|$ converge), $f$ est intégrable et $\int_0^{+\infty} f = \sum_{n=0}^{+\infty}\int_0^{+\infty} f_n = \sum_{n=0}^{+\infty} \frac{a_n}{n!}\cdot n! = \sum a_n$.
 method:
   title: "Méthode : théorème d'intégration terme à terme (Fubini pour les séries)"
   content: >

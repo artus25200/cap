@@ -10,8 +10,7 @@ classic: true
 correction: |
   1. Pour $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $A'=\begin{pmatrix}a'&b'\\c'&d'\end{pmatrix}$, on pose
   $(A|A')=aa'+bb'+cc'+dd'$ : bilinéarité symétrique immédiate ; $(A|A)=a^2+b^2+c^2+d^2 \geqslant 0$, nulle
-  seulement si $A=0$. C'est un produit scalaire (le produit scalaire canonique sur $M_2(\mathbb R) \simeq
-  \mathbb R^4$).
+  seulement si $A=0$. C'est un produit scalaire (le produit scalaire canonique sur $M_2(\mathbb R) \simeq \mathbb R^4$).
 
   2. Pour $A=\begin{pmatrix}1&0\\-1&2\end{pmatrix}$, on écrit
   $A = \begin{pmatrix}1&0\\0&2\end{pmatrix} + \begin{pmatrix}0&0\\-1&0\end{pmatrix}$ avec le premier terme dans

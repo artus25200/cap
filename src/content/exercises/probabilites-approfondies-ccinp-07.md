@@ -19,8 +19,7 @@ correction: |
 
   2. $P(X=k) = \sum_{m=k}^{+\infty}\binom mk p^k(1-p)^{m-k}e^{-\lambda}\frac{\lambda^m}{m!}$. En factorisant
   $e^{-\lambda}\frac{(\lambda p)^k}{k!}$ et en reconnaissant une série exponentielle de raison $\lambda(1-p)$ pour
-  l'indice $m-k$, on obtient $P(X=k) = e^{-\lambda p}\dfrac{(\lambda p)^k}{k!}$ : $X \hookrightarrow \mathcal
-  P(\lambda p)$.
+  l'indice $m-k$, on obtient $P(X=k) = e^{-\lambda p}\dfrac{(\lambda p)^k}{k!}$ : $X \hookrightarrow \mathcal P(\lambda p)$.
 method:
   title: "Méthode : la loi de Poisson est stable par somme et par amincissement binomial"
   content: >

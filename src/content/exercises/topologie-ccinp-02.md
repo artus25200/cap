@@ -19,8 +19,7 @@ correction: |
   limite, $l=l' \in A$ : $A$ est fermée.
 
   3. Par l'absurde, si $A$ n'est pas bornée : $\forall n, \exists x_n\in A, \|x_n\|>n$. Par compacité, une
-  sous-suite $(x_{\varphi(n)})$ converge vers $l\in A$, donc est bornée ; mais $\|x_{\varphi(n)}\| > \varphi(n)
-  \geqslant n \to +\infty$, contradiction.
+  sous-suite $(x_{\varphi(n)})$ converge vers $l\in A$, donc est bornée ; mais $\|x_{\varphi(n)}\| > \varphi(n) \geqslant n \to +\infty$, contradiction.
 
   4. (a) $\forall x\in S, \|x\|=1$ donc $S$ est bornée. $S = f^{-1}(\{1\})$ où $f=\|\cdot\|$ est continue, donc
   $S$ est fermée (image réciproque d'un fermé par une application continue).

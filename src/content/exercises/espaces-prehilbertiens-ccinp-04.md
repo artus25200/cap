@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 76
 banque: "CCINP"
 classic: true
 correction: |
-  1. (a) Pour $(x,y) \in E^2$, on pose $P(\lambda) = \|x+\lambda y\|^2 = \|y\|^2\lambda^2 + 2\lambda(x|y) + \|x\|^2
-  \geqslant 0$. Si $y=0$ l'inégalité est triviale ; sinon $P$ est un trinôme positif, donc de discriminant réduit
+  1. (a) Pour $(x,y) \in E^2$, on pose $P(\lambda) = \|x+\lambda y\|^2 = \|y\|^2\lambda^2 + 2\lambda(x|y) + \|x\|^2 \geqslant 0$. Si $y=0$ l'inégalité est triviale ; sinon $P$ est un trinôme positif, donc de discriminant réduit
   $\Delta = (x|y)^2 - \|x\|^2\|y\|^2 \leqslant 0$, soit $|(x|y)| \leqslant \|x\|\,\|y\|$.
 
   (b) Égalité $\iff$ ($y=0$) ou ($P$ a une racine double $\lambda_0$, donc $x+\lambda_0y=0$) $\iff$ $x,y$

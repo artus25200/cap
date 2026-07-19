@@ -8,8 +8,7 @@ source: null
 banque: null
 classic: true
 hints:
-  - "Remplace chaque expression par un équivalent usuel en 0 (ou en +∞) : $\\sin x \\sim x$, $1-\\cos x \\sim
-    \\frac{x^2}2$, $e^x-1\\sim x$, $\\ln(1+x)\\sim x$."
+  - "Remplace chaque expression par un équivalent usuel en 0 (ou en +∞) : $\\sin x \\sim x$, $1-\\cos x \\sim \\frac{x^2}2$, $e^x-1\\sim x$, $\\ln(1+x)\\sim x$."
   - "Un équivalent au numérateur divisé par un équivalent au dénominateur donne un équivalent du quotient : pas
     besoin de développement limité complet ici."
 correction: |
@@ -27,8 +26,7 @@ method:
   content: >
     Pour une limite du type $\frac{f(x)}{g(x)}$ en un point où $f$ et $g$ tendent toutes deux vers $0$ (forme
     indéterminée $\frac00$), remplacer $f$ et $g$ par leurs équivalents usuels au voisinage de ce point (issus des
-    DL classiques : $\sin x\sim x$, $1-\cos x\sim\frac{x^2}2$, $e^x-1\sim x$, $\ln(1+x)\sim x$, $(1+x)^\alpha-1\sim
-    \alpha x$...) simplifie immédiatement le calcul, à condition de ne jamais additionner deux équivalents entre
+    DL classiques : $\sin x\sim x$, $1-\cos x\sim\frac{x^2}2$, $e^x-1\sim x$, $\ln(1+x)\sim x$, $(1+x)^\alpha-1\sim \alpha x$...) simplifie immédiatement le calcul, à condition de ne jamais additionner deux équivalents entre
     eux (seule la multiplication/division d'équivalents est licite).
 ---
 

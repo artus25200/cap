@@ -8,13 +8,10 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 16
 banque: "CCINP"
 classic: true
 correction: |
-  1. Pour $x=0$, $u_n(0)=0$. Pour $x\neq0$, un développement asymptotique donne $u_n(x) \underset{+\infty}{\sim}
-  -\frac{x^2}{2n^2}$, donc $\sum |u_n(x)|$ converge par comparaison à $\sum 1/n^2$. Donc $S$ est définie sur $[0,1]$.
+  1. Pour $x=0$, $u_n(0)=0$. Pour $x\neq0$, un développement asymptotique donne $u_n(x) \underset{+\infty}{\sim} -\frac{x^2}{2n^2}$, donc $\sum |u_n(x)|$ converge par comparaison à $\sum 1/n^2$. Donc $S$ est définie sur $[0,1]$.
 
   2. En télescopant, $\sum_{k=1}^n u_k(1) = \ln(n+1) - \sum_{k=1}^n \frac1k =: v_n$. Donc $(v_n)$ converge vers
-  $S(1)$, donc est bornée : $v_n = O(1)$. On en déduit $\sum_{k=1}^n \frac1k = \ln(n+1) - O(1)
-  \underset{+\infty}{\sim} \ln(n+1) \underset{+\infty}{\sim} \ln n$. D'où $\sum_{k=1}^n \frac1k
-  \underset{+\infty}{\sim} \ln n$.
+  $S(1)$, donc est bornée : $v_n = O(1)$. On en déduit $\sum_{k=1}^n \frac1k = \ln(n+1) - O(1) \underset{+\infty}{\sim} \ln(n+1) \underset{+\infty}{\sim} \ln n$. D'où $\sum_{k=1}^n \frac1k \underset{+\infty}{\sim} \ln n$.
 
   3. Chaque $u_n$ est $C^1$ sur $[0,1]$ avec $u_n'(x) = \frac{1}{x+n}-\frac1n = \frac{-x}{n(x+n)}$, donc
   $\|u_n'\|_\infty \leqslant \frac{1}{n^2}$. Comme $\sum 1/n^2$ converge, $\sum u_n'$ converge normalement donc

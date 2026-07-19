@@ -10,8 +10,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 66
 banque: "CCINP"
 classic: true
 correction: |
-  1. Si $A\in S_n^+(\mathbb R)$ : pour $\lambda\in\mathrm{sp}(A)$, $AX=\lambda X$ ($X\neq0$) donne $X^TAX
-  =\lambda\|X\|^2\geqslant0$, donc $\lambda\geqslant0$. Réciproquement, si $\mathrm{sp}(A)\subset[0,+\infty[$ :
+  1. Si $A\in S_n^+(\mathbb R)$ : pour $\lambda\in\mathrm{sp}(A)$, $AX=\lambda X$ ($X\neq0$) donne $X^TAX =\lambda\|X\|^2\geqslant0$, donc $\lambda\geqslant0$. Réciproquement, si $\mathrm{sp}(A)\subset[0,+\infty[$ :
   théorème spectral $A=PDP^T$, et $X^TAX=Y^TDY=\sum\lambda_iy_i^2\geqslant0$ où $Y=P^TX$.
 
   2. $(A^2)^T=A^TA^T=A^2$ (car $A^T=A$) : symétrique. $X^TA^2X=(AX)^T(AX)=\|AX\|^2\geqslant0$.

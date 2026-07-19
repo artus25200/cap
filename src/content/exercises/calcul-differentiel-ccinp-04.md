@@ -8,8 +8,7 @@ source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 56
 banque: "CCINP"
 classic: true
 correction: |
-  1. $f$ est $C^2$ sur l'ouvert $\mathbb R^2$. Points critiques : $\nabla f=0 \iff (6x^2+6y,6x-6y)=(0,0) \iff
-  y=x, x(x+1)=0$, donnant $(0,0)$ et $(-1,-1)$. Hessienne en $(0,0)$ : $\begin{pmatrix}0&6\\6&-6\end{pmatrix}$,
+  1. $f$ est $C^2$ sur l'ouvert $\mathbb R^2$. Points critiques : $\nabla f=0 \iff (6x^2+6y,6x-6y)=(0,0) \iff y=x, x(x+1)=0$, donnant $(0,0)$ et $(-1,-1)$. Hessienne en $(0,0)$ : $\begin{pmatrix}0&6\\6&-6\end{pmatrix}$,
   déterminant $-36<0$ : pas d'extremum (point selle). Hessienne en $(-1,-1)$ :
   $\begin{pmatrix}-12&6\\6&-6\end{pmatrix}$, déterminant $36>0$, trace $-18<0$ : deux valeurs propres négatives,
   maximum local, $f(-1,-1)=3$.

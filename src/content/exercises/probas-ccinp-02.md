@@ -11,12 +11,10 @@ correction: |
   1. $n$ épreuves de Bernoulli indépendantes de paramètre $p$ répétées : $X \hookrightarrow \mathcal B(n,p)$,
   $P(X=k)=\binom nk p^k(1-p)^{n-k}$.
 
-  2. (a) Sous $(X=i)$, $n-i$ nouveaux appels dans les mêmes conditions : $Y|_{X=i} \hookrightarrow \mathcal
-  B(n-i,p)$, donc $P(Y=k|X=i) = \binom{n-i}k p^k(1-p)^{n-i-k}$ pour $k\leqslant n-i$, $0$ sinon.
+  2. (a) Sous $(X=i)$, $n-i$ nouveaux appels dans les mêmes conditions : $Y|_{X=i} \hookrightarrow \mathcal B(n-i,p)$, donc $P(Y=k|X=i) = \binom{n-i}k p^k(1-p)^{n-i-k}$ pour $k\leqslant n-i$, $0$ sinon.
 
   (b) Par la formule des probabilités totales, $P(Z=k) = \sum_{i=0}^k P(Y=k-i|X=i)P(X=i)$. En utilisant
-  l'identité donnée $\binom{n-i}{k-i}\binom ni = \binom ki\binom nk$ et le binôme de Newton sur $\sum_i \binom ki
-  \left(\frac{1}{1-p}\right)^i$, on obtient après simplification (avec $1-p(2-p)=(1-p)^2$) :
+  l'identité donnée $\binom{n-i}{k-i}\binom ni = \binom ki\binom nk$ et le binôme de Newton sur $\sum_i \binom ki \left(\frac{1}{1-p}\right)^i$, on obtient après simplification (avec $1-p(2-p)=(1-p)^2$) :
   $$P(Z=k) = \binom nk \big(p(2-p)\big)^k(1-p)^{2(n-k)} = \binom nk\big(p(2-p)\big)^k\big(1-p(2-p)\big)^{n-k}.$$
   Donc $Z \hookrightarrow \mathcal B(n,p(2-p))$.
 

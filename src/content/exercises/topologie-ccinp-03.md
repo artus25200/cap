@@ -19,9 +19,7 @@ correction: |
   des suites $x_n,y_n\in A$ convergeant vers $x,y$ : $x_n+\lambda y_n \in A$ (car $A$ sev) et converge vers
   $x+\lambda y$, donc $x+\lambda y\in\overline A$.
 
-  4. Par la caractérisation séquentielle appliquée coordonnée par coordonnée : $(x,y)\in\overline{A\times B}
-  \iff \exists (x_n,y_n)\in(A\times B)^{\mathbb N}, (x_n,y_n)\to(x,y) \iff x_n\to x, y_n\to y \iff x\in\overline A,
-  y\in\overline B \iff (x,y)\in\overline A\times\overline B$.
+  4. Par la caractérisation séquentielle appliquée coordonnée par coordonnée : $(x,y)\in\overline{A\times B} \iff \exists (x_n,y_n)\in(A\times B)^{\mathbb N}, (x_n,y_n)\to(x,y) \iff x_n\to x, y_n\to y \iff x\in\overline A, y\in\overline B \iff (x,y)\in\overline A\times\overline B$.
 ---
 
 Soit $A$ une partie non vide d'un $\mathbb{R}$-espace vectoriel normé $E$.

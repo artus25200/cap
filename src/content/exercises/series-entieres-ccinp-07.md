@@ -9,8 +9,7 @@ banque: "CCINP"
 classic: true
 correction: |
   1. Posons $\ell = \lim |a_{n+1}/a_n|$, donc $R = 1/\ell$ (avec les conventions $R=+\infty$ si $\ell=0$, $R=0$
-  si $\ell=+\infty$). En posant $b_n=(n+1)a_{n+1}$, $\frac{|b_{n+1}|}{|b_n|} = \frac{n+2}{n+1}\cdot
-  \frac{|a_{n+2}|}{|a_{n+1}|} \to \ell$ aussi (le facteur $\frac{n+2}{n+1}\to1$). Donc $\sum b_nx^n$ a le même
+  si $\ell=+\infty$). En posant $b_n=(n+1)a_{n+1}$, $\frac{|b_{n+1}|}{|b_n|} = \frac{n+2}{n+1}\cdot \frac{|a_{n+2}|}{|a_{n+1}|} \to \ell$ aussi (le facteur $\frac{n+2}{n+1}\to1$). Donc $\sum b_nx^n$ a le même
   rayon $R$.
 
   2. La dérivée terme à terme de $\sum a_nx^n$ est $\sum n a_n x^{n-1} = \sum (n+1)a_{n+1}x^n = \sum b_n x^n$, de

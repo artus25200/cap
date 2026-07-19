@@ -12,13 +12,11 @@ correction: |
   (Riemann, $1-x<1$ car $x>0$). En $+\infty$ : $t^2\cdot e^{-t}t^{x-1}\to0$ donc $o(1/t^2)$, intégrable sur
   $[1,+\infty[$. Donc intégrable sur $]0,+\infty[$.
 
-  2. Par IPP (termes de bord nuls par croissances comparées) : $\Gamma(x+1) = [-e^{-t}t^x]_0^{+\infty} +
-  x\int_0^{+\infty} e^{-t}t^{x-1}dt = x\,\Gamma(x)$.
+  2. Par IPP (termes de bord nuls par croissances comparées) : $\Gamma(x+1) = [-e^{-t}t^x]_0^{+\infty} + x\int_0^{+\infty} e^{-t}t^{x-1}dt = x\,\Gamma(x)$.
 
   3. On vérifie les hypothèses du théorème de dérivation sous le signe intégrale (domination locale sur tout
   $[a,b]\subset\,]0,+\infty[$ par une fonction $\varphi$ intégrable indépendante de $x$, construite en séparant
-  $]0,1[$ et $[1,+\infty[$) : $\Gamma$ est $C^1$ sur $]0,+\infty[$ avec $\Gamma'(x) = \int_0^{+\infty} (\ln
-  t)e^{-t}t^{x-1}\,dt$.
+  $]0,1[$ et $[1,+\infty[$) : $\Gamma$ est $C^1$ sur $]0,+\infty[$ avec $\Gamma'(x) = \int_0^{+\infty} (\ln t)e^{-t}t^{x-1}\,dt$.
 method:
   title: "Méthode : théorème de dérivation sous le signe intégrale (paramètre continu)"
   content: >
