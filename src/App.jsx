@@ -3,10 +3,11 @@ import { Check, X, Compass, Flag, ChevronDown, Lightbulb, LogOut } from "lucide-
 import "katex/dist/katex.min.css";
 import MathText from "./lib/MathText.jsx";
 import { CHAPTERS, EXERCISES, chapterName, ALL_TAGS, ALL_BANQUES } from "./lib/loadContent.js";
-import { chapterStats, pickNext, pickFromPool, exerciseNote, isoWeekKey } from "./lib/stats.js";
+import { chapterStats, pickNext, pickFromPool, exerciseNote, isoWeekKey, globalStats, weeklyScoreSeries } from "./lib/stats.js";
 import { useAuth } from "./lib/useAuth.js";
 import { useSupabaseHistory } from "./lib/useSupabaseHistory.js";
 import { useChapterPrefs } from "./lib/useChapterPrefs.js";
+import { useUserSettings } from "./lib/useUserSettings.js";
 import { supabase } from "./lib/supabaseClient.js";
 import LoginScreen from "./LoginScreen.jsx";
 
@@ -41,6 +42,12 @@ function CapApp({ session }) {
     enabledChapterIds,
     loading: chapterPrefsLoading,
   } = useChapterPrefs(session.user.id, allChapterIds);
+
+  const {
+    hintLockMinutes,
+    setHintLockMinutes,
+    loading: userSettingsLoading,
+  } = useUserSettings(session.user.id);
 
   const weeklyCount = useMemo(() => {
     const thisWeek = isoWeekKey(Date.now());
@@ -98,7 +105,7 @@ function CapApp({ session }) {
           ))}
         </div>
 
-        {historyLoading || chapterPrefsLoading ? (
+        {historyLoading || chapterPrefsLoading || userSettingsLoading ? (
           <div className="card">
             <div className="empty">Chargement de ta progression...</div>
           </div>
@@ -109,9 +116,16 @@ function CapApp({ session }) {
                 history={history}
                 recordAttempt={recordAttempt}
                 enabledChapterIds={enabledChapterIds}
+                hintLockMinutes={hintLockMinutes}
               />
             )}
-            {tab === "explorer" && <ExplorerTab history={history} recordAttempt={recordAttempt} />}
+            {tab === "explorer" && (
+              <ExplorerTab
+                history={history}
+                recordAttempt={recordAttempt}
+                hintLockMinutes={hintLockMinutes}
+              />
+            )}
             {tab === "profil" && (
               <ProfilTab
                 history={history}
@@ -120,6 +134,8 @@ function CapApp({ session }) {
                 isEnabled={isEnabled}
                 toggleChapter={toggleChapter}
                 setChaptersEnabled={setChaptersEnabled}
+                hintLockMinutes={hintLockMinutes}
+                setHintLockMinutes={setHintLockMinutes}
               />
             )}
           </>
@@ -142,7 +158,7 @@ function CapApp({ session }) {
 // Onglet "S'entraîner" — flux automatique, cible les points faibles.
 // ---------------------------------------------------------------------------
 
-function FlowTab({ history, recordAttempt, enabledChapterIds }) {
+function FlowTab({ history, recordAttempt, enabledChapterIds, hintLockMinutes }) {
   const activeChapters = useMemo(
     () => CHAPTERS.filter((c) => enabledChapterIds.includes(c.id)),
     [enabledChapterIds]
@@ -177,10 +193,10 @@ function FlowTab({ history, recordAttempt, enabledChapterIds }) {
   const secondaryChapters = exercise.chapters.filter((c) => c.id !== targetChapterId);
   const hasReviewContent = exercise.correction || exercise.method || exercise.course;
 
-  function answer(success) {
+  function handleAnswer(success, hintsUsed) {
     if (feedback) return;
     setFeedback(success ? "success" : "fail");
-    const nextHistory = recordAttempt({ exerciseId: exercise.id, success, ts: Date.now() });
+    const nextHistory = recordAttempt({ exerciseId: exercise.id, success, hintsUsed, ts: Date.now() });
 
     if (hasReviewContent) {
       setReview(true);
@@ -221,14 +237,12 @@ function FlowTab({ history, recordAttempt, enabledChapterIds }) {
 
         {!review && (
           <>
-            <div className="btn-row">
-              <button className="btn btn-success" onClick={() => answer(true)}>
-                <Check size={17} /> J'ai réussi
-              </button>
-              <button className="btn btn-fail" onClick={() => answer(false)}>
-                <X size={17} /> Je bloque
-              </button>
-            </div>
+            <AnswerControls
+              exercise={exercise}
+              hintLockMinutes={hintLockMinutes}
+              onSuccess={(hintsUsed) => handleAnswer(true, hintsUsed)}
+              onGiveUp={(hintsUsed) => handleAnswer(false, hintsUsed)}
+            />
             <div className="skip" onClick={skip}>
               changer d'exercice
             </div>
@@ -262,7 +276,7 @@ function FlowTab({ history, recordAttempt, enabledChapterIds }) {
 // classique / difficulté), puis ça enchaîne tout seul dans cette portée.
 // ---------------------------------------------------------------------------
 
-function ExplorerTab({ history, recordAttempt }) {
+function ExplorerTab({ history, recordAttempt, hintLockMinutes }) {
   const [filters, setFilters] = useState({
     chapterId: "",
     tag: "",
@@ -312,10 +326,10 @@ function ExplorerTab({ history, recordAttempt }) {
 
   const hasReviewContent = current.correction || current.method || current.course;
 
-  function answer(success) {
+  function handleAnswer(success, hintsUsed) {
     if (feedback) return;
     setFeedback(success ? "success" : "fail");
-    const nextHistory = recordAttempt({ exerciseId: current.id, success, ts: Date.now() });
+    const nextHistory = recordAttempt({ exerciseId: current.id, success, hintsUsed, ts: Date.now() });
     if (hasReviewContent) {
       setReview(true);
       return;
@@ -346,14 +360,12 @@ function ExplorerTab({ history, recordAttempt }) {
 
         {!review && (
           <>
-            <div className="btn-row">
-              <button className="btn btn-success" onClick={() => answer(true)}>
-                <Check size={17} /> J'ai réussi
-              </button>
-              <button className="btn btn-fail" onClick={() => answer(false)}>
-                <X size={17} /> Je bloque
-              </button>
-            </div>
+            <AnswerControls
+              exercise={current}
+              hintLockMinutes={hintLockMinutes}
+              onSuccess={(hintsUsed) => handleAnswer(true, hintsUsed)}
+              onGiveUp={(hintsUsed) => handleAnswer(false, hintsUsed)}
+            />
             <div className="skip" onClick={skip}>
               changer d'exercice
             </div>
@@ -426,7 +438,6 @@ function Select({ value, onChange, placeholder, options }) {
 // ---------------------------------------------------------------------------
 
 function ExerciseBody({ exercise }) {
-  const [showHints, setShowHints] = useState(false);
   return (
     <>
       <div className="ex-top">
@@ -438,23 +449,110 @@ function ExerciseBody({ exercise }) {
         {exercise.banque && <span className="ex-banque">{exercise.banque}</span>}
       </div>
       <div className="ex-text"><MathText text={exercise.text} /></div>
+    </>
+  );
+}
 
-      {exercise.hints.length > 0 && (
-        <div className="hints-block">
-          <button className="hints-toggle" onClick={() => setShowHints((s) => !s)}>
-            <Lightbulb size={14} />
-            {showHints ? "Cacher les indices" : `Voir ${exercise.hints.length} indice${exercise.hints.length > 1 ? "s" : ""}`}
+// ---------------------------------------------------------------------------
+// AnswerControls : boutons de réponse + logique "Je bloque".
+//
+// Cliquer sur "Je bloque" ne fait plus passer à l'exercice suivant : ça lance
+// un chrono (réglable, 0 à 10 min, défaut 3) pendant lequel aucun indice
+// n'est donné — le temps de vraiment chercher seul. Une fois ce délai
+// écoulé, le premier indice apparaît ; puis un nouvel indice toutes les
+// minutes jusqu'à épuisement. Une fois tous les indices affichés (ou
+// immédiatement après le chrono initial s'il n'y a pas d'indice), le bouton
+// "Voir la correction" apparaît. On peut cliquer "J'ai réussi" à tout moment
+// du parcours — le nombre d'indices déjà révélés à cet instant est transmis
+// au parent (il réduit le gain de score, voir stats.js).
+// ---------------------------------------------------------------------------
+
+function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
+  const hints = exercise.hints || [];
+  const [blocked, setBlocked] = useState(false);
+  const [hintsShown, setHintsShown] = useState(0);
+  const [unlockAt, setUnlockAt] = useState(null);
+  const [now, setNow] = useState(Date.now());
+
+  // Réinitialise tout à chaque changement d'exercice.
+  useEffect(() => {
+    setBlocked(false);
+    setHintsShown(0);
+    setUnlockAt(null);
+  }, [exercise.id]);
+
+  // Horloge : ne tourne que pendant qu'on attend un prochain indice.
+  useEffect(() => {
+    if (unlockAt == null) return;
+    const id = setInterval(() => setNow(Date.now()), 250);
+    return () => clearInterval(id);
+  }, [unlockAt]);
+
+  // Révèle automatiquement l'indice suivant (ou libère "Voir la correction"
+  // s'il n'y en a plus) une fois le délai écoulé.
+  useEffect(() => {
+    if (unlockAt == null || now < unlockAt) return;
+    if (hintsShown < hints.length) {
+      const nextCount = hintsShown + 1;
+      setHintsShown(nextCount);
+      setUnlockAt(nextCount < hints.length ? Date.now() + 60_000 : null);
+    } else {
+      setUnlockAt(null);
+    }
+  }, [now, unlockAt, hintsShown, hints.length]);
+
+  function startBlocked() {
+    setBlocked(true);
+    setUnlockAt(Date.now() + hintLockMinutes * 60_000);
+  }
+
+  const canGiveUp = blocked && unlockAt == null;
+  const remainingMs = unlockAt ? Math.max(0, unlockAt - now) : 0;
+  const remainingLabel = `${Math.floor(remainingMs / 60000)}:${String(
+    Math.floor((remainingMs % 60000) / 1000)
+  ).padStart(2, "0")}`;
+
+  if (!blocked) {
+    return (
+      <>
+        <div className="btn-row">
+          <button className="btn btn-success" onClick={() => onSuccess(0)}>
+            <Check size={17} /> J'ai réussi
           </button>
-          {showHints && (
-            <ol className="hints-list">
-              {exercise.hints.map((h, i) => (
-                <li key={i}><MathText text={h} /></li>
-              ))}
-            </ol>
-          )}
+          <button className="btn btn-fail" onClick={startBlocked}>
+            <X size={17} /> Je bloque
+          </button>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <div className="hint-flow">
+      {hints.slice(0, hintsShown).map((h, i) => (
+        <div className="hint-card" key={i}>
+          <Lightbulb size={14} />
+          <MathText text={h} />
+        </div>
+      ))}
+
+      {unlockAt != null && (
+        <div className="hint-wait">
+          {hintsShown === 0 ? "Continue à chercher — indice dans" : "Indice suivant dans"} {remainingLabel}
         </div>
       )}
-    </>
+
+      <div className="btn-row">
+        <button className="btn btn-success" onClick={() => onSuccess(hintsShown)}>
+          <Check size={17} /> J'ai réussi
+        </button>
+        {canGiveUp && (
+          <button className="btn btn-fail" onClick={() => onGiveUp(hintsShown)}>
+            <X size={17} /> Voir la correction
+          </button>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -502,9 +600,80 @@ function ReportLink({ exercise }) {
 // Onglet "Profil"
 // ---------------------------------------------------------------------------
 
-function ProfilTab({ history, weeklyCount, methods, isEnabled, toggleChapter, setChaptersEnabled }) {
+// ---------------------------------------------------------------------------
+// Graphique d'évolution du score global — SVG maison (pas de dépendance
+// supplémentaire), une valeur par semaine. Les semaines sans historique sont
+// simplement absentes du tracé (score = null).
+// ---------------------------------------------------------------------------
+
+function ScoreTrendChart({ points }) {
+  const width = 320;
+  const height = 120;
+  const padTop = 10;
+  const padBottom = 22;
+  const padX = 6;
+
+  const usable = points.filter((p) => p.score != null);
+  const plotW = width - padX * 2;
+  const plotH = height - padTop - padBottom;
+
+  function xFor(i) {
+    return padX + (points.length > 1 ? (i / (points.length - 1)) * plotW : plotW / 2);
+  }
+  function yFor(score) {
+    // score va de 1 à 10 ; on mappe sur toute la hauteur du tracé
+    return padTop + (1 - (score - 1) / 9) * plotH;
+  }
+
+  const linePoints = usable
+    .map((p) => `${xFor(points.indexOf(p))},${yFor(p.score)}`)
+    .join(" ");
+
+  const last = usable[usable.length - 1];
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="score-chart" preserveAspectRatio="none">
+      {[1, 5.5, 10].map((v) => (
+        <line
+          key={v}
+          x1={padX}
+          x2={width - padX}
+          y1={yFor(v)}
+          y2={yFor(v)}
+          className="score-chart-grid"
+        />
+      ))}
+      {usable.length > 1 && <polyline points={linePoints} className="score-chart-line" />}
+      {usable.map((p) => (
+        <circle key={p.weekKey} cx={xFor(points.indexOf(p))} cy={yFor(p.score)} r="3" className="score-chart-dot" />
+      ))}
+      {last && (
+        <circle cx={xFor(points.indexOf(last))} cy={yFor(last.score)} r="4.5" className="score-chart-dot-last" />
+      )}
+      {points.map((p, i) =>
+        i === 0 || i === points.length - 1 ? (
+          <text key={p.weekKey} x={xFor(i)} y={height - 6} className="score-chart-label" textAnchor={i === 0 ? "start" : "end"}>
+            {p.weekKey.replace(/^\d{4}-/, "")}
+          </text>
+        ) : null
+      )}
+    </svg>
+  );
+}
+
+function ProfilTab({
+  history,
+  weeklyCount,
+  methods,
+  isEnabled,
+  toggleChapter,
+  setChaptersEnabled,
+  hintLockMinutes,
+  setHintLockMinutes,
+}) {
   const [chaptersOpen, setChaptersOpen] = useState(true);
   const [methodsOpen, setMethodsOpen] = useState(true);
+  const [chartWeeks, setChartWeeks] = useState(8);
 
   const sortedChapters = useMemo(() => {
     return [...CHAPTERS]
@@ -516,6 +685,13 @@ function ProfilTab({ history, weeklyCount, methods, isEnabled, toggleChapter, se
   const allYear2Enabled = year2Ids.every((id) => isEnabled(id));
 
   const successCount = history.filter((h) => h.success).length;
+
+  const { score: globalScore } = useMemo(() => globalStats(history, EXERCISES), [history]);
+  const chartPoints = useMemo(
+    () => weeklyScoreSeries(history, EXERCISES, chartWeeks),
+    [history, chartWeeks]
+  );
+  const globalTone = globalScore < 4 ? "weak" : globalScore < 7 ? "mid" : "strong";
 
   return (
     <div className="card">
@@ -531,6 +707,51 @@ function ProfilTab({ history, weeklyCount, methods, isEnabled, toggleChapter, se
         <div className="summary-item">
           <div className="summary-num">{weeklyCount}</div>
           <div className="summary-label">Cette semaine</div>
+        </div>
+      </div>
+
+      <div className="score-global-block">
+        <div className="score-global-top">
+          <div>
+            <div className="score-global-label">Score global</div>
+            <div className={`score-global-num tone-${globalTone}`}>
+              {history.length ? globalScore.toFixed(1) : "—"}<span className="score-global-max">/10</span>
+            </div>
+          </div>
+          <div className="chart-period-toggle">
+            {[4, 8, 12].map((w) => (
+              <button
+                key={w}
+                className={`chart-period-btn ${chartWeeks === w ? "active" : ""}`}
+                onClick={() => setChartWeeks(w)}
+              >
+                {w} sem.
+              </button>
+            ))}
+          </div>
+        </div>
+        {history.length > 0 ? (
+          <ScoreTrendChart points={chartPoints} />
+        ) : (
+          <div className="chart-empty">Le graphique apparaîtra après ton premier exercice.</div>
+        )}
+      </div>
+
+      <div className="settings-block">
+        <div className="settings-label">Avant le premier indice ("Je bloque")</div>
+        <div className="settings-row">
+          <input
+            type="range"
+            min="0"
+            max="10"
+            step="1"
+            value={hintLockMinutes}
+            onChange={(e) => setHintLockMinutes(Number(e.target.value))}
+            className="settings-slider"
+          />
+          <span className="settings-value">
+            {hintLockMinutes === 0 ? "immédiat" : `${hintLockMinutes} min`}
+          </span>
         </div>
       </div>
 
@@ -691,13 +912,6 @@ function GlobalStyle() {
       .ex-banque{ font-size:11px; color:var(--text-dim); border:1px solid var(--border); padding:2px 8px; border-radius:8px; }
       .ex-text{ font-size:19px; font-weight:500; line-height:1.5; margin-bottom:14px; }
 
-      .hints-block{ margin-bottom:16px; }
-      .hints-toggle{
-        display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
-        color:var(--accent); background:none; border:none; cursor:pointer; padding:0; font-family:inherit;
-      }
-      .hints-list{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:var(--text-dim); line-height:1.6; }
-
       .chips{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
       .chip{
         font-size:11px; color:var(--text-dim); border:1px solid var(--border);
@@ -777,6 +991,48 @@ function GlobalStyle() {
       .chevron.open{ transform: rotate(180deg); }
       .pill-sm{ font-size:11.5px; padding:7px 12px; border-radius:10px; }
       .chapters-hint{ color:var(--text-dim); font-size:11.5px; line-height:1.5; margin-bottom:10px; }
+
+      .score-global-block{ padding:16px 0 4px; border-top:1px solid var(--border); margin-top:4px; }
+      .score-global-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; }
+      .score-global-label{ font-size:12px; color:var(--text-dim); font-weight:600; margin-bottom:2px; }
+      .score-global-num{ font-size:30px; font-weight:800; line-height:1; font-family:'IBM Plex Mono', monospace; }
+      .score-global-num.tone-weak{ color:var(--danger); }
+      .score-global-num.tone-mid{ color:#D97706; }
+      .score-global-num.tone-strong{ color:var(--success); }
+      .score-global-max{ font-size:14px; font-weight:600; color:var(--text-dim); margin-left:2px; }
+      .chart-period-toggle{ display:flex; gap:4px; }
+      .chart-period-btn{
+        font-family:inherit; font-size:10.5px; font-weight:700; padding:5px 9px; border-radius:8px;
+        border:1px solid var(--border); background:#fff; color:var(--text-dim); cursor:pointer;
+      }
+      .chart-period-btn.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+      .score-chart{ width:100%; height:110px; display:block; }
+      .score-chart-grid{ stroke:var(--border); stroke-width:1; }
+      .score-chart-line{ fill:none; stroke:var(--accent); stroke-width:2; }
+      .score-chart-dot{ fill:var(--accent); opacity:0.55; }
+      .score-chart-dot-last{ fill:var(--accent); }
+      .score-chart-label{ font-size:8.5px; fill:var(--text-dim); font-family:'IBM Plex Mono', monospace; }
+      .chart-empty{ color:var(--text-dim); font-size:12px; padding:18px 0; text-align:center; }
+
+      .settings-block{ padding:16px 0; border-top:1px solid var(--border); margin-bottom:4px; }
+      .settings-label{ font-size:12.5px; font-weight:600; margin-bottom:10px; }
+      .settings-row{ display:flex; align-items:center; gap:12px; }
+      .settings-slider{ flex:1; accent-color:var(--accent); }
+      .settings-value{
+        font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text-dim);
+        min-width:64px; text-align:right;
+      }
+
+      .hint-flow{ display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+      .hint-card{
+        display:flex; gap:8px; align-items:flex-start; background:var(--accent-soft); color:var(--text);
+        border-radius:12px; padding:11px 13px; font-size:13.5px; line-height:1.5;
+      }
+      .hint-card svg{ flex-shrink:0; margin-top:2px; color:var(--accent); }
+      .hint-wait{
+        font-size:12.5px; color:var(--text-dim); font-family:'IBM Plex Mono', monospace;
+        text-align:center; padding:4px 0;
+      }
 
       .chapter-row{ padding:13px 0; border-top:1px solid var(--border); transition: opacity .15s; }
       .chapter-row:first-child{ border-top:none; }

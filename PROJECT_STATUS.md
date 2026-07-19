@@ -44,6 +44,29 @@ le prochain exercice selon un système de score pondéré par chapitre (flow, "z
    volontaire pour l'instant.
 9. **Sections dépliantes du Profil** (chapitres, cahier de méthodes) : simple état local `useState` + chevron,
    pas de persistance de l'état ouvert/fermé entre sessions (pas nécessaire pour l'instant).
+10. **Flux "Je bloque" avec indices progressifs et chrono** (`AnswerControls` dans App.jsx, juillet 2026) :
+    cliquer sur "Je bloque" ne fait plus échouer l'exercice immédiatement. Ça lance un chrono (réglable 0-10 min,
+    défaut 3, réglage `hint_lock_minutes` dans la table Supabase `user_settings`) pendant lequel aucun indice
+    n'apparaît ; à l'expiration, le premier indice de l'exercice (`exercise.hints`) s'affiche automatiquement,
+    puis un nouvel indice toutes les 60s jusqu'à épuisement. Le bouton "Voir la correction" (= échec) n'apparaît
+    qu'une fois tous les indices révélés (ou tout de suite après le chrono initial s'il n'y a pas d'indice sur cet
+    exercice). "J'ai réussi" reste cliquable à tout moment du parcours. **L'ancien affichage libre de tous les
+    indices d'un coup dans `ExerciseBody` a été retiré** — les indices ne sortent plus que via ce flux.
+    Seuls 13/117 exercices ont un champ `hints` non vide pour l'instant (surtout les `fonctions-*` ; les CCINP
+    n'en ont pas) — pour les autres, "Je bloque" ne fait qu'attendre le chrono initial avant de proposer la
+    correction, sans indice intermédiaire. Prévoir d'ajouter des indices aux exercices CCINP existants dans une
+    prochaine session si besoin.
+11. **Pénalité de score liée aux indices** : `attempts.hints_used` (nouvelle colonne, entier, défaut 0) stocke le
+    nombre d'indices consultés avant la réponse. `chapterStats`/`globalStats` (`src/lib/stats.js`) multiplient le
+    delta d'une **réussite** par `max(0.3, 1 - 0.2 * hintsUsed)` (aucun effet sur un échec — si tu échoues malgré
+    les indices, tu n'étais de toute façon pas récompensé). Formule volontairement simple, à ajuster si elle
+    semble trop douce/dure en pratique.
+12. **Score global + graphique d'évolution** (`globalStats`, `weeklyScoreSeries` dans stats.js ; `ScoreTrendChart`
+    dans App.jsx) : score global = même algo que le score par chapitre mais sur TOUTES les tentatives sans
+    pondération de chapitre. Le graphique (SVG maison, pas de dépendance ajoutée) trace un point par semaine ISO
+    sur les 4/8/12 dernières semaines (sélecteur dans le Profil), en recalculant le score global à partir de
+    l'historique tronqué à chaque date de coupure — pas de table dédiée, tout est recalculé côté client à partir
+    de `attempts`.
 
 ## Import de la banque CCINP — état d'avancement
 
@@ -120,8 +143,13 @@ curl -s -H "Authorization: token <TOKEN>" "https://api.github.com/repos/artus252
 
 - Organisation : `cap` (id `fwhtmdbhlgsaogrqhtdy`)
 - Projet : `cap` (id `iziqchfhcoijqiczbvlo`), région `eu-west-1`, tier gratuit
-- Table `attempts` (id, user_id → auth.users, exercise_id, success, created_at), RLS activée (policies
-  `select_own_attempts` / `insert_own_attempts`, pas d'update/delete — historique en ajout seul)
+- Table `attempts` (id, user_id → auth.users, exercise_id, success, hints_used [ajout juillet 2026, défaut 0],
+  created_at), RLS activée (policies `select_own_attempts` / `insert_own_attempts`, pas d'update/delete —
+  historique en ajout seul)
+- Table `user_settings` (user_id → auth.users, clé primaire ; hint_lock_minutes entier 0-10 défaut 3 ;
+  updated_at), RLS activée (`select_own_user_settings` / `insert_own_user_settings` /
+  `update_own_user_settings`). Une seule ligne par utilisateur (upsert côté client), pas de ligne créée à
+  l'inscription — tant qu'elle n'existe pas, `useUserSettings.js` applique le défaut (3 min) côté client.
 - Table `disabled_chapters` (user_id → auth.users, chapter_id, created_at ; clé primaire composite
   `(user_id, chapter_id)`), RLS activée (`select_own_disabled_chapters` / `insert_own_disabled_chapters` /
   `delete_own_disabled_chapters`). La présence d'une ligne = chapitre désactivé pour cet utilisateur ; pas de

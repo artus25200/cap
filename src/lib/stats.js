@@ -25,6 +25,14 @@ function difficultyModifier(level) {
   return 0; // normal
 }
 
+// Un indice consulté avant de réussir réduit le gain de score obtenu sur
+// cette réussite (mais ne change rien à une pénalité d'échec : si tu échoues
+// malgré les indices, tu n'es de toute façon pas récompensé). Décroissance
+// linéaire avec un plancher pour ne jamais annuler complètement le gain.
+function hintPenaltyFactor(hintsUsed = 0) {
+  return Math.max(0.3, 1 - 0.2 * hintsUsed);
+}
+
 export function chapterStats(history, exercises, chapterId) {
   let score = START_SCORE;
   let successesSoFar = 0;
@@ -45,6 +53,7 @@ export function chapterStats(history, exercises, chapterId) {
     if (h.success) {
       const diminishing = 1 / (1 + successesSoFar / 6);
       delta *= diminishing;
+      delta *= hintPenaltyFactor(h.hintsUsed);
       successesSoFar += 1;
     }
 
@@ -55,6 +64,62 @@ export function chapterStats(history, exercises, chapterId) {
   score = Math.max(1, Math.min(10, score));
   const ticks = weightedAttempts ? Math.max(1, Math.round((score / 10) * 5)) : 0;
   return { attempts: weightedAttempts, score, ticks };
+}
+
+// ---------------------------------------------------------------------------
+// Score global : même logique que chapterStats mais sur TOUTES les
+// tentatives, sans pondération par chapitre (chaque tentative compte à 100%
+// pour ce score d'ensemble). Sert pour l'affichage "score global" du profil
+// et pour le graphique d'évolution.
+// ---------------------------------------------------------------------------
+
+export function globalStats(history, exercises) {
+  let score = START_SCORE;
+  let successesSoFar = 0;
+
+  history.forEach((h) => {
+    const ex = exercises.find((e) => e.id === h.exerciseId);
+    if (!ex) return;
+
+    let delta = h.success
+      ? BASE_DELTA + difficultyModifier(ex.level)
+      : -BASE_DELTA + difficultyModifier(ex.level);
+
+    if (h.success) {
+      const diminishing = 1 / (1 + successesSoFar / 6);
+      delta *= diminishing;
+      delta *= hintPenaltyFactor(h.hintsUsed);
+      successesSoFar += 1;
+    }
+
+    score += delta;
+  });
+
+  score = Math.max(1, Math.min(10, score));
+  return { attempts: history.length, score };
+}
+
+// ---------------------------------------------------------------------------
+// Série temporelle du score global, un point par semaine (dernières
+// `weeksBack` semaines ISO jusqu'à aujourd'hui), pour le graphique
+// d'évolution du profil. `score` vaut `null` tant qu'aucune tentative n'a
+// encore eu lieu à cette date (pour ne pas afficher un score par défaut de 5
+// avant le premier exercice).
+// ---------------------------------------------------------------------------
+
+export function weeklyScoreSeries(history, exercises, weeksBack = 8) {
+  const now = Date.now();
+  const points = [];
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const weekEndTs = now - i * 7 * 86400000;
+    const upToHere = history.filter((h) => h.ts <= weekEndTs);
+    const { score } = globalStats(upToHere, exercises);
+    points.push({
+      weekKey: isoWeekKey(weekEndTs),
+      score: upToHere.length ? score : null,
+    });
+  }
+  return points;
 }
 
 // Note affichée sur l'exercice lui-même (dérivée du niveau, 1-5 -> 2-10).
