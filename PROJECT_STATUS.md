@@ -44,14 +44,15 @@ le prochain exercice selon un système de score pondéré par chapitre (flow, "z
    volontaire pour l'instant.
 9. **Sections dépliantes du Profil** (chapitres, cahier de méthodes) : simple état local `useState` + chevron,
    pas de persistance de l'état ouvert/fermé entre sessions (pas nécessaire pour l'instant).
-10. **Flux "Je bloque" avec indices progressifs et chrono** (`AnswerControls` dans App.jsx, juillet 2026) :
+10. **Flux "Je bloque" avec indices sur demande et chrono** (`AnswerControls` dans App.jsx, juillet 2026) :
     cliquer sur "Je bloque" ne fait plus échouer l'exercice immédiatement. Ça lance un chrono (réglable 0-10 min,
     défaut 3, réglage `hint_lock_minutes` dans la table Supabase `user_settings`) pendant lequel aucun indice
-    n'apparaît ; à l'expiration, le premier indice de l'exercice (`exercise.hints`) s'affiche automatiquement,
-    puis un nouvel indice toutes les 60s jusqu'à épuisement. Le bouton "Voir la correction" (= échec) n'apparaît
-    qu'une fois tous les indices révélés (ou tout de suite après le chrono initial s'il n'y a pas d'indice sur cet
-    exercice). "J'ai réussi" reste cliquable à tout moment du parcours. **L'ancien affichage libre de tous les
-    indices d'un coup dans `ExerciseBody` a été retiré** — les indices ne sortent plus que via ce flux.
+    n'est accessible ; à l'expiration, un bouton "Voir l'indice N" apparaît — **l'indice ne s'affiche jamais tout
+    seul, il faut cliquer pour le révéler**. Après ce clic, un nouveau chrono d'une minute se lance avant que le
+    bouton de l'indice suivant redevienne disponible, et ainsi de suite. Le bouton "Voir la correction" (= échec)
+    n'apparaît qu'une fois tous les indices vus (ou tout de suite après le chrono initial s'il n'y a pas d'indice
+    sur cet exercice). "J'ai réussi" reste cliquable à tout moment du parcours. **L'ancien affichage libre de tous
+    les indices d'un coup dans `ExerciseBody` a été retiré** — les indices ne sortent plus que via ce flux.
     Seuls 13/117 exercices ont un champ `hints` non vide pour l'instant (surtout les `fonctions-*` ; les CCINP
     n'en ont pas) — pour les autres, "Je bloque" ne fait qu'attendre le chrono initial avant de proposer la
     correction, sans indice intermédiaire. Prévoir d'ajouter des indices aux exercices CCINP existants dans une

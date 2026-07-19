@@ -458,20 +458,22 @@ function ExerciseBody({ exercise }) {
 //
 // Cliquer sur "Je bloque" ne fait plus passer à l'exercice suivant : ça lance
 // un chrono (réglable, 0 à 10 min, défaut 3) pendant lequel aucun indice
-// n'est donné — le temps de vraiment chercher seul. Une fois ce délai
-// écoulé, le premier indice apparaît ; puis un nouvel indice toutes les
-// minutes jusqu'à épuisement. Une fois tous les indices affichés (ou
-// immédiatement après le chrono initial s'il n'y a pas d'indice), le bouton
-// "Voir la correction" apparaît. On peut cliquer "J'ai réussi" à tout moment
-// du parcours — le nombre d'indices déjà révélés à cet instant est transmis
-// au parent (il réduit le gain de score, voir stats.js).
+// n'est accessible — le temps de vraiment chercher seul. Une fois ce délai
+// écoulé, un bouton "Voir l'indice" apparaît (l'indice n'est PAS affiché
+// automatiquement, il faut cliquer) ; après ce clic, un nouveau chrono d'une
+// minute se lance avant que le bouton de l'indice suivant ne redevienne
+// disponible, et ainsi de suite. Une fois tous les indices vus (ou tout de
+// suite après le chrono initial s'il n'y a pas d'indice sur cet exercice),
+// le bouton "Voir la correction" apparaît. On peut cliquer "J'ai réussi" à
+// tout moment du parcours — le nombre d'indices déjà révélés à cet instant
+// est transmis au parent (il réduit le gain de score, voir stats.js).
 // ---------------------------------------------------------------------------
 
 function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
   const hints = exercise.hints || [];
   const [blocked, setBlocked] = useState(false);
   const [hintsShown, setHintsShown] = useState(0);
-  const [unlockAt, setUnlockAt] = useState(null);
+  const [unlockAt, setUnlockAt] = useState(null); // moment où la prochaine action devient cliquable
   const [now, setNow] = useState(Date.now());
 
   // Réinitialise tout à chaque changement d'exercice.
@@ -481,32 +483,32 @@ function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
     setUnlockAt(null);
   }, [exercise.id]);
 
-  // Horloge : ne tourne que pendant qu'on attend un prochain indice.
+  // Horloge : ne tourne que pendant qu'on attend réellement (s'arrête d'elle
+  // même dès que le délai est écoulé, pas besoin de la couper ailleurs).
   useEffect(() => {
-    if (unlockAt == null) return;
-    const id = setInterval(() => setNow(Date.now()), 250);
-    return () => clearInterval(id);
-  }, [unlockAt]);
-
-  // Révèle automatiquement l'indice suivant (ou libère "Voir la correction"
-  // s'il n'y en a plus) une fois le délai écoulé.
-  useEffect(() => {
-    if (unlockAt == null || now < unlockAt) return;
-    if (hintsShown < hints.length) {
-      const nextCount = hintsShown + 1;
-      setHintsShown(nextCount);
-      setUnlockAt(nextCount < hints.length ? Date.now() + 60_000 : null);
-    } else {
-      setUnlockAt(null);
-    }
-  }, [now, unlockAt, hintsShown, hints.length]);
+    if (unlockAt == null || now >= unlockAt) return;
+    const id = setTimeout(() => setNow(Date.now()), 250);
+    return () => clearTimeout(id);
+  }, [unlockAt, now]);
 
   function startBlocked() {
     setBlocked(true);
     setUnlockAt(Date.now() + hintLockMinutes * 60_000);
   }
 
-  const canGiveUp = blocked && unlockAt == null;
+  // Clic sur "Voir l'indice N" : révèle CET indice précis, puis relance un
+  // chrono d'une minute avant le suivant (ou libère "Voir la correction"
+  // immédiatement s'il n'y en a plus).
+  function revealNextHint() {
+    const nextCount = hintsShown + 1;
+    setHintsShown(nextCount);
+    setUnlockAt(nextCount < hints.length ? Date.now() + 60_000 : null);
+  }
+
+  const waiting = blocked && unlockAt != null && now < unlockAt;
+  const ready = blocked && !waiting;
+  const hasMoreHints = hintsShown < hints.length;
+
   const remainingMs = unlockAt ? Math.max(0, unlockAt - now) : 0;
   const remainingLabel = `${Math.floor(remainingMs / 60000)}:${String(
     Math.floor((remainingMs % 60000) / 1000)
@@ -514,16 +516,14 @@ function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
 
   if (!blocked) {
     return (
-      <>
-        <div className="btn-row">
-          <button className="btn btn-success" onClick={() => onSuccess(0)}>
-            <Check size={17} /> J'ai réussi
-          </button>
-          <button className="btn btn-fail" onClick={startBlocked}>
-            <X size={17} /> Je bloque
-          </button>
-        </div>
-      </>
+      <div className="btn-row">
+        <button className="btn btn-success" onClick={() => onSuccess(0)}>
+          <Check size={17} /> J'ai réussi
+        </button>
+        <button className="btn btn-fail" onClick={startBlocked}>
+          <X size={17} /> Je bloque
+        </button>
+      </div>
     );
   }
 
@@ -536,17 +536,23 @@ function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
         </div>
       ))}
 
-      {unlockAt != null && (
+      {waiting && (
         <div className="hint-wait">
           {hintsShown === 0 ? "Continue à chercher — indice dans" : "Indice suivant dans"} {remainingLabel}
         </div>
+      )}
+
+      {ready && hasMoreHints && (
+        <button className="btn btn-hint" onClick={revealNextHint}>
+          <Lightbulb size={17} /> Voir l'indice {hintsShown + 1}
+        </button>
       )}
 
       <div className="btn-row">
         <button className="btn btn-success" onClick={() => onSuccess(hintsShown)}>
           <Check size={17} /> J'ai réussi
         </button>
-        {canGiveUp && (
+        {ready && !hasMoreHints && (
           <button className="btn btn-fail" onClick={() => onGiveUp(hintsShown)}>
             <X size={17} /> Voir la correction
           </button>
@@ -928,6 +934,7 @@ function GlobalStyle() {
       .btn:active{ transform: scale(0.97); }
       .btn-success{ background:var(--success); color:#fff; }
       .btn-fail{ background:#fff; color:var(--danger); border:1.5px solid var(--danger-soft); }
+      .btn-hint{ width:100%; background:var(--accent-soft); color:var(--accent); }
       .btn-primary{ width:100%; background:var(--accent); color:#fff; margin-top:4px; }
       .skip{
         text-align:center; margin-top:12px; font-size:12.5px; color:var(--text-dim);
