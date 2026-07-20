@@ -456,44 +456,60 @@ function ExerciseBody({ exercise }) {
 // ---------------------------------------------------------------------------
 // AnswerControls : boutons de réponse + logique "Je bloque".
 //
-// Cliquer sur "Je bloque" ne fait plus passer à l'exercice suivant : ça lance
-// un chrono (réglable, 0 à 10 min, défaut 3) pendant lequel aucun indice
-// n'est accessible — le temps de vraiment chercher seul. Une fois ce délai
-// écoulé, un bouton "Voir l'indice" apparaît (l'indice n'est PAS affiché
-// automatiquement, il faut cliquer) ; après ce clic, un nouveau chrono d'une
-// minute se lance avant que le bouton de l'indice suivant ne redevienne
-// disponible, et ainsi de suite. Une fois tous les indices vus (ou tout de
-// suite après le chrono initial s'il n'y a pas d'indice sur cet exercice),
-// le bouton "Voir la correction" apparaît. On peut cliquer "J'ai réussi" à
-// tout moment du parcours — le nombre d'indices déjà révélés à cet instant
-// est transmis au parent (il réduit le gain de score, voir stats.js).
+// Le chrono initial (réglable, 0 à 10 min, défaut 3) démarre en arrière-plan
+// DÈS QUE L'EXERCICE APPARAÎT, pas au moment du clic sur "Je bloque" : ça
+// force à chercher au moins ce temps-là avant de pouvoir accéder à un indice
+// ou à la correction, même si on clique sur "Je bloque" tout de suite. Si on
+// clique après avoir déjà cherché plus longtemps que ce délai, l'indice est
+// immédiatement accessible (le temps déjà écoulé compte).
+//
+// Une fois ce délai passé, un bouton "Voir l'indice N" apparaît — l'indice
+// n'est JAMAIS affiché automatiquement, il faut cliquer pour le révéler.
+// Après ce clic, un nouveau chrono d'une minute (celui-là déclenché par le
+// clic, pas par l'apparition de l'exercice) se lance avant que le bouton de
+// l'indice suivant ne redevienne disponible, et ainsi de suite. Une fois
+// tous les indices vus (ou tout de suite après le chrono initial s'il n'y a
+// pas d'indice sur cet exercice), le bouton "Voir la correction" apparaît.
+// On peut cliquer "J'ai réussi" à tout moment du parcours — le nombre
+// d'indices déjà révélés à cet instant est transmis au parent (il réduit le
+// gain de score, voir stats.js).
 // ---------------------------------------------------------------------------
 
 function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
   const hints = exercise.hints || [];
+  const [shownAt, setShownAt] = useState(() => Date.now());
   const [blocked, setBlocked] = useState(false);
   const [hintsShown, setHintsShown] = useState(0);
-  const [unlockAt, setUnlockAt] = useState(null); // moment où la prochaine action devient cliquable
+  const [unlockAt, setUnlockAt] = useState(null); // délai pour le 2e indice et suivants (déclenché par clic)
   const [now, setNow] = useState(Date.now());
 
-  // Réinitialise tout à chaque changement d'exercice.
+  // Réinitialise tout à chaque changement d'exercice : le chrono initial
+  // repart de zéro dès que le nouvel exercice apparaît.
   useEffect(() => {
+    setShownAt(Date.now());
     setBlocked(false);
     setHintsShown(0);
     setUnlockAt(null);
   }, [exercise.id]);
 
-  // Horloge : ne tourne que pendant qu'on attend réellement (s'arrête d'elle
-  // même dès que le délai est écoulé, pas besoin de la couper ailleurs).
+  // Le délai courant à respecter : pour le tout premier indice, il est
+  // ancré sur l'apparition de l'exercice (shownAt) et non sur le clic
+  // "Je bloque" ; pour les suivants, sur l'instant de révélation du
+  // précédent (unlockAt, état classique).
+  const firstUnlockAt = shownAt + hintLockMinutes * 60_000;
+  const currentUnlockAt = hintsShown === 0 ? firstUnlockAt : unlockAt;
+
+  // Horloge : ne tourne que si on est bloqué et qu'un compte à rebours est
+  // affiché (s'arrête d'elle-même une fois le délai écoulé).
   useEffect(() => {
-    if (unlockAt == null || now >= unlockAt) return;
+    if (!blocked || currentUnlockAt == null || now >= currentUnlockAt) return;
     const id = setTimeout(() => setNow(Date.now()), 250);
     return () => clearTimeout(id);
-  }, [unlockAt, now]);
+  }, [blocked, currentUnlockAt, now]);
 
   function startBlocked() {
     setBlocked(true);
-    setUnlockAt(Date.now() + hintLockMinutes * 60_000);
+    setNow(Date.now()); // resynchronise l'affichage avec l'instant du clic
   }
 
   // Clic sur "Voir l'indice N" : révèle CET indice précis, puis relance un
@@ -505,11 +521,11 @@ function AnswerControls({ exercise, hintLockMinutes, onSuccess, onGiveUp }) {
     setUnlockAt(nextCount < hints.length ? Date.now() + 60_000 : null);
   }
 
-  const waiting = blocked && unlockAt != null && now < unlockAt;
+  const waiting = blocked && currentUnlockAt != null && now < currentUnlockAt;
   const ready = blocked && !waiting;
   const hasMoreHints = hintsShown < hints.length;
 
-  const remainingMs = unlockAt ? Math.max(0, unlockAt - now) : 0;
+  const remainingMs = currentUnlockAt ? Math.max(0, currentUnlockAt - now) : 0;
   const remainingLabel = `${Math.floor(remainingMs / 60000)}:${String(
     Math.floor((remainingMs % 60000) / 1000)
   ).padStart(2, "0")}`;
