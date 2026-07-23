@@ -7,6 +7,11 @@ tags: [loi géométrique, loi jointe, série entière admise, loi marginale]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 111"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, somme d'abord sur $k$ à $n$ fixé en reconnaissant la formule du binôme de Newton pour $\\sum_k\\binom nk$, puis somme sur $n$ (série géométrique)."
+  - "Pour la question 2.(a), le calcul est le même qu'à la question 1 mais sans sommer sur $n$."
+  - "Pour la question 2.(b)-(c), compare la loi de $1+Y$ à la forme générale d'une loi géométrique pour en déduire directement l'espérance."
+  - "Pour la question 3, fais apparaître la forme admise dans l'énoncé ($\\sum_{n\\geqslant k}\\binom nk x^{n-k}$) en factorisant tout ce qui ne dépend pas de $n$ dans la somme définissant $P(X=k)$."
 correction: |
   1. Tous les termes sont positifs ; par Fubini et reconnaissance du binôme de Newton puis d'une série
   géométrique :

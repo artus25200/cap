@@ -7,6 +7,10 @@ tags: [intégrale à paramètre, fonction Gamma, dérivation sous le signe inté
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 29"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, traite séparément le comportement en 0 (équivalent à $t^{x-1}$, Riemann) et en $+\\infty$ (croissances comparées face à $e^{-t}$)."
+  - "Pour la question 2, intègre par parties en dérivant $t^x$ et en intégrant $e^{-t}$."
+  - "Pour la question 3, applique le théorème de dérivation sous le signe intégrale : la difficulté est de construire une domination locale (sur un segment $[a,b]\\subset\\,]0,+\\infty[$) de $\\partial f/\\partial x$, en traitant séparément le voisinage de 0 et l'infini."
 correction: |
   1. $t\mapsto e^{-t}t^{x-1}$ continue positive sur $]0,+\infty[$. En 0 : $\sim t^{x-1}$, intégrable sur $]0,1]$
   (Riemann, $1-x<1$ car $x>0$). En $+\infty$ : $t^2\cdot e^{-t}t^{x-1}\to0$ donc $o(1/t^2)$, intégrable sur

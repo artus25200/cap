@@ -7,6 +7,9 @@ tags: [formule de Taylor, multiplicité d'une racine, factorisation]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 85"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(b), traduis $P=(X-a)^rQ$ avec $Q(a)\\neq0$ en développant $Q$ dans la base $(1,(X-a),\\dots)$, puis compare à la décomposition de Taylor obtenue en 1.(a) par unicité des coefficients."
+  - "Pour la question 2, traduis « 1 racine double » par le système $P(1)=0$, $P'(1)=0$, $P''(1)\\neq0$ d'après la question 1.(b), résous-le en $a,b$, puis factorise sachant que $(X-1)^2$ divise $P$."
 correction: |
   1. (a) $P(X) = \sum_{k=0}^n \frac{P^{(k)}(a)}{k!}(X-a)^k$.
 

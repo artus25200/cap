@@ -7,6 +7,10 @@ tags: [interpolation de Lagrange, isomorphisme, base de polynômes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 87"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, montre que l'application d'évaluation aux points $a_i$ est injective en comptant les racines d'un polynôme du noyau, puis conclus avec un argument de dimension."
+  - "Pour la question 2, remarque que $L_k$ doit s'annuler en tous les $a_i$ sauf $a_k$ : il est donc divisible par $\\prod_{i\\neq k}(X-a_i)$, et un argument de degré donne l'égalité à une constante près, fixée par $L_k(a_k)=1$."
+  - "Pour la question 3, compare les valeurs prises par $\\sum a_k^pL_k$ et par $X^p$ en chaque point $a_i$, et utilise l'unicité de l'interpolation établie en question 1."
 correction: |
   1. L'application $u: \mathbb R_n[X] \to \mathbb R^{n+1}$, $P \mapsto (P(a_0),\dots,P(a_n))$ est linéaire, et
   injective : si $P \in \mathrm{Ker}\,u$, $P$ (de degré $\leqslant n$) admet $n+1$ racines distinctes, donc

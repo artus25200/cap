@@ -7,6 +7,10 @@ tags: [intégrale à paramètre, continuité, convergence dominée à paramètre
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 50"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, cherche une domination locale de $f(x,t)$ sur un segment $[a,b]\\subset\\,]0,+\\infty[$, en minorant $x+t$ par $a$."
+  - "Pour la question 2, multiplie par $x$ à l'intérieur de l'intégrale pour faire apparaître $h_x(t)=\\frac{x}{x+t}e^{-2t}$, étudie sa limite simple quand $x\\to+\\infty$, et trouve une domination indépendante de $x$."
+  - "Pour la question 3, traduis directement le résultat de la question 2 en termes d'équivalent de $F(x)$."
 correction: |
   1. $f(x,t)=\frac{e^{-2t}}{x+t}$ continue en $t$ pour $x$ fixé, continue en $x$ pour $t$ fixé. Sur tout segment
   $[a,b]\subset\,]0,+\infty[$ : $|f(x,t)|\leqslant\frac1a e^{-2t}=:\varphi(t)$, intégrable sur $[0,+\infty[$

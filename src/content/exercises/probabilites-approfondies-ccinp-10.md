@@ -9,6 +9,11 @@ tags: [fonction génératrice, dérivées successives, loi de Poisson, unicité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 110"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), majore $|t^nP(X=n)|$ par $P(X=n)$ pour $t\\in[-1,1]$ et utilise la convergence de $\\sum P(X=n)$."
+  - "Pour la question 1.(b), dérive $k$ fois terme à terme la série entière $G_X$ et évalue en $t=0$."
+  - "Pour la question 2.(a), reconnais dans $\\sum t^ne^{-\\lambda}\\lambda^n/n!$ le développement en série entière de l'exponentielle."
+  - "Pour la question 2.(b), calcule $G_Z$ comme produit de $G_X$ et $G_Y$ (indépendance), puis identifie la forme obtenue à celle d'une loi de Poisson via l'unicité établie en question 1.(b)."
 correction: |
   1. (a) $\forall t\in[-1,1]$, $|t^nP(X=n)|\leqslant P(X=n)$ et $\sum P(X=n)=1$ converge : convergence absolue de
   $\sum t^nP(X=n)$ sur $[-1,1]$, donc $R_X\geqslant1$ et $[-1,1]\subset D_{G_X}$. Le théorème du transfert donne

@@ -7,6 +7,9 @@ tags: [couple de variables aléatoires, indépendance, loi marginale, théorème
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 97"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, somme la loi jointe sur $j$ pour obtenir la loi marginale de $Y$, en séparant le terme $(j+k)$ en deux sommes reconnaissables comme des séries exponentielles ; pour l'indépendance, cherche un couple de valeurs où la loi jointe s'annule mais pas le produit des marginales."
+  - "Pour la question 2, applique le théorème de transfert pour écrire $E(2^{X+Y})$ comme une double somme, sépare $(j+k)$ en $j+k$ par symétrie des rôles, puis factorise en produit de deux séries exponentielles (légitime par positivité, via Fubini)."
 correction: |
   1. Pour $k\in\mathbb N$, tous les termes étant positifs, on somme dans $[0,+\infty]$ :
   $$P(Y=k) = \sum_{j=0}^{+\infty}\frac{(j+k)\left(\frac12\right)^{j+k}}{e\,j!\,k!}.$$

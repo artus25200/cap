@@ -7,6 +7,11 @@ tags: [loi géométrique, sup et inf de variables aléatoires, couple discret]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 106"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, distingue le cas $m=n$ (un seul couple $(X,Y)$ possible) du cas $m>n$ (deux couples symétriques $(m,n)$ et $(n,m)$)."
+  - "Pour la question 2, somme la loi jointe obtenue en 1 sur toutes les valeurs de $n\\leqslant m$, en séparant le terme diagonal du reste (série géométrique)."
+  - "Pour la question 3, calcule $P(W=n)$ à partir de la loi de $V$ admise, et compare à la forme générale d'une loi géométrique pour identifier son paramètre."
+  - "Pour la question 4, cherche un couple de valeurs $(u,v)$ où $P((U=u)\\cap(V=v))$ est nul mais où le produit des probabilités marginales ne l'est pas."
 correction: |
   1. $(U,V)(\Omega) = \{(m,n)\in\mathbb N^2,\ m\geqslant n\}$. Si $m=n$ :
   $P((U=m)\cap(V=n)) = P(X=n)P(Y=n) = p^2q^{2n}$. Si $m>n$ (par symétrie des rôles de $X,Y$) :

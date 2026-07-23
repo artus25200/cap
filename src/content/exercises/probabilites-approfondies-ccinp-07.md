@@ -7,6 +7,9 @@ tags: [loi de Poisson, stabilité par somme, loi conditionnelle]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 103"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), décompose $(X_1+X_2=n)$ selon les valeurs de $X_1$, utilise l'indépendance, puis reconnais la formule du binôme dans la somme obtenue."
+  - "Pour la question 2, écris $P(X=k)$ par la formule des probabilités totales conditionnées par $Y=m$, factorise les termes indépendants de $m$, puis reconnais une série exponentielle dans ce qui reste."
 correction: |
   1. (a) $(X_1+X_2)(\Omega)=\mathbb N$. Pour $n\in\mathbb N$, $(X_1+X_2=n)=\bigcup_{k=0}^n(X_1=k)\cap(X_2=n-k)$
   (union disjointe), et par indépendance :

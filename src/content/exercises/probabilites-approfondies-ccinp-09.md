@@ -7,6 +7,11 @@ tags: [loi géométrique, loi de Poisson, couple indépendant, loi de X=Y]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 108"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, somme la loi jointe sur $j$ pour trouver la loi de $X$ (série exponentielle), puis sur $i$ pour trouver celle de $Y$ (série géométrique)."
+  - "Pour la question 2.(a), calcule $P(1+X=n)$ à partir de la loi de $X$ trouvée en question 1 et reconnais une loi géométrique."
+  - "Pour la question 3, la loi jointe donnée dans l'énoncé se factorise-t-elle directement en produit d'une fonction de $i$ par une fonction de $j$ ?"
+  - "Pour la question 4, décompose l'événement $(X=Y)$ en réunion disjointe des $(X=k)\\cap(Y=k)$ et utilise l'indépendance établie en question 3."
 correction: |
   1. Pour $i\in\mathbb N$, en sommant sur $j$ (série exponentielle) : $P(X=i) = \dfrac{1}{2^{i+1}}$. Pour
   $j\in\mathbb N$, en sommant sur $i$ (série géométrique de raison $\frac12$) : $P(Y=j) = \dfrac1{e\,j!}$.

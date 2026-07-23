@@ -9,6 +9,11 @@ tags: [fonction génératrice, produit de Cauchy, variables indépendantes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 96"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, compare le rayon de convergence de $\\sum p_nt^n$ à sa valeur en $t=1$, sachant que $\\sum p_n=1$."
+  - "Pour la question 2.(a), effectue le produit de Cauchy des deux séries entières puis reconnais le coefficient obtenu comme $P(S=n)$ via la formule des probabilités totales sur $(X_1=k)$."
+  - "Pour la question 2.(b), exprime $t^S=t^{X_1}\\cdot t^{X_2}$ et utilise directement l'indépendance de $X_1$ et $X_2$ pour factoriser l'espérance."
+  - "Pour la question 3, calcule d'abord $G_{X_i}(t)$ pour un seul tirage, puis utilise la généralisation admise du résultat de la question 2 pour obtenir $G_{S_n}$, et identifie la loi par unicité du développement en série entière."
 correction: |
   1. La série entière $\sum p_nt^n$ converge en $t=1$ (car $\sum p_n=1$), donc son rayon $R \geqslant 1$, donc
   $]-1,1[ \subset D_{G_X}$.

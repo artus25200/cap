@@ -7,6 +7,10 @@ tags: [loi géométrique, minimum de variables aléatoires, indépendance]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 102"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, calcule $P(X_i\\leqslant n)$ comme une somme géométrique, puis passe au complémentaire."
+  - "Pour la question 2.(a), $\\{Y>n\\}$ équivaut à ce que tous les $X_i$ dépassent $n$ : utilise l'indépendance pour transformer ça en produit de probabilités déjà connues."
+  - "Pour la question 2.(b), compare l'expression obtenue pour $P(Y=n)$ à la forme générale d'une loi géométrique $q'^{n-1}p'$."
 correction: |
   1. $P(X_i\leqslant n) = \sum_{k=1}^n pq^{k-1} = 1-q^n$ (somme géométrique), donc $P(X_i>n)=q^n$.
 

@@ -9,6 +9,11 @@ tags: [convergence uniforme locale, convergence dominée]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 27"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, sépare le cas $x=0$ du cas $x>0$ fixé, où le dénominateur explose en $n^2x^2$."
+  - "Pour la question 2, majore $|f_n(x)-f(x)|$ sur $[a,1]$ en minorant $x$ par $a$ dans le dénominateur, ce qui donne une majoration indépendante de $x$."
+  - "Pour la question 3, compare la régularité de la limite simple $f$ à celle de chaque $f_n$ : une limite uniforme de fonctions continues est continue."
+  - "Pour la question 4, cherche une domination de $f_n$ valable sur tout $[0,1]$, indépendante de $n$, pour appliquer le théorème de convergence dominée malgré l'absence de convergence uniforme globale."
 correction: |
   1. $f_n(0)=1$ ; pour $x\in\,]0,1]$, $f_n(x) \underset{+\infty}{\sim} \frac{e^{-x}}{n^2x^2} \to 0$. Donc $(f_n)$
   converge simplement vers $f$ avec $f(0)=1$, $f(x)=0$ sinon.

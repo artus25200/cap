@@ -9,6 +9,10 @@ tags: [produit scalaire matriciel, matrices symétriques et antisymétriques, or
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 92"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2.(a), l'intersection nulle se voit directement sur la définition ; pour la génération, essaie d'écrire $M$ comme somme de $\\frac{M+M^T}2$ et $\\frac{M-M^T}2$."
+  - "Pour la question 2.(b), calcule $\\langle S,A\\rangle=\\mathrm{tr}(SA)$ et compare-le à $\\mathrm{tr}(AS)$ en utilisant les propriétés de la trace et de la transposition ; conclus ensuite par un argument de dimension."
+  - "Pour la question 3, exprime la condition $M\\in F^\\perp$ en testant le produit scalaire contre chaque matrice élémentaire $E_{i,i}$ de la base de $F$."
 correction: |
   1. $\langle A,B\rangle = \mathrm{tr}(A^TB)$ est bilinéaire (linéarité de la trace, de la transposition), et
   symétrique car $\mathrm{tr}(A^TB) = \mathrm{tr}((A^TB)^T) = \mathrm{tr}(B^TA)$. On a

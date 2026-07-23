@@ -7,6 +7,9 @@ tags: [inégalité de Bienaymé-Tchebychev, loi faible des grands nombres, appli
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 99"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2, applique l'inégalité de Bienaymé-Tchebychev à la variable $\\frac{S_n}n$ en calculant son espérance et sa variance grâce à l'indépendance et à l'identité de loi des $Y_k$."
+  - "Pour la question 3, modélise chaque tirage par une Bernoulli de paramètre $p=2/5$, calcule sa variance, puis résous en $n$ l'inégalité obtenue à la question 2 pour que le membre de droite soit inférieur à $0{,}05$."
 correction: |
   1. Inégalité de Bienaymé-Tchebychev : si $X \in L^2$, $\forall a>0,\ P(|X-E(X)|\geqslant a) \leqslant \frac{V(X)}{a^2}$.
 

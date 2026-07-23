@@ -9,6 +9,12 @@ tags: [chaîne de Markov, matrice symétrique, diagonalisation, probabilités to
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 101"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, utilise la formule des probabilités totales avec le système complet d'événements $(A_n,B_n,C_n)$."
+  - "Pour la question 2.(a), pense à un théorème qui garantit la diagonalisabilité sans calcul dès qu'une matrice a une propriété de symétrie particulière."
+  - "Pour la question 2.(b), remarque que $A+\\frac12I_3$ a une structure de rang facile à déterminer (lignes proportionnelles ou identiques)."
+  - "Pour la question 2.(c), utilise la trace de $A$ pour trouver la troisième valeur propre, puis l'orthogonalité des sous-espaces propres (car $A$ est symétrique) pour trouver le sous-espace associé sans calcul direct."
+  - "Pour la question 3, traduis la relation de récurrence vectorielle $(a_{n+1},b_{n+1},c_{n+1})=A(a_n,b_n,c_n)$ en $A^n$ appliqué au vecteur initial, puis utilise $A^n=PD^nP^{-1}$."
 correction: |
   1. (a)-(b) $(A_n,B_n,C_n)$ système complet, formule des probabilités totales : $a_{n+1}=\frac12b_n+\frac12c_n$,
   $b_{n+1}=\frac12a_n+\frac12c_n$, $c_{n+1}=\frac12a_n+\frac12b_n$.

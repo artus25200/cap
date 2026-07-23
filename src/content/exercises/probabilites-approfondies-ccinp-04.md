@@ -7,6 +7,10 @@ tags: [décomposition en éléments simples, espérance, variance, télescopage]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 100"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2, écris $\\sum P(X=n)$ à l'aide de la décomposition de la question 1 et cherche un télescopage."
+  - "Pour la question 3, exprime $E(X)$ comme $\\sum \\lambda R(k)\\cdot k$, simplifie la fraction obtenue, et cherche à nouveau un télescopage."
+  - "Pour la question 4, calcule un équivalent simple de $n\\cdot n R(n)$ au voisinage de $+\\infty$ et compare-le à une série de Riemann connue pour sa divergence."
 correction: |
   1. $R(x) = \dfrac{1}{2x} - \dfrac{1}{x+1} + \dfrac{1}{2(x+2)}$.
 

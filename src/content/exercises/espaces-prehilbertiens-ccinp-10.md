@@ -7,6 +7,9 @@ tags: [produit scalaire matriciel, distance à un sous-espace, projeté orthogon
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 82"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, reconnais qu'il s'agit du produit scalaire canonique sur $\\mathbb R^4$ une fois les matrices identifiées à leurs quatre coefficients."
+  - "Pour la question 2, essaie de décomposer directement $A$ en une partie triangulaire supérieure (dans $F$) et une partie qui lui est orthogonale, plutôt que de calculer une base de $F^\\perp$."
 correction: |
   1. Pour $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $A'=\begin{pmatrix}a'&b'\\c'&d'\end{pmatrix}$, on pose
   $(A|A')=aa'+bb'+cc'+dd'$ : bilinéarité symétrique immédiate ; $(A|A)=a^2+b^2+c^2+d^2 \geqslant 0$, nulle

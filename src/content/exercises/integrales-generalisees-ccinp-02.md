@@ -9,6 +9,10 @@ tags: [convergence dominée, monotonie de suite d'intégrales, critère spécial
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 26"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2.(a), compare directement les intégrandes de $I_n$ et $I_{n+1}$ point par point."
+  - "Pour la question 2.(b), la limite simple de $f_n$ n'est pas nulle en 0 : trouve-la, puis applique la convergence dominée avec $\\varphi(t)=\\frac{1}{1+t^2}$."
+  - "Pour la question 3, une fois positivité, décroissance et limite nulle de $(I_n)$ établies, quel théorème s'applique directement aux séries alternées ?"
 correction: |
   1. $f_n(t) = \frac{1}{(1+t^2)^n}$ continue, $|f_n(t)| \underset{+\infty}{\sim} \frac{1}{t^{2n}}$ intégrable sur
   $[1,+\infty[$ pour $n\geqslant1$ : $I_n$ est bien définie.

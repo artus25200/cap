@@ -11,6 +11,11 @@ tags: [intégration terme à terme, séries absolument convergentes]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 49"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), une série convergente a nécessairement un terme général qui tend vers 0."
+  - "Pour la question 1.(b), majore $|f_n(t)|$ à l'aide de la borne trouvée en 1.(a) et compare à une série exponentielle connue."
+  - "Pour la question 2.(a), calcule $\\int_0^{+\\infty}t^ne^{-t}dt$ par intégrations par parties successives (ou reconnais la fonction Gamma)."
+  - "Pour la question 2.(b), applique le théorème d'intégration terme à terme : il faut vérifier la convergence simple de $\\sum f_n$ vers une fonction continue, et surtout que $\\sum \\int|f_n|$ converge — ce que donne la question 2.(a) combinée à l'hypothèse sur $\\sum a_n$."
 correction: |
   1. (a) $\sum a_n$ converge absolument donc $a_n\to0$, donc $(a_n)$ est bornée par un certain $K$.
   (b) $|f_n(t)| \leqslant K\frac{t^n}{n!}$, et $\sum \frac{t^n}{n!}=e^t$ converge : $\sum f_n(t)$ converge

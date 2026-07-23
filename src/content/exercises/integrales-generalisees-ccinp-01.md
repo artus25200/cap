@@ -7,6 +7,9 @@ tags: [convergence dominée, intégrabilité par comparaison]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 25"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, majore $f_n(t)$ par une fonction intégrable indépendante de $n$, en oubliant simplement le terme $t^ne^{-t}$ au dénominateur."
+  - "Pour la question 2, détermine d'abord la limite simple de $f_n$ (distingue $t<1$, $t=1$, $t>1$), puis applique le théorème de convergence dominée avec la même domination qu'à la question 1."
 correction: |
   1. $f_n : t\mapsto \frac{1}{1+t^2+t^ne^{-t}}$ est continue sur $[0,+\infty[$, et $|f_n(t)| \leqslant \frac{1}{1+t^2} =: \varphi(t)$, avec $\varphi \underset{+\infty}{\sim} \frac{1}{t^2}$ intégrable sur
   $[1,+\infty[$ (Riemann) : $f_n$ est intégrable sur $[0,+\infty[$.

@@ -7,6 +7,10 @@ tags: [produit scalaire matriciel, orthogonal, distance à un sous-espace]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 81"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2, écris $M\\in F^\\perp$ comme $\\varphi(M,I_2)=0$ et $\\varphi(M,K)=0$, ce qui donne deux équations linéaires sur les coefficients de $M$."
+  - "Pour la question 3, essaie de décomposer directement $J$ comme somme d'un élément de $F$ et d'un élément de $F^\\perp$, sans passer par une base orthonormée."
+  - "Pour la question 4, une fois la décomposition $J = p_F(J) + q$ obtenue, la distance est simplement la norme de $q$."
 correction: |
   1. $F = \mathrm{Vect}(I_2, K)$ avec $K = \begin{pmatrix}0&1\\-1&0\end{pmatrix}$ : c'est un sous-espace vectoriel,
   et $(I_2,K)$ en est une base (famille libre génératrice).

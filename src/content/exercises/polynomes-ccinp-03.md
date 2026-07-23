@@ -7,6 +7,11 @@ tags: [interpolation de Lagrange, isomorphisme, application pratique]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 90"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, l'injectivité se montre en comptant le nombre de racines d'un polynôme de degré $\\leqslant2$ qui s'annulerait en $a_1,a_2,a_3$."
+  - "Pour la question 2.(b), $L_1$ s'annule en $a_2$ et $a_3$ donc est divisible par $(X-a_2)(X-a_3)$ ; fixe la constante multiplicative avec la condition $L_1(a_1)=1$."
+  - "Pour la question 3, évalue $P$ en chaque $a_i$ après l'avoir décomposé dans la base $(L_1,L_2,L_3)$, en utilisant que $L_i(a_j)=\\delta_{ij}$."
+  - "Pour la question 4, applique directement la formule de la question 3 avec les valeurs numériques données."
 correction: |
   1. $\Phi$ est linéaire (linéarité de l'évaluation). Si $\Phi(P)=0$, $P$ (degré $\leqslant2$) a $3$ racines
   distinctes $a_1,a_2,a_3$, donc $P=0$ : $\Phi$ injective. Comme $\dim K_2[X]=\dim K^3=3$, $\Phi$ est un
