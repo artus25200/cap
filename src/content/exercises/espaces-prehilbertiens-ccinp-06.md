@@ -9,6 +9,11 @@ tags: [isométrie vectorielle, groupe orthogonal, base orthonormée]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 78"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), utilise l'identité de polarisation en développant $\\|u(x+y)\\|^2$ de deux façons différentes (via l'hypothèse sur $u$, et via la bilinéarité du produit scalaire)."
+  - "Pour la question 1.(b), relie l'injectivité au noyau : que dit l'hypothèse sur $\\|u(x)\\|$ quand $u(x)=0$ ?"
+  - "Pour la question 2, vérifie les axiomes de sous-groupe un par un : stabilité par composition, élément neutre, stabilité par inverse (utilise 1.(b) pour la bijectivité)."
+  - "Pour la question 3, dans un sens utilise le résultat de la question 1.(a) appliqué aux vecteurs de la base ; dans l'autre sens, décompose un vecteur quelconque dans la base et développe les normes par bilinéarité."
 correction: |
   1. (a) Par polarisation : $\|u(x+y)\|^2 = \|x+y\|^2 = \|x\|^2+2(x|y)+\|y\|^2$, et aussi
   $\|u(x+y)\|^2 = \|u(x)\|^2+2(u(x)|u(y))+\|u(y)\|^2 = \|x\|^2+2(u(x)|u(y))+\|y\|^2$ (en utilisant

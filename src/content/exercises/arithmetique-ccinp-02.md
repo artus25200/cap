@@ -7,6 +7,11 @@ tags: [congruences, Bézout, système de congruences, théorème des restes chin
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 94"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, regarde la parité de $x$ donnée par chacune des deux congruences."
+  - "Pour la question 2.(b), le sens direct est immédiat ; pour la réciproque, utilise la relation de Bézout $au+bv=1$ en la multipliant par $c$."
+  - "Pour la question 3.(a), essaie de deviner une solution simple par tâtonnement plutôt que de résoudre le système formellement."
+  - "Pour la question 3.(b), applique deux fois de suite le résultat de la question 2.(b) pour recoller les trois modules deux par deux."
 correction: |
   1. Par l'absurde, si $x \in \mathbb Z$ vérifie $(S)$ : $x \equiv 5\ [6]$ donne $x$ impair (car
   $x=6k+5$), et $x \equiv 4\ [8]$ donne $x$ pair : contradiction.

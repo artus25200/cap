@@ -7,6 +7,10 @@ tags: [dérivées partielles, classe C1, continuité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 33"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, majore $|f(x,y)|$ en (0,0) en utilisant $|x|,|y|\\leqslant\\|(x,y)\\|_2$."
+  - "Pour la question 2, calcule directement le taux d'accroissement en $(0,0)$ le long de chaque axe : $f$ est nulle sur les axes."
+  - "Pour la question 3, teste la continuité de $\\partial f/\\partial x$ en comparant sa valeur en $(0,0)$ à sa limite le long de la droite $y=x$."
 correction: |
   1. $f$ continue sur $\mathbb{R}^2\setminus\{(0,0)\}$ par opérations usuelles. En $(0,0)$ :
   $|f(x,y)| = \frac{|x||y|}{\|(x,y)\|_2} \leqslant \|(x,y)\|_2 \to 0$, donc $f$ continue en $(0,0)$.

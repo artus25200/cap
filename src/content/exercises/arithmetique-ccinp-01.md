@@ -7,6 +7,11 @@ tags: [Bézout, nombre premier, coefficients binomiaux, petit théorème de Ferm
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 86"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, écris les deux relations de Bézout séparément puis multiplie-les membre à membre : le produit se réarrange en une combinaison de $p$ et de $ab$."
+  - "Pour la question 2.(a), pars de l'identité $\\binom pk k! = p(p-1)\\cdots(p-k+1)$, puis utilise le lemme de Gauss avec le résultat de la question 1 pour que la divisibilité par $p$ passe du produit $\\binom pk k!$ à $\\binom pk$ seul."
+  - "Pour la question 2.(b), procède par récurrence et développe $(n+1)^p$ avec la formule du binôme : tous les termes sauf $n^p$ et $1$ contiennent un $\\binom pk$ divisible par $p$."
+  - "Pour la question 2.(c), factorise $n^p-n$ sous la forme $n(n^{p-1}-1)$ et applique le lemme de Gauss."
 correction: |
   1. Par Bézout, $\exists (u_1,v_1),(u_2,v_2) \in \mathbb Z^2$ avec $u_1p+v_1a=1$ et $u_2p+v_2b=1$. En
   multipliant : $(u_1u_2p+u_1v_2b+u_2v_1a)p + (v_1v_2)(ab)=1$, donc par Bézout $p \wedge (ab)=1$.

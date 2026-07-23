@@ -9,6 +9,11 @@ tags: [matrices symétriques positives, théorème spectral, racine carrée matr
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 66"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, dans un sens teste $X^TAX$ sur un vecteur propre ; dans l'autre sens, utilise le théorème spectral pour diagonaliser $A$ et te ramener à une somme de carrés pondérés par les valeurs propres."
+  - "Pour la question 2, écris $X^TA^2X$ comme le carré d'une norme."
+  - "Pour la question 3, ramène $X^TA^2BX$ à une expression du type $Z^TBZ$ avec $Z=AX$, en utilisant que $A$ et $B$ commutent."
+  - "Pour la question 4, diagonalise $A$ via le théorème spectral, prends la racine carrée des valeurs propres (positives d'après la question 1) pour construire $B$ dans la même base de vecteurs propres."
 correction: |
   1. Si $A\in S_n^+(\mathbb R)$ : pour $\lambda\in\mathrm{sp}(A)$, $AX=\lambda X$ ($X\neq0$) donne $X^TAX =\lambda\|X\|^2\geqslant0$, donc $\lambda\geqslant0$. Réciproquement, si $\mathrm{sp}(A)\subset[0,+\infty[$ :
   théorème spectral $A=PDP^T$, et $X^TAX=Y^TDY=\sum\lambda_iy_i^2\geqslant0$ où $Y=P^TX$.

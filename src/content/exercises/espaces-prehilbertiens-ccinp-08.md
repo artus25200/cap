@@ -7,6 +7,9 @@ tags: [fonctions périodiques, projection orthogonale, produit scalaire fonction
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 80"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, seul le caractère défini demande un peu de travail : combine périodicité et le fait qu'une fonction continue positive d'intégrale nulle sur une période est nulle."
+  - "Pour la question 2, essaie de linéariser $\\sin^2 x$ pour la réécrire directement comme somme d'un terme dans $F$ et d'un terme orthogonal à $F$ — pas besoin de calculer une base orthonormée."
 correction: |
   1. Comme pour tout produit scalaire fonctionnel, la bilinéarité symétrique et la positivité sont immédiates. Si
   $(f|f)=0$, $f$ est nulle sur $[0,2\pi]$ (fonction continue positive d'intégrale nulle) donc, par $2\pi$-périodicité,

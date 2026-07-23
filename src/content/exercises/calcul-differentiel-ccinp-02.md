@@ -7,6 +7,11 @@ tags: [extrema sous contrainte, multiplicateurs de Lagrange, compacité]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 41"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, identifie la nature géométrique de $C$ (fermé et borné en dimension finie) et invoque le théorème usuel sur les fonctions continues sur un compact."
+  - "Pour la question 2.(a), c'est le théorème des extrema liés : il faut d'abord vérifier que le gradient de la contrainte ne s'annule pas sur $C$."
+  - "Pour la question 2.(b), vois $(S)$ comme un système linéaire homogène en $(u,v)$ : il admet une solution non nulle si et seulement si son déterminant est nul."
+  - "Pour la question 3, une fois $\\lambda$ connu, la première équation de $(S)$ donne le rapport $v/u$, qu'il suffit d'injecter dans l'équation du cercle."
 correction: |
   1. $C$ est le cercle de rayon $\sqrt{13}$, fermé et borné dans $\mathbb R^2$ de dimension finie donc compact.
   $f$ polynomiale donc continue sur le compact $C$ : $f$ y atteint un maximum et un minimum.

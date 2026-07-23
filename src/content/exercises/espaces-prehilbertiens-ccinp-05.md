@@ -7,6 +7,10 @@ tags: [orthogonal, somme, intersection, espace euclidien]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 77"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, l'inclusion $A\\subset(A^\\perp)^\\perp$ est immédiate ; pour l'égalité, compare les dimensions en utilisant $E=A\\oplus A^\\perp$ appliqué deux fois."
+  - "Pour la question 2.(a), fais une double inclusion directement à partir de la définition de l'orthogonal."
+  - "Pour la question 2.(b), applique le résultat de la question 2.(a) à $F^\\perp$ et $G^\\perp$ au lieu de $F$ et $G$, puis repasse à l'orthogonal en utilisant la question 1."
 correction: |
   1. On a toujours $A \subset (A^\perp)^\perp$. Comme $E$ euclidien, $E = A \oplus A^\perp$ donc
   $\dim A = n - \dim A^\perp$ ; de même $\dim A^\perp = n - \dim (A^\perp)^\perp$, d'où

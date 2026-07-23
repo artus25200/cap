@@ -7,6 +7,9 @@ tags: [équation non résolue, raccord de solutions]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 42"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2, cherche une solution particulière par variation de la constante en posant $y=k(x)x^{3/2}$."
+  - "Pour la question 3, suppose par l'absurde qu'une solution $f$ existe sur $[0,+\\infty[$ : elle doit coïncider avec une solution trouvée en question 2 sur $]0,+\\infty[$, donc être continue en 0 — regarde ensuite ce qui se passe pour son taux d'accroissement en 0."
 correction: |
   1. $(H): 2xy'-3y=0$ sur $]0,+\infty[$ : solutions $x\mapsto \lambda x^{3/2}$, $\lambda\in\mathbb R$.
 

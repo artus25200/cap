@@ -7,6 +7,9 @@ tags: [différentiabilité d'une forme bilinéaire, dimension finie]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 58"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2.(a), décompose $x$ et $y$ dans la base $e$ puis utilise la bilinéarité de $B$ pour développer $B(x,y)$ en somme de termes $x_iy_jB(e_i,e_j)$."
+  - "Pour la question 2.(b), développe $B(u_0+u,v_0+v)$ par bilinéarité : le terme croisé $B(u,v)$ est le reste à majorer, en utilisant l'inégalité de la question 2.(a)."
 correction: |
   1. $f$ différentiable en $a$ $\iff \exists L$ linéaire continue telle que, au voisinage de 0,
   $f(a+h)=f(a)+L(h)+o(\|h\|)$ ; alors $df(a)=L$. En dimension finie, toute application linéaire est

@@ -7,6 +7,10 @@ tags: [Cauchy-Schwarz, cas d'égalité, borne inférieure]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 76"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), étudie le trinôme du second degré $\\lambda\\mapsto \\|x+\\lambda y\\|^2$, toujours positif ou nul, et regarde ce que ça impose sur son discriminant."
+  - "Pour la question 1.(b), relie le cas d'égalité au fait que le trinôme de la question précédente admet alors une racine (double)."
+  - "Pour la question 2, applique Cauchy-Schwarz non pas à $f$ et $1/f$ directement, mais à $\\sqrt f$ et $1/\\sqrt f$."
 correction: |
   1. (a) Pour $(x,y) \in E^2$, on pose $P(\lambda) = \|x+\lambda y\|^2 = \|y\|^2\lambda^2 + 2\lambda(x|y) + \|x\|^2 \geqslant 0$. Si $y=0$ l'inégalité est triviale ; sinon $P$ est un trinôme positif, donc de discriminant réduit
   $\Delta = (x|y)^2 - \|x\|^2\|y\|^2 \leqslant 0$, soit $|(x|y)| \leqslant \|x\|\,\|y\|$.

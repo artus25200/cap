@@ -7,6 +7,9 @@ tags: [adjoint, endomorphisme normal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 63"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, cherche un contre-exemple géométrique simple en dimension 2 : quel type d'endomorphisme envoie systématiquement un vecteur sur un vecteur orthogonal à lui-même ?"
+  - "Pour la question 2, pour i⟹ii et ii⟹i, exploite la définition de l'adjoint $(u(x)|y)=(x|u^*(y))$ pour réécrire les produits scalaires. Pour iii⟺ii, pense à l'identité de polarisation qui relie normes et produits scalaires."
 correction: |
   1. Non : sur $E=\mathbb R^2$ euclidien canonique, la rotation $u$ d'angle $\pi/2$ vérifie $(u(x)|x)=0$ pour
   tout $x$ (le vecteur tourné est toujours orthogonal à l'original), mais $u\neq0$.

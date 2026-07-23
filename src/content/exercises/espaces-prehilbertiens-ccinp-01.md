@@ -7,6 +7,10 @@ tags: [espace l2, produit scalaire, orthogonal]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 39"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1.(a), majore $|x_ny_n|$ par une expression symétrique en $x_n^2$ et $y_n^2$, du type inégalité de Young."
+  - "Pour la question 2, majore $|x_p|$ en remarquant qu'un seul terme de la somme $\\sum x_n^2$ est toujours inférieur ou égal à la somme entière."
+  - "Pour la question 3, teste $(x|y)=0$ contre les suites $y$ qui valent 1 en une seule position et 0 partout ailleurs, pour montrer que $F^\\perp=\\{0\\}$ ; compare ensuite les tailles de $F$ et de $\\ell^2$."
 correction: |
   1. (a) $|x_ny_n| \leqslant \frac12(x_n^2+y_n^2)$, et $\sum x_n^2, \sum y_n^2$ convergent, donc par comparaison
   $\sum x_ny_n$ converge absolument.

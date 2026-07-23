@@ -7,6 +7,10 @@ tags: [extrema libres, matrice hessienne, extrema sur un compact]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 56"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, cherche d'abord les points critiques via $\\nabla f=0$, puis étudie le signe du déterminant et de la trace de la hessienne en chacun."
+  - "Pour la question 2, regarde le comportement de $f$ le long d'une droite bien choisie, par exemple $y=0$."
+  - "Pour la question 3, un maximum atteint à l'intérieur de $K$ serait forcément un point critique de $f$ — vérifie si c'est le cas, sinon étudie $f$ restreinte à chacun des quatre côtés du carré comme une fonction d'une seule variable."
 correction: |
   1. $f$ est $C^2$ sur l'ouvert $\mathbb R^2$. Points critiques : $\nabla f=0 \iff (6x^2+6y,6x-6y)=(0,0) \iff y=x, x(x+1)=0$, donnant $(0,0)$ et $(-1,-1)$. Hessienne en $(0,0)$ : $\begin{pmatrix}0&6\\6&-6\end{pmatrix}$,
   déterminant $-36<0$ : pas d'extremum (point selle). Hessienne en $(-1,-1)$ :

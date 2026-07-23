@@ -7,6 +7,10 @@ tags: [continuité, dérivées partielles, classe C1, paramètre]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 52"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, développe la différence demandée : elle se simplifie en un carré."
+  - "Pour la question 2.(b), utilise l'inégalité de la question 1 pour majorer $f(x,y)$ par une expression qui tend vers 0, puis passe en $r=\\sqrt{x^2+y^2}$."
+  - "Pour la question 3.(c), majore les dérivées partielles obtenues en 3.(a) en fonction de $r=\\sqrt{x^2+y^2}$ pour montrer qu'elles tendent vers 0 en $(0,0)$, donc qu'elles sont continues en ce point."
 correction: |
   1. $x^2+y^2-xy-\frac12(x^2+y^2) = \frac12(x-y)^2 \geqslant0$.
 

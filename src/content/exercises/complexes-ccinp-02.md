@@ -7,6 +7,9 @@ tags: [racines n-ièmes de l'unité, somme trigonométrique, télescopage]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 89"
 banque: "CCINP"
 classic: false
+hints:
+  - "Pour la question 1, factorise $z^k-1$ en mettant $e^{ik\\pi/n}$ en facteur pour faire apparaître une différence de deux exponentielles conjuguées, qui se réécrit avec un sinus."
+  - "Pour la question 2, reconnais $S$ comme la partie imaginaire d'une somme géométrique complexe $\\sum e^{ik\\pi/n}$, puis factorise le dénominateur $1-e^{i\\pi/n}$ de la même façon qu'à la question 1."
 correction: |
   1. En posant $Z = z^k-1 = e^{i2k\pi/n}-1 = e^{ik\pi/n}\left(e^{ik\pi/n}-e^{-ik\pi/n}\right) = 2i\sin(k\pi/n)e^{ik\pi/n}$, soit $Z = 2\sin(k\pi/n)e^{i(k\pi/n+\pi/2)}$. Pour $k \in \llbracket 1,n-1\rrbracket$,
   $0 < k\pi/n < \pi$ donc $\sin(k\pi/n)>0$ : le module de $Z$ est $2\sin(k\pi/n)$ et un argument est

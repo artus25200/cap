@@ -9,6 +9,10 @@ tags: [somme directe, projection vectorielle, diagonalisation]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 71"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, vérifie que le vecteur directeur de $D$ n'appartient pas à $P$, puis compare les dimensions."
+  - "Pour la question 2, décompose $u = p(u) + \\alpha(1,2,3)$ avec $p(u)\\in P$, et utilise l'équation de $P$ pour trouver $\\alpha$."
+  - "Pour la question 3, choisis une base réunissant un vecteur directeur de $D$ et une base de $P$ : la projection envoie le premier sur $0$ et fixe les deux autres, donc la matrice est automatiquement diagonale sans calculer de valeurs propres."
 correction: |
   1. $D = \mathrm{Vect}((1,2,3))$. Comme $(1,2,3) \notin P$, on a $D \cap P = \{0\}$, et $\dim D + \dim P = 1 + 2 = 3$,
   donc $\mathbb R^3 = P \oplus D$.

@@ -7,6 +7,9 @@ tags: [différentiabilité, classe C1, majoration en coordonnées polaires]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 57"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2.(a), majore $|f(x,y)|$ en utilisant $|x|,|y|\\leqslant\\|(x,y)\\|$ et le fait que $\\frac{|x^2-y^2|}{x^2+y^2}\\leqslant1$."
+  - "Pour la question 2.(b), calcule d'abord les dérivées partielles en $(0,0)$ par taux d'accroissement direct (la fonction est nulle sur les axes), puis majore-les ailleurs en fonction de $\\|(x,y)\\|$."
 correction: |
   1. (a) $f$ continue en $(0,0)$ $\iff \forall\varepsilon>0,\exists\alpha>0,\forall(x,y), \|(x,y)\|<\alpha\Rightarrow|f(x,y)-f(0,0)|<\varepsilon$ (norme quelconque, équivalence des normes en
   dimension finie).

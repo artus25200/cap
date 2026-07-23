@@ -9,6 +9,10 @@ tags: [noyau, image, théorème du rang, itérées d'un endomorphisme]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 64"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, l'inclusion $\\mathrm{Im}\\,f^2\\subset\\mathrm{Im}\\,f$ est immédiate ; pour l'autre sens, utilise la décomposition en somme directe pour décomposer un antécédent $x$ tel que $y=f(x)$."
+  - "Pour la question 2.(a), passe par les dimensions : une inclusion d'ensembles devient une égalité de dimensions via le théorème du rang, ce qui est plus facile à manipuler qu'une égalité d'ensembles directement."
+  - "Pour la question 2.(b), si $x\\in\\mathrm{Im}\\,f\\cap\\ker f$, écris $x=f(a)$ et exploite $f(x)=0$ pour montrer que $a\\in\\ker f^2$, puis utilise le résultat de la question 2.(a)."
 correction: |
   1. $\mathrm{Im}\,f^2\subset\mathrm{Im}\,f$ toujours. Pour $y=f(x)\in\mathrm{Im}\,f$, écrire (via la somme
   directe) $x=f(a)+b$ avec $b\in\ker f$ : $y=f^2(a)\in\mathrm{Im}\,f^2$. D'où l'égalité.

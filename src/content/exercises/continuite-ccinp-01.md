@@ -7,6 +7,9 @@ tags: [formule de Leibniz, dérivée n-ième, récurrence]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 3"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, dérive plusieurs fois de suite et conjecture la formule générale avant de la prouver par récurrence."
+  - "Pour la question 3, procède par récurrence sur $n$ : dérive l'expression de $(fg)^{(n)}$ terme à terme, puis regroupe les sommes en décalant l'indice de l'une d'elles pour faire apparaître la formule du triangle de Pascal."
 correction: |
   1. $g$ est $C^\infty$ sur $\mathbb{R}$ et $h$ est $C^\infty$ sur $\mathbb{R}\setminus\{-1\}$, avec (par récurrence) :
   $$g^{(k)}(x) = 2^k e^{2x} \quad \text{et} \quad h^{(k)}(x) = \frac{(-1)^k k!}{(1+x)^{k+1}}.$$

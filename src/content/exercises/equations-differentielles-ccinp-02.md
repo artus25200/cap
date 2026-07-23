@@ -9,6 +9,9 @@ tags: [solutions développables en série entière]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 32"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, injecte $S(x)=\\sum a_nx^n$ (avec $S'$ et $S''$ réindexées) dans l'équation, puis identifie les coefficients de chaque puissance de $x$ pour obtenir une relation de récurrence entre $a_n$ et $a_{n+1}$."
+  - "Pour la question 2, compare la dimension de l'espace des solutions DSE trouvées à la question 1 à la dimension attendue pour une équation linéaire d'ordre 2 sur un intervalle où le coefficient dominant ne s'annule pas."
 correction: |
   1. En injectant $S(x)=\sum a_nx^n$ dans $x(x-1)y''+3xy'+y=0$ et en identifiant les coefficients, on obtient
   $\forall n, (n+1)^2a_n = n(n+1)a_{n+1}$, soit $a_n = na_1$. La série $\sum nx^n$ ayant pour rayon 1, les

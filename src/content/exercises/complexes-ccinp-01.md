@@ -7,6 +7,9 @@ tags: [racines n-ièmes de l'unité, argument, équation complexe]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 84"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 2, écris $z$ sous forme exponentielle $z=re^{i\\theta}$ et traduis $z^n=1$ en conditions sur $r$ et $\\theta$."
+  - "Pour la question 3, écarte d'abord $z=i$ puis divise pour te ramener à $\\left(\\frac{z+i}{z-i}\\right)^n=1$, une équation déjà résolue à la question 2."
 correction: |
   1. Un argument d'un complexe non nul $z$ est un réel $\theta$ tel que $\frac{z}{|z|}=e^{i\theta}$.
 

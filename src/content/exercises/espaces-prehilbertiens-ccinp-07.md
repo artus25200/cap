@@ -9,6 +9,10 @@ tags: [produit scalaire fonctionnel, fonction nulle, Cauchy-Schwarz]
 source: "CCINP, Banque orale de mathématiques MP/MPI, session 2025, exercice 79"
 banque: "CCINP"
 classic: true
+hints:
+  - "Pour la question 1, introduis la primitive $F(x)=\\int_a^x h(t)\\,dt$ : que peux-tu dire de sa monotonie, et que valent $F(a)$ et $F(b)$ ?"
+  - "Pour la question 2, le seul point non immédiat est le caractère défini : ramène-le au résultat de la question 1 appliqué à $h=f^2$."
+  - "Pour la question 3, applique Cauchy-Schwarz en choisissant $f(x)=\\sqrt x$ et $g(x)=e^{-x}$ pour faire apparaître le produit $\\sqrt x\\, e^{-x}$."
 correction: |
   1. Soit $F(x) = \int_a^x h(t)\,dt$, dérivable de dérivée $h \geqslant 0$ sur $[a,b]$ : $F$ est croissante. Or
   $F(a)=0=F(b)$, donc $F$ est constante sur $[a,b]$, donc $F'=h=0$ sur $[a,b]$.
